@@ -1,0 +1,9 @@
+<div>
+<a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
+<a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
+<a class="btn btn-danger" href="/give_feedback">Give feedback</a>
+</div>
+<h2 style="color:#890000">Give your feedback</h2>
+<%= render 'form' %>
+</div>
+<br>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  present_id: 1
+  existing_member_id: 1
+  new_member_id: 1
+  relationship: MyString
+  flag: false
+
+two:
+  present_id: 1
+  existing_member_id: 1
+  new_member_id: 1
+  relationship: MyString
+  flag: false

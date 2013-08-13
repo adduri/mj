@@ -1,0 +1,2 @@
+module MappingRelationsHelper
+end

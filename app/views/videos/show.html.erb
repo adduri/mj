@@ -1,0 +1,29 @@
+<head>
+  <link href="http://vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.1/video.js"></script>
+</head>
+      <link href="assets/video-js.css" rel="stylesheet" type="text/css">
+  <!-- video.js must be in the <head> for older IEs to work. -->
+  <script src="assets/video.js"></script>
+    <link href="/assets/video-js.css" rel="stylesheet">
+    <script src="/assets/video.js"></script>
+    <script>
+      _V_.options.flash.swf = "/assets/video-js.swf"
+    </script>
+<%- model_class = Video -%>
+<div class="page-header">
+ </div>
+  
+    <% @videos.each do |video| %>
+    <div class="span5">
+       <h3 style="color:#890000"><%= video.title %></h3>
+         <tr><td>
+           <iframe width="380" height="240" src=<%=video.content%> frameborder="0" allowfullscreen></iframe></td></tr>
+     </div>
+      <% end %>
+
+
+<div class="span10"> <br /><br />
+ 
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

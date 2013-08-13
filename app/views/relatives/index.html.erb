@@ -1,0 +1,31 @@
+<h1>Listing relatives</h1>
+
+<table>
+  <tr>
+    <th>Present</th>
+    <th>Existing member</th>
+    <th>New member</th>
+    <th>Relationship</th>
+    <th>Flag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @relatives.each do |relative| %>
+  <tr>
+    <td><%= relative.present_id %></td>
+    <td><%= relative.existing_member_id %></td>
+    <td><%= relative.new_member_id %></td>
+    <td><%= relative.relationship %></td>
+    <td><%= relative.flag %></td>
+    <td><%= link_to 'Show', relative %></td>
+    <td><%= link_to 'Edit', edit_relative_path(relative) %></td>
+    <td><%= link_to 'Destroy', relative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Relative', new_relative_path %>

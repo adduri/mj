@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Maheshwari Jagruth" %></title>
+
+ 
+    <script type= "text/javascript" src = "assets/countries.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    
+    <%= csrf_meta_tags %>
+     <%= stylesheet_link_tag "application", :media => "all" %>
+     <%= favicon_link_tag '/assets/mj_favicon.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+     <%= favicon_link_tag '/assets/mj_favicon.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+     <%= favicon_link_tag '/assets/mj_favicon.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+     <%= favicon_link_tag '/assets/mj_favicon.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+     <%= favicon_link_tag '/assets/mj_favicon.png', :rel => 'shortcut icon' %>
+ 
+<style>
+   a:hover{ 
+  color: #EC5800;
+  background-color: transparent;
+   
+} 
+    
+ 
+body{background-image:url(/assets/texture.jpg);}
+
+
+
+</style>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ <script>
+function sticky_relocate() {
+  var window_top = $(window).scrollTop();
+  var div_top = $('#sticky-anchor').offset().top;
+  if (window_top > div_top) {
+    $('#sticky').addClass('stick');
+  } else {
+    $('#sticky').removeClass('stick');
+  }
+}
+
+$(function() {
+  $(window).scroll(sticky_relocate);
+  sticky_relocate();
+});
+</script>
+</head>
+<body>        
+<div class = "navbar-inner">
+ 
+<div class="container">
+ 
+
+  <div class="span2">
+    <a class="brand" href="/"><img src="/assets/logo.png" style="height:60px;padding-top:5px;" id="logo"/></a>
+  </div><!--span2-->
+
+  <div class= "span3">   &nbsp;&nbsp;&nbsp;       
+    <div class="input-prepend" style="padding-top:10px ; padding-left: 10px;">
+
+      <div class="btn-group">
+        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">Search For
+         <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="/search">Members</a></li>
+          <li><a href="/products">Products</a></li>
+        </ul>
+      </div><!--btn-group-->             
+ 
+
+        <input class="span4" id="prependedDropdownButton" type="text">
+    </div><!--input-prepend--></ul>  
+
+
+  </div><!--container nav-collapse-->
+
+
+
+
+<% if current_user  %>
+ <div class = "span3" style = "float:right; padding-top:20px" >
+     <div class="well well-small" style = "float:right; color:#610335;">
+
+   <a href="/users/index" style="color:white"> 
+
+
+
+      <%= image_tag current_user.photo.url(:small) %></a>
+    <font face="Times"><%= current_user.mj_id%></font>
+ 
+
+     </div>
+  </div>
+<% end %>
+<!-- ************************ -->
+ 
+</div> <!--container--> 
+ 
+</div>
+  
+<div class="navbar navbar-inverse navbar-top" >
+
+<div id="sticky-anchor"></div>
+<div id="sticky">
+  <div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+        </button>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li id="doc"><a id="headerfont" href="/"><i class="icon-home icon-white "></i> Home</a></li>
+        
+          <li  id="doc"><a id="headerfont" href="/videos">Events</a></li>
+
+ 
+
+
+<!--           <li  id="doc"><a id="headerfont" href="#myModal" data-toggle="modal">States</a></li>
+ -->
+
+ 
+
+
+           <!-- Modal -->
+       <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+             <h4 id="myModalLabel">Please Select Your City &nbsp;&nbsp; <input input class="input-large"type="text" placeholder="Enter The City"></h4>
+           </div>
+           <div class="box">
+             Select Country:   <select onchange="print_state('state',this.selectedIndex);" id="country" name ="country"></select>
+             <br/>
+             City/District/State: <select name ="state" id ="state"></select>
+             <script language="javascript">print_country("country");</script>    
+           </div>
+           <div class="modal-footer">
+             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+             <button class="btn btn-primary">Save changes</button>
+           </div>
+       </div>
+
+
+
+          <!-- <li class="dropdown"  id="doc">
+            <a href="#" id="headerfont" class="dropdown-toggle" data-hover="dropdown"  data-toggle="dropdown">About Us <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+             <li><a href="/../../aboutus.jpeg" target='_blank'>About Us</a></li>
+            <li><a href="../../history.pdf" target="_blank">History</a></li>   
+            <li><a href="../../festivals.pdf" target="_blank">Festivals</a></li>      
+            <li><a href="../../maheshwari.png" target="_blank">Vanshothpatti</a></li>
+            <li><a href="/rajasthan">Hamaro Rajasthan</a></li>
+            </ul>
+          </li>
+          -->
+          <li class="dropdown" id="doc">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+        About Us
+        <b class="caret"></b>
+      </a>
+   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+   <li><a href="/../../aboutus.jpeg" target='_blank'>About Us</a></li>
+             <li><a href="/mo">Maheshwari Origin</a></li>
+             <li><a href="/festivals">Festivals</a></li>
+              <li><a href="/traditions">Traditions</a></li>
+              <li><a href="/gotra">Gotra</a></li>
+              <li><a href="/khaps">Khap's</a></li>
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Kuldevis nad Surname</a>
+    <ul class="dropdown-menu">
+                <li><a href="/godwisekuldevi">Godwise Kuldevis</a></li>
+                <li><a href="/surnamewisekuldevi">Surname Kuldevis</a></li>
+                <li><a href="/kuldevisedetails">Kuldevis details</a></li>
+    </ul>
+  </li>
+ 
+</ul>
+  </li>
+          <li>
+
+              <div class="span4">
+                     <a data-toggle="modal" href="#example" class="btn btn-primary btn-medium" >Demo Family Tree </a>
+              </div>
+           </li>
+  
+   <% if current_user %>
+  
+   <strong> <% current_user.mj_id %></strong>
+   <li class ="panel" id="doc"> 
+   <a href="/users/index" style="color:white">My Family Tree</a>
+   </li>
+   <li class ="panel" id="doc"> 
+  <a href="/logout" style="color:white">&nbsp; Logout&nbsp;  </a>
+    </li>
+
+
+  </li>
+<% else %>
+
+ <li  class ="panel" id="doc">
+ 
+
+           <a id="headerfont" href="/signup" onclick="window.location.href='/signup'">Registration</a>
+
+ <!--<a id="headerfont" href="/signup" onclick="window.location.href='/signup'">Registration</a>
+ -->       
+
+
+ 
+   </li> 
+          <li  class="panel" id="doc">
+            <a id="headerfont" href="/login"  onclick="window.location.href='/login'">Log&nbsp;In</a>
+         </li>
+      <%  link_to "Sign up", signup_path, :class => 'navbar-link'   %>  
+ <% link_to "Login", login_path, :class => 'navbar-link'  %>
+          </li>
+<% end %>
+  
+ 
+                 </div><!-- /.nav-collapse -->
+     </div><!-- /.container -->
+
+
+
+  </div><!-- /.navbar-inner -->
+</div><!-- /.navbar -->
+ </div><!--container nav-collapse-->
+
+  
+
+
+ 
+<div class="container" >
+  <div id="example" class="modal hide fade in" >
+    <div class="modal-header">
+     <a class="close" data-dismiss="modal">×</a><h3>Family Tree</h3>
+    </div>
+    <div class="modal-body"><img src="/assets/d.png"/>
+    </div>
+     <div class="modal-footer">
+      <a href="#" class="btn btn-danger" data-dismiss="modal" style="color:#fff">Close</a>
+    </div>
+  </div>
+  </div>
+  
+</div> <!-- /container --> 
+   
+<div class="container">
+ 
+    <div class="span12">
+       <%= bootstrap_flash %>
+      <%= yield %>
+
+
+
+<p class="navbar-text pull-right">
+  </div><!--/row-->
+ </div><!--span12-->
+</body>
+
+ 
+   <div class="navbar navbar-fixed-bottom">
+    <div id="bottom_strip1">
+     <div class="inner_wrap1">
+       <span>&copy MJ. All rights reserved</span>
+        <div>
+          <a href="#">Terms and Conditions</a>
+          <a style="color:#8B1001;">|</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>   
+   </div>
+ 
+    <%= javascript_include_tag "application" %>
+   </div>
+ 

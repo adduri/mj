@@ -1,0 +1,79 @@
+<style type="text/css">
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    display: block;
+    line-height: 1;
+    height: 330px;
+    width: 1000px;
+    float: left;
+  }
+  .carousel-caption{
+    height: 20px;
+  }
+  .carousel-caption p{
+    margin-bottom: -5px;
+  }
+</style>
+<h1 style="padding-right:200px;">  <%= @ad.title %> </h1>
+<div class="row">
+<div class= "span9"   >
+  <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators" style="float:left;">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner" >
+      <div class="active item">  <%= image_tag @ad.photo1%></div>
+      <div class="item">         <%= image_tag @ad.photo2 %></div>
+      <div class="item">         <%= image_tag @ad.photo3 %></div>
+    </div>
+    <!-- Carousel nav --> 
+  </div>
+</div>
+<div class="span2" style="border-width: 4px; border-style: outset; border-color: #798685; height:320px;">
+    <center><h2>Other Ads</h2>
+    <marquee  behavior="scroll" direction="up" scrollamount="4" >
+      <span>
+        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad1 %></h4> <font>
+        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad2 %></h4> <font>
+        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad3 %></h4> <font>
+        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad4 %></h4> <font>
+        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad5 %></h4> <font>
+      </span>     
+    </marquee></center>
+  </div>  
+ </div>
+<div class="row">
+  <div class="span6">
+    <h2 style="">About</h2>
+    <p><%= @ad.about %></p>                   
+  </div>
+  <div class="span6 ">
+    <h2>Contact</h2>
+    <address>               
+      <p class="lead ">
+        <h6><%= @ad.company_name %></h6>
+        <%= @ad.contact%><br>
+        <%= @ad.house_no %>,<%= @ad.street_name %><br>
+        <%= @ad.area %>,<%= @ad.city %><br>
+        <%= @ad.state %><br>
+        
+      </p> 
+      <strong>
+        <%= @ad.contact_person %><br>
+        <%= @ad.contact_email %>
+      </strong>  
+    </address>
+  </div>
+</div>
+<style type="text/css">
+  body {background-color:ff9900;
+        background-image:url(http://static3.grsites.com/archive/textures/brown/brown155.jpg);
+        background-repeat:repeat;background-position:center center;background-attachment:fixed;
+        }
+  body div table tbody tr td font {font-family:Arial;font-size:12pt;}
+  p, h2, h1, address{color: #f3f3f3;}
+</style>
+<br />

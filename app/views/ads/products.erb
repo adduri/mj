@@ -1,0 +1,74 @@
+<h1>PRODUCTS</h1>
+<form>
+	<big><strong>Searchby: &nbsp;
+		<select name="search" class="select_style">
+			<option value="title">Product</option>
+		</select><br>
+		which product do you want to search?
+		<select name="searchtitle" value="" id="searchbox">
+			<option>bschools</option>
+			<option>finance</option>
+			<option>flyhigh</option>	
+			<option>insurance</option>
+			<option>news</option>
+			<option>services</option>
+			<option>vidyapeeth</option>
+			<option>heritage</option>
+			<option>infotech</option>
+			<option>fitnesscenter</option>
+			<option>ashram</option>
+			<option>seva</option>
+			<option>club</option>
+			<option>matrimony</option>
+			<option>shopee</option>
+			<option>entertainment</option>
+			<option>electronics</option>
+			<option>iron_steel</option>
+			<option>automobiles</option>
+			<option>ayurvedic</option>
+			<option>sanitation</option>
+			<option>builders_promoters</option>
+			<option>carters</option>
+			<option>textiles_clothing</option>
+			<option>coal</option>
+			<option>hospitals</option>
+			<option>furniture</option>
+			<option>health</option>
+			<option>jewellers</option>
+			<option>machinery</option>
+			<option>cement</option>
+			<option>paper</option>
+			<option>pumps</option>
+			<option>realestate</option>
+			<option>shipping</option>
+			<option>smartcards</option>
+			<option>eventmanagers</option>
+			<option>tyres</option>
+			<option>homeneeds</option>
+			<option>samaj</option>
+			<option>medicals</option>
+			<option>bhavan</option>
+			<option>manthav</option>
+			<option>lawyers</option>
+			<option>electricals</option>
+			<option>doctors</option>
+			<option>architects</option>
+			<option>art</option>
+			<option>teachers</option>
+			<option>ca</option>
+		</select>
+		<button id="search_button"  style="position:absolute;padding:3px 15px;">submit</button>
+	</strong></big>
+</form>
+<table>
+	<%  if params[:search] == "title" %>
+		<%  @x = Ad.find_all_by_pin_code(params[:searchtitle]) %>
+		<% @x.each do |f| %>
+			<tr><td>
+                <!--<a href="/ads/<%= f.contact %>">-->
+                <a href="/ads/<%= f.id %>/edit">  
+				<%= f.title %></a>
+		    </td></tr>
+		<% end %>
+	<% end %>
+</table>

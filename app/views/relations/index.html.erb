@@ -1,0 +1,32 @@
+<div>
+  <a class="btn btn-danger" href="/users?begin=15">Users</a>
+  <a class="btn btn-danger" href="/family_members">Family members</a>
+  <a class="btn btn-danger" href="/relations">Relations</a>
+  <a class="btn btn-danger" href="/feedbacks">View Feedbacks</a>
+  <a class="btn btn-danger" href="/publish_event">Publish Event</a>
+</div>
+<h2 style="color:#890000">Relations</h2>
+
+<table>
+  <tr>
+    <th>Serial</th>
+    <th>Relationship</th>
+    <th>Priority</th>
+    <th></th>
+  </tr>
+
+<% @relations.each do |relation| %>
+  <tr>
+    <td><%= relation.serial %></td>
+    <td><%= relation.relationship %></td>
+    <td><%= relation.priority %></td>
+    <td><%= link_to 'Edit', edit_relation_path(relation) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Relation', new_relation_path %>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

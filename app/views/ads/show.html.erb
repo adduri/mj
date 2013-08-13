@@ -1,0 +1,46 @@
+<div class="gr" >
+  <section class="demo">
+    <div class="gridster ready">
+      <ul>       
+        <% @ad.each do |ad| %>    
+          <li class = "gs_w dragging player" id ="grid" data-sizey="<%= ad.datay %>" 
+            data-sizex="<%= ad.datax %>" data-col="<%= ad.col %>" data-row="<%= ad.row %>" 
+            style="position: absoulte;">
+            <div class= "sechead">
+              <p><% link_to ad.id, ad_path(ad) %></p>
+              <p align='center'> &#x2605;&nbsp;<%=link_to ad.title,edit_ad_path(ad) %></p>
+            </div> 
+            <% if ad.datax == 1 && ad.datay == 1 %><%then%>   
+            <%= image_tag ad.photo1,:style => "width:120px;height:90px"%>
+
+
+            <% elsif ad.datax == 1 && ad.datay == 2 %><%then%> 
+            <%= image_tag ad.photo1,:style => "width:120px;height:246px"%>
+
+
+            <% elsif ad.datax == 2 && ad.datay == 1 %><%then%> 
+            <%= image_tag ad.photo1,:style => "width:275px;height:90px"%>
+
+
+            <% elsif ad.datax == 2 && ad.datay == 2 %><%then%>
+            <%= image_tag ad.photo1,:style => "width:275px;height:246px"%>
+            <% end %> 
+          </li><br>       
+        <% end %>
+      </ul>
+    </div>
+  </section>
+</div>
+<script src="assets/jquery.js" type="text/javascript"></script>
+<script charster="utf-8" src="assets/jquery.gridster.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var gridster;
+  $(function() {
+  gridtster = $(".gridster > ul").gridster({
+  widget_margins: [8, 8],
+  widget_base_dimensions: [140,140],
+  min_cols: 6
+  }).data('gridster');
+  });
+</script>
+<br />

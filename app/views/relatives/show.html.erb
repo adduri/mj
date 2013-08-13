@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Present:</b>
+  <%= @relative.present_id %>
+</p>
+
+<p>
+  <b>Existing member:</b>
+  <%= @relative.existing_member_id %>
+</p>
+
+<p>
+  <b>New member:</b>
+  <%= @relative.new_member_id %>
+</p>
+
+<p>
+  <b>Relationship:</b>
+  <%= @relative.relationship %>
+</p>
+
+<p>
+  <b>Flag:</b>
+  <%= @relative.flag %>
+</p>
+
+
+<%= link_to 'Edit', edit_relative_path(@relative) %> |
+<%= link_to 'Back', relatives_path %>
