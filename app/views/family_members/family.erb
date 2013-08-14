@@ -217,39 +217,40 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
             <div class="span3"> 
               <div class="span1">
 
-
-
                         <% if family_member_user.photo_file_name.nil? %>
                           <img src="/assets/empty_profile.jpeg" class="img-polaroid"/>
                         <% else %>
                           <%= image_tag family_member_user.photo.url(:small) , :class => 'img-polaroid'%>
                         <% end %>
-                         <a href="/family_members/delete_member/<%= f.id %>" class="close"><img src="/assets/close.png"/></a>
+                        <% unless f.relation.relationship == "Me" %>
+                          <a href="/family_members/delete_member/<%= f.id %>" class="close"><img src="/assets/close.png"/></a>
+                        <% else %>
+                        <br/>
+                        <% end %>
                          &nbsp;<font size="3"><strong><%= f.relation.relationship %>
-                        <% unless f.relation.relationship == "Me" %></strong></font><br>
-                         
+                        </strong></font><br>                         
                          <a href="/family_members/family/<%= family_member_user.id %>">
                       &nbsp;<%= family_member_user.firstname %></a> <br>
                       &nbsp;<%= family_member_user.station%>
                         <br/>
-                        <% end %>
-
-
               </div>     
+
               <div class="spouse-span1">
                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
                     <% unless f_m_spouse.nil? or f_m_spouse.blank? %>
                       <% spouse = User.find(f_m_spouse.family_member_user_id) %>
-                      <% relation_with_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>
-                    
+                      <% relation_with_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>                    
                        <% unless relation_with_spouse.nil? %> 
                         <% if spouse.photo_file_name.nil? %>
                           <img src="/assets/empty_profile.jpeg" alt="" class="img-polaroid"/>
                         <% else %>
                           <%= image_tag spouse.photo.url(:small) ,:class => 'img-polaroid' %>
                         <% end %>
-                        <a href="/family_members/delete_member/<%= relation_with_spouse.id %>" class="close">
-                         <img src="/assets/close.png"/></a><br>
+                        <% unless relation_with_spouse.relation.relationship == "Me" %>
+                          <a href="/family_members/delete_member/<%= relation_with_spouse.id %>" class="close"><img src="/assets/close.png"/></a>
+                        <% else %>
+                        <br/>
+                        <% end %>
                          &nbsp;<font size="3"><strong><%= relation_with_spouse.relation.relationship %></strong></font> <br>              
                       <a href="/family_members/family/<%= spouse.id %>">
                         &nbsp;<%= spouse.firstname %></a><br> 
@@ -269,7 +270,11 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
                         <% else %>
                           <%= image_tag family_member_user.photo.url(:small),:class => 'img-polaroid'   %>
                         <% end %>
-                        <a href="/family_members/delete_member/<%= f.id %>" class="close"><img src="/assets/close.png"/></a><br>
+                        <% unless f.relation.relationship == "Me" %>
+                          <a href="/family_members/delete_member/<%= f.id %>" class="close"><img src="/assets/close.png"/></a>
+                        <% else %>
+                        <br/>
+                        <% end %>
                         &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
                        <a href="/family_members/family/<%= family_member_user.id %>">
                         &nbsp;<%= family_member_user.firstname %></a> 
