@@ -38,7 +38,7 @@ class FamilyMembersController < ApplicationController
 
   def family
     @user = User.find(params[:id])
-    @all_relations = Relation.all(:order => 'serial', :conditions => 'relationship != "Mein"')
+    @all_relations = Relation.all(:order => 'serial', :conditions => 'relationship != "Me"')
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(@user.id,true)
     @fm = FamilyMember.find_all_by_user_id_and_join_pending(@family_member_user_id, false)
     respond_to do |format|

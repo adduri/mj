@@ -1,3 +1,4 @@
+
 <!--<style type="text/css">
 #topContact{display: none;}
 </style>-->
@@ -234,18 +235,6 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
                         <% end %>
 
 
-<!-- 
-                      <% if family_member_user.photo_file_name.nil? %>
-                        <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-                      <% else %>
-                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                      <% end %>
-                    <a href="/family_members/delete_member/<%= f.id %>" class="close">
-                      <img src="/assets/close.png"/></a><br>
-                      &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
-                      <a href="/family_members/family/<%= family_member_user.id %>">
-                      &nbsp;<%= family_member_user.firstname %></a> <br>
-                      &nbsp;<%= family_member_user.station%> -->
               </div>     
               <div class="spouse-span1">
                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
