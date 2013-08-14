@@ -1,12 +1,8 @@
-<!--<style type="text/css">
-#topContact{display: none;}
-</style>-->
 <div id="content_links">
 <a href="/users/edit_profile/<%= current_user.id %>">Profile</a>
 <a href="/family_members/family/<%= current_user.id %>">Family Tree</a>
 <a href="/give_feedback">Give feedback</a>
 </div>
-<!-- | <a href="" onclick="window.print()">Print</a> -->
 <br/>
 <div id="treeDiv">
 <form action="/family_members/add_family/<%= current_user.id %>" method="post">
@@ -194,7 +190,7 @@ Relation
                         <% end %>
                         <a href="/family_members/family/<%= family_member_user.id %>"><%= family_member_user.firstname %></a> 
                         <br/><%= f.relation.relationship %>
-                        <% unless f.relation.relationship == "Mein" %>
+                        <% unless f.relation.relationship == "Me" %>
                           <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
                         <% end %>
 
@@ -227,10 +223,9 @@ Relation
                           <% end %>
                           <a href="/family_members/family/<%= family_member_user.id %>"><%= family_member_user.firstname %></a> 
                           <br/><%= f.relation.relationship %>
-                          <% unless f.relation.relationship == "Mein" %>
+                          <% unless f.relation.relationship == "Me" %>
                             <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
                           <% end %>
-                          <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
                                 
                   <% end %>
            <% end %>
