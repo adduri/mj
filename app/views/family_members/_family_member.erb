@@ -4,8 +4,8 @@
 
 <% unless displayed_members_list.include? family_member.id %>
     
-    <div class="span3"> 
-      <div class="span1">
+    <div class="male-span3"> 
+      <div class="span1" style= "height:107px;">
           <% if family_member.photo_file_name.nil? %>
             <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
           <% else %>
@@ -15,8 +15,8 @@
           <img src="/assets/close.png"/></a>
           &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font>
           <a href="/family_members/family/<%= family_member.id %>">
-          &nbsp;<%= family_member.firstname %></a><br/>
-          &nbsp;<%= family_member.station%>
+          <p>&nbsp;<%= family_member.firstname.capitalize %></a><p>
+          &nbsp;<%= family_member.station.capitalize%>
       </div>
       <% displayed_members_list << family_member.id %>
 
@@ -26,7 +26,7 @@
           <% spouse = User.find(spouse_relation.family_member_user_id) %>
           <% unless displayed_members_list.include? spouse.id %>
               <% current_user_relation_with_member_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>
-              <div class="spouse-span1">
+              <div class="spouse-span1" style="height:107px;">
                   <% unless current_user_relation_with_member_spouse.nil? %> 
                     <% if spouse.photo_file_name.nil? %>
                       <img src="/assets/empty_profile.jpeg" alt="" class="img-polaroid"/>
@@ -37,8 +37,8 @@
                   <img src="/assets/close.png"/></a>
                    &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font>              
                   <a href="/family_members/family/<%= spouse.id %>">
-                   &nbsp;<%= spouse.firstname %></a>
-                   &nbsp;<%= spouse.station%>
+                   <p>&nbsp;<%= spouse.firstname.capitalize  %></a></p>
+                   &nbsp;<%= spouse.station.capitalize%>
                   <% end %>
               </div>
               <% displayed_members_list << spouse.id %>

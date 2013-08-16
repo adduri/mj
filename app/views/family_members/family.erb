@@ -1,7 +1,7 @@
 
 <style type="text/css">
 
-.span3{width:220px;height:108px;margin-left:0px;margin-top:2px;
+.male-span3{width:220px;height:108px;margin-left:0px;margin-top:2px;
 }
 .span1{background:lightblue;
                 width:100px;margin-left:5px;border-radius:10px 0px;}
@@ -98,8 +98,8 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
 
 <% displayed_members_list = Array.new %>
 
-<table class="bordered">
-  <tr><th colspan=10>
+<table class="bordered"  style = "width:100px;">
+  <tr><th colspan=6>
         <h1><font style="font-family: arial;" color="#890000">First Generation</font></h1>
       </th>
   </tr>
@@ -114,7 +114,7 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
   </tr>
 </table>
 
-<table class="bordered">
+<table class="bordered" style = "width:100px;">
   <tr><th colspan=10>
         <h1><font style="font-family: arial;" color="#890000">Second Generation</font></h1>
       </th>
@@ -135,7 +135,7 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
       </th>
   </tr>
       <td>
-      <div class="span3">
+      <div class="male-span3">
           <div class="single-span1" >
               <% if @user.photo_file_name.nil? %>
                 <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
