@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-attr_accessible :email, :mj_id, :firstname, :gender, :desig, :lastname, :fathername,:mobileno,:state , :user_id, :visited, :photo, :payment, :due, :family_count, :station, :occupation, :address, :password, :password_confirmation, :dob, :middlename, :city, :country 
+attr_accessible :email, :mj_id, :firstname, :gender, :desig, :lastname, :fathername,:mobileno,:state , :user_id, :visited, :photo, :payment, :due, :family_count, :station, :occupation, :address, :password, :password_confirmation, :dob, :middlename, :city, :country, :zip 
 attr_accessor :password, :password_confirmation
   #  before_save :encrypt_password
   belongs_to :user
