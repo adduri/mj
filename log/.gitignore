@@ -1,0 +1,366 @@
+Connecting to database specified by database.yml
+
+
+Started GET "/ads" for 127.0.0.1 at 2013-08-17 19:48:27 +0530
+Processing by AdsController#index as HTML
+  [1m[36mAd Load (0.1ms)[0m  [1mSELECT `ads`.* FROM `ads` [0m
+  Rendered ads/index.html.erb within layouts/application (3.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 246ms (Views: 215.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/countries.js" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /countries.js - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/countries.js"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/kishan/.rvm/gems/ruby-1.9.3-p429/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/kishan/.rvm/gems/ruby-1.9.3-p429/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/active_admin.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /application.css - 304 Not Modified (53ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/advrs.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /advrs.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.gridster.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /jquery.gridster.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /style.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /styles.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /twitter/bootstrap.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /jquery-ui.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/active_admin/lib/namespace.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/lib/namespace.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/components/jquery.aa.checkbox-toggler.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.dropdown-menu.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/components/jquery.aa.dropdown-menu.js - 304 Not Modified (1ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/kishan/.rvm/gems/ruby-1.9.3-p429/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.popover.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/components/jquery.aa.popover.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/application.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/active_admin/pages/batch_actions.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/pages/batch_actions.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/active_admin/components/jquery.aa.table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/components/jquery.aa.table-checkbox-toggler.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/active_admin/pages/application.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/pages/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin/base.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /active_admin.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/advrs.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /advrs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.gridster.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /jquery.gridster.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /application.js - 304 Not Modified (32ms)
+
+
+Started GET "/photos/small/missing.png" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+
+ActionController::RoutingError (No route matches [GET] "/photos/small/missing.png"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/kishan/.rvm/rubies/ruby-1.9.3-p429/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/kishan/.rvm/gems/ruby-1.9.3-p429/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/assets/logos/mjflyhigh.png" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /logos/mjflyhigh.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logos/mjinsurance.png" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /logos/mjinsurance.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/Selection_019.png" for 127.0.0.1 at 2013-08-17 19:48:28 +0530
+Served asset /logos/Selection_019.png - 304 Not Modified (42ms)
+
+
+Started GET "/assets/logos/Selection_024.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_024.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/Selection_020.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_020.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logo.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/mjfin.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/mjfin.png - 304 Not Modified (4ms)
+
+
+Started GET "/assets/d.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /d.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/Selection_018.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_018.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/mjbschool.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/mjbschool.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/Selection_013.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_013.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/mjservices.jpg" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/mjservices.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/mjnews.jpg" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/mjnews.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logos/Selection_021.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_021.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/Selection_028.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_028.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logos/Selection_026.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_026.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logos/mjvidyapeeth.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/mjvidyapeeth.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logos/Selection_027.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_027.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logos/Selection_017.png" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /logos/Selection_017.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/texture.jpg" for 127.0.0.1 at 2013-08-17 19:48:29 +0530
+Served asset /texture.jpg - 304 Not Modified (1ms)
