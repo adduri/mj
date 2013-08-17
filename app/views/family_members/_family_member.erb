@@ -4,7 +4,7 @@
 
 <% unless displayed_members_list.include? family_member.id %>
     
-    <div class="span3"> 
+    <div class="male-span3"> 
       <div class="span1">
           <% if family_member.photo_file_name.nil? %>
             <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
@@ -12,10 +12,10 @@
             <%= image_tag family_member.photo.url(:small), :class => 'img-polaroid'%>
           <% end %>
           <a href="/family_members/delete_member/<%= f.id %>" class="close">
-          <img src="/assets/close.png"/></a>
-          &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font>
+          <img src="/assets/close.png"/></a><br>
+          &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
           <a href="/family_members/family/<%= family_member.id %>">
-          &nbsp;<%= family_member.firstname %></a><br/>
+          &nbsp;<%= family_member.firstname.capitalize %></a><br/>
           &nbsp;<%= family_member.station%>
       </div>
       <% displayed_members_list << family_member.id %>
@@ -34,10 +34,10 @@
                       <%= image_tag spouse.photo.url(:small) ,:class => 'img-polaroid' %>
                     <% end %>
                   <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close">
-                  <img src="/assets/close.png"/></a>
-                   &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font>              
+                  <img src="/assets/close.png"/></a><br>
+                   &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>              
                   <a href="/family_members/family/<%= spouse.id %>">
-                   &nbsp;<%= spouse.firstname %></a>
+                   &nbsp;<%= spouse.firstname.capitalize %></a><br>
                    &nbsp;<%= spouse.station%>
                   <% end %>
               </div>
@@ -45,6 +45,6 @@
 
           <% end %>
       <% end %>
-    </div>
+    </div><br>
 
 <% end %>

@@ -86,7 +86,7 @@ $(function() {
 
 
 <% if current_user  %>
- <div class = "span3" style = "float:right; padding-top:20px" >
+ <div class = "span3" style = "float:right; padding-top:8px;height:62px;" >
      <div class="well well-small" style = "float:right; color:#610335;">
 
    <a href="/users/index" style="color:white"> 
@@ -165,15 +165,12 @@ $(function() {
             </ul>
           </li>
           -->
-          <li class="dropdown" id="doc">
-    <a class="dropdown-toggle"
-       data-toggle="dropdown"
-       href="#">
-        About Us
-        <b class="caret"></b>
+      <li class="dropdown" id="doc">
+      <a id="headerfont" class="dropdown-toggle" data-toggle="dropdown" href="#">
+        About Us <b class="caret"></b>
       </a>
    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-   <li><a href="/../../aboutus.jpeg" target='_blank'>About Us</a></li>
+   <li><a href="/aboutus">About Us</a></li>
              <li><a href="/mo">Maheshwari Origin</a></li>
              <li><a href="/festivals">Festivals</a></li>
               <li><a href="/traditions">Traditions</a></li>
@@ -194,7 +191,7 @@ $(function() {
           <li>
 
               <div class="span4">
-                     <a data-toggle="modal" href="#example" class="btn btn-primary btn-medium" >Demo Family Tree </a>
+                     <a data-toggle="modal" href="#example" class="btn btn-primary btn-medium" id="headerfont">Demo Family Tree </a>
               </div>
            </li>
   
@@ -279,9 +276,9 @@ $(function() {
      <div class="inner_wrap1">
        <span>&copy MJ. All rights reserved</span>
         <div>
-          <a href="#">Terms and Conditions</a>
+          <a href="/tc">Terms and Conditions</a>
           <a style="color:#8B1001;">|</a>
-          <a href="#">Privacy Policy</a>
+          <a href="/privacy">Privacy Policy</a>
         </div>
       </div>
     </div>   

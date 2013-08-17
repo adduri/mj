@@ -10,6 +10,8 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
+        @feedbacks = Feedback.all
+
   end
 
   def edit
