@@ -35,19 +35,22 @@ Mj::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  SITE_URL  = "www.maheshwarijagruth.com"
+  SITE_URL = "www.maheshwarijagruth.com"
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'www.gmail.com',
-    :user_name            => 'maheshwari.jagruth@gmail.com',
-    :password             => 'sreenidhistudents',
-    :authentication       => 'plain',
+    :address => "smtp.sendgrid.net",
+    :port => 587,
+    :domain => 'maheshwarijagruth.com',
+    :user_name => 'maheshwari',
+    :password => 'mahesh1234',
+    :authentication => 'plain',
     :enable_starttls_auto => true
-  } 
+  }
+
+
+
 
   Paperclip.options[:command_path] = "/usr/bin/identify"
 end
