@@ -37,8 +37,8 @@ Mj::Application.configure do
     :address => 'smtp.gmail.com',
     :port => 587,
     :domain => 'www.gmail.com',
-    :user_name => 'maheshwari.jagruth@gmail.com',
-    :password => 'sreenidhistudents',
+    :user_name => 'sagarkache2@gmail.com',
+    :password => 'sagarkache',
     :authentication => 'plain',
     :enable_starttls_auto => true
   }
