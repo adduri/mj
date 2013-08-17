@@ -87,9 +87,9 @@ would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %>
   <tr><td class="font">Email</td><td class="font">: &nbsp;<%= @user.email %></td></tr>
   <tr><td class="font">Mobile</td><td class="font">: &nbsp;<%= @user.mobileno %></td></tr>
   <tr><td class="font">Gender</td><td class="font">: &nbsp;<%= @user.gender %></td></tr>
-  <tr><td class="font">Occupation</td><td class="font">: &nbsp;<%= @user.occupation %></td></tr>
-  <tr><td class="font">Station</td><td class="font">: &nbsp;<%= @user.station %></td></tr>
-  <tr><td></td><td class="font">Address</td><td class="font">: &nbsp;<%= @user.address %></td></tr>
+  <tr><td class="font">Occupation</td><td class="font">: &nbsp;<%= @user.occupation.capitalize %></td></tr>
+  <tr><td class="font">City</td><td class="font">: &nbsp;<%= @user.station.capitalize %></td></tr>
+  <tr><td></td><td class="font">Address</td><td class="font">: &nbsp;<%= @user.address.capitalize %></td></tr>
 </table>     
 </div>
 <br/><br/>
