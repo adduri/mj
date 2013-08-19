@@ -10,6 +10,8 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
+    @user = User.find(params[:id])
+    @show_feedback = Feedback.find_all_by_user_id(@user.id)
   end
 
   def edit
@@ -33,5 +35,15 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.find(params[:id])
     @feedback.destroy
     redirect_to feedbacks_url
+  end
+
+  def display_feedback
+    @user = User.find(params[:id])
+    logger.info "feeeeeeeeeeeeeeeeeedddddd #{params[:feedback][:details].inspect}"
+    @fed = Feedback.new
+    @fed.details = params[:feedback][:details]
+    @fed.user_id = @user.id
+    @fed.save
+    redirect_to "/feedbacks/new/#{current_user.id}", :notice => "Feedback sent."
   end
 end

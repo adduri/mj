@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    # params[:user][:firstname] = params[:user][:firstname].upcase
-    # params[:user][:lastname] = params[:user][:lastname].upcase
-    # params[:user][:station] = params[:user][:station].upcase
+     params[:user][:firstname] = params[:user][:firstname].upcase
+     params[:user][:lastname] = params[:user][:lastname].upcase
+     params[:user][:station] = params[:user][:station].upcase
     @user = User.new(params[:user])
     if @user.save
       redirect_to "/users/registration_ack/#{@user.id}"
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       fm.user_id = @user.id
       fm.family_member_user_id = @user.id
       fm.join_pending = false
-      r = Relation.find_by_relationship('Mein')
+      r = Relation.find_by_relationship('me')
       fm.relation_id = r.id # relation with self
       fm.save
       UserMailer.complete_registration_email(@user,params[:user][:password]).deliver

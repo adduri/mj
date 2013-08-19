@@ -57,7 +57,7 @@ Mj::Application.routes.draw do
   get "aboutus" => "users#aboutus", :as => "aboutus"
   get "change_password" => "sessions#forgot", :as => "change_password"
   get "publish_event" => "events#new", :as => "publish_event"
-  get "give_feedback" => "feedbacks#new", :as => "give_feedback"
+  # get "give_feedback" => "feedbacks#new", :as => "give_feedback"
   root :to => "users#home" # "advertisements"
   match ':controller(/:action(/:id))(.:format)'
 end

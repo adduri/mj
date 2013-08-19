@@ -1,15 +1,13 @@
-<!--<style type="text/css">
-#topContact{display: none;}
-</style>-->
+<% if @user.id == current_user.id %>
 <div id="content_links">
 <a href="/users/edit_profile/<%= current_user.id %>">Profile</a>
 <a href="/family_members/family/<%= current_user.id %>">Family Tree</a>
-<a href="/give_feedback">Give feedback</a>
+<a href="/feedbacks/new/<%= current_user.id %>">Give feedback</a>
 </div>
-<!-- | <a href="" onclick="window.print()">Print</a> -->
+
 <br/>
 <div id="treeDiv">
-<form action="/family_members/add_family/<%= current_user.id %>" method="post">
+<form action="/family_members/join_pending/<%= current_user.id %>" method="post">
 <% @all_users = User.all(:order => 'firstname') %>
 <h2>Build your Family Tree</h2>
 MJ Id <input type="text" size=3; name="search_mjid" />&nbsp;&nbsp;
@@ -24,12 +22,15 @@ Relation
 <label class="notice"><%= notice %></label>
 </form><br/>
 <hr/>
+<a href = "/family_members/member_request_notifications/<%= current_user.id %>">Notifications</a><br/><br/>
+<a href = "/family_members/copy_relations/<%= current_user.id %>">Push</a>
+<%############################## NOTIFICATIONS ################################################%>
 
-<% @family_members.each do |r| %>
-  would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %> ?
-  <a href="/family_members/join_pending/<%= r.id %>">Accept</a><br/> | <a href="/family_members/join_decline/<%= r.id %>">Decline</a>
+
+
+<%################################# NOTIFICATIONS END #######################################%>
 <% end %>
-<h2><%= @user.firstname %> <%= @user.lastname %>'s Family</h2>
+<h2><%= @user.firstname %> <%= @user.lastname %>'s Family- <%= @user.mj_id %> </h2>
 <center>
   <div class="MainProfile">
     <br/>
@@ -59,7 +60,7 @@ Relation
     <tr>
         <% @user.relations.group("relationship").having("priority = ?", 1).order('id').each do |r| %>
         <td>      
-        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
            <% family_member_user = User.find(f.family_member_user_id) %>
                   
            <% if family_member_user.gender == "Male" %>
@@ -73,7 +74,7 @@ Relation
                         <br/><%= f.relation.relationship %>
                         <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
 
-                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                       <% unless f_m_spouse.nil? or f_m_spouse.blank? %>
                         <% spouse = User.find(f_m_spouse.family_member_user_id) %>
                         <% relation_with_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>
@@ -92,7 +93,7 @@ Relation
                       <% end %>
                     
            <% else %>
-                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                    <% if f_m_spouse.nil? or f_m_spouse.blank? %>
                   
                           <% if family_member_user.photo_file_name.nil? %>
@@ -121,7 +122,7 @@ Relation
     <tr>
       <% @user.relations.group("relationship").having("priority = ?", 2).order('id').each do |r| %>
       <td>
-        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
            <% family_member_user = User.find(f.family_member_user_id) %>
                   
            <% if family_member_user.gender == "Male" %>
@@ -135,7 +136,7 @@ Relation
                         <br/><%= f.relation.relationship %>
                         <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
                     
-                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                       <% unless f_m_spouse.nil? or f_m_spouse.blank? %>
                         <% spouse = User.find(f_m_spouse.family_member_user_id) %>
                         <% relation_with_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>
@@ -154,7 +155,7 @@ Relation
                       <% end %>
                     
            <% else %>
-                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                    <% if f_m_spouse.nil? or f_m_spouse.blank? %>
                         
                           <% if family_member_user.photo_file_name.nil? %>
@@ -182,7 +183,7 @@ Relation
     <tr>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('serial').each do |r| %>
       <td>
-        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
            <% family_member_user = User.find(f.family_member_user_id) %>
                  
            <% if family_member_user.gender == "Male" %>
@@ -194,11 +195,11 @@ Relation
                         <% end %>
                         <a href="/family_members/family/<%= family_member_user.id %>"><%= family_member_user.firstname %></a> 
                         <br/><%= f.relation.relationship %>
-                        <% unless f.relation.relationship == "Mein" %>
+                        <% unless f.relation.relationship == "me" %>
                           <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
                         <% end %>
 
-                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                       <% unless f_m_spouse.nil? or f_m_spouse.blank? %>
                         <% spouse = User.find(f_m_spouse.family_member_user_id) %>
                         <% relation_with_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>
@@ -217,7 +218,7 @@ Relation
                       <% end %>
                     
            <% else %>
-                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                    <% if f_m_spouse.nil? %>
                         
                           <% if family_member_user.photo_file_name.nil? %>
@@ -227,10 +228,10 @@ Relation
                           <% end %>
                           <a href="/family_members/family/<%= family_member_user.id %>"><%= family_member_user.firstname %></a> 
                           <br/><%= f.relation.relationship %>
-                          <% unless f.relation.relationship == "Mein" %>
+                          <% unless f.relation.relationship == "me" %>
                             <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
                           <% end %>
-                          <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
+                         
                                 
                   <% end %>
            <% end %>
@@ -246,7 +247,7 @@ Relation
     <tr>
       <% @user.relations.group("relationship").having("priority = ?", 4).order('id').each do |r| %>
       <td>
-        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+        <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
            <% family_member_user = User.find(f.family_member_user_id) %>
                   
            <% if family_member_user.gender == "Male" %>
@@ -260,7 +261,7 @@ Relation
                         <br/><%= f.relation.relationship %>
                         <a href="/family_members/delete_member/<%= f.id %>"><img src="/assets/close.png"/></a>
 
-                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                    <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                       <% unless f_m_spouse.nil? or f_m_spouse.blank? %>
                         <% spouse = User.find(f_m_spouse.family_member_user_id) %>
                         <% relation_with_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id,spouse.id) %>
@@ -279,7 +280,7 @@ Relation
                       <% end %>
                     
            <% else %>
-                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status(family_member_user.id,true) %>
+                   <% f_m_spouse = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(family_member_user.id,true,false) %>
                    <% if f_m_spouse.nil? %>
                         
                           <% if family_member_user.photo_file_name.nil? %>

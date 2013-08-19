@@ -1,0 +1,45 @@
+
+<% @family_members.each do |r| %> <% @re = Relation.find(r.relation_id).relationship %>
+  <%= r.user.firstname %> would like to add you as his/her <%= @re %> ?
+  <a href="/family_members/add_family/<%= r.id %>">Accept</a> | <a href="/family_members/pending_decline/<%= r.id %>">Decline</a>
+<% end %>
+
+<% @send_notification.each do |sn| %> 
+  <% unless sn.relationship.nil? %>
+    <table><tr><td>
+    <% @u = User.find(sn.new_member_id).firstname %>  
+    <% @u_id = User.find(sn.new_member_id) %>
+     <% if @u_id.photo_file_name.nil? %>
+      <img src="/assets/empty_profile.jpeg" width="150" alt="" />
+     <% else %>
+      <%= image_tag @u_id.photo.url(:small) %>
+     <% end %>
+    </td><td>
+    <%= sn.relationship %>  
+    <a href="/family_members/accept/<%= sn.id %>">yes</a> | <a href="/family_members/decline/<%= sn.id %>">no</a>
+   </td></tr><tr><td>
+   <a href="/family_members/family/<%= @u_id.id %>"><%= @u%></td>
+  </tr></table>
+ <% end %> 
+<% end %>
+
+
+
+<% @accept_notification.each do |an| %> 
+ <% unless an.relationship.nil? %>
+  <table><tr><td>
+  <% @u = User.find(an.existing_member_id).firstname %> 
+  <% @u_id = User.find(an.existing_member_id) %>
+  <% if @u_id.photo_file_name.nil? %>
+   <img src="/assets/empty_profile.jpeg" width="150" alt="" />
+  <% else %>
+   <%= image_tag @u_id.photo.url(:small) %>
+  <% end %>
+  </td><td><%= an.relationship %> ?
+  <a href="/family_members/flag_accept/<%= an.id %>">yes</a> | <a href="/family_members/flag_decline/<%= an.id %>">no</a>
+  </td></tr>
+  <tr><td><a href="/family_members/family/<%= @u_id.id %>"><%= @u%></td>
+  </tr>
+  </table>
+ <% end %> 
+<% end %>

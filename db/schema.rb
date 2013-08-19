@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810120604) do
+ActiveRecord::Schema.define(:version => 20130813072934) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -93,13 +93,14 @@ ActiveRecord::Schema.define(:version => 20130810120604) do
   end
 
   create_table "family_members", :force => true do |t|
-    t.integer  "user_id",               :default => 0,     :null => false
-    t.integer  "family_member_user_id", :default => 0,     :null => false
-    t.boolean  "join_pending",          :default => true
-    t.integer  "relation_id",           :default => 0,     :null => false
-    t.boolean  "spouse_status",         :default => false
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.integer  "user_id",                :default => 0,     :null => false
+    t.integer  "family_member_user_id",  :default => 0,     :null => false
+    t.boolean  "join_pending",           :default => true
+    t.integer  "relation_id",            :default => 0,     :null => false
+    t.boolean  "spouse_status",          :default => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.date     "family_member_user_dob"
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"
@@ -133,9 +134,13 @@ ActiveRecord::Schema.define(:version => 20130810120604) do
     t.integer  "existing_member_id"
     t.integer  "new_member_id"
     t.string   "relationship"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.boolean  "flag",               :default => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "flag",                   :default => false
+    t.boolean  "accept_request",         :default => false
+    t.string   "reverse_relationship"
+    t.boolean  "reverse_flag",           :default => false
+    t.boolean  "reverse_accept_request", :default => false
   end
 
   create_table "users", :force => true do |t|
