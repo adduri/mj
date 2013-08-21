@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20130813072934) do
     t.string   "country"
     t.string   "fathername"
     t.string   "desig"
+    t.integer  "zip"
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"

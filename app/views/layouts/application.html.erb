@@ -86,7 +86,7 @@ $(function() {
 
 
 <% if current_user  %>
- <div class = "span3" style = "float:right; padding-top:20px" >
+ <div class = "span3" style = "float:right; padding-top:8px;height:62px;" >
      <div class="well well-small" style = "float:right; color:#610335;">
 
    <a href="/users/index" style="color:white"> 
@@ -153,39 +153,29 @@ $(function() {
        </div>
 
 
-
-          <!-- <li class="dropdown"  id="doc">
-            <a href="#" id="headerfont" class="dropdown-toggle" data-hover="dropdown"  data-toggle="dropdown">About Us <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-             <li><a href="/../../aboutus.jpeg" target='_blank'>About Us</a></li>
-            <li><a href="../../history.pdf" target="_blank">History</a></li>   
-            <li><a href="../../festivals.pdf" target="_blank">Festivals</a></li>      
-            <li><a href="../../maheshwari.png" target="_blank">Vanshothpatti</a></li>
-            <li><a href="/rajasthan">Hamaro Rajasthan</a></li>
-            </ul>
-          </li>
-          -->
+ 
           <li class="dropdown" id="doc">
     <a class="dropdown-toggle"
        data-toggle="dropdown"
-       href="#">
+       href="#" style="color:white">
         About Us
         <b class="caret"></b>
       </a>
    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-   <li><a href="/../../aboutus.jpeg" target='_blank'>About Us</a></li>
-             <li><a href="/mo">Maheshwari Origin</a></li>
-             <li><a href="/festivals">Festivals</a></li>
-              <li><a href="/traditions">Traditions</a></li>
-              <li><a href="/gotra">Gotra</a></li>
-              <li><a href="/khaps">Khap's</a></li>
+   <li><a href="/home/aboutus" >About Us</a></li>
+             <li><a href="/home/mo">Maheshwari Origin</a></li>
+             <li><a href="/home/festivals">Festivals</a></li>
+              <li><a href="/home/traditions">Traditions</a></li>
+              <li><a href="/home/gotra">Gotra</a></li>
+              <li><a href="/home/khaps">Khap's</a></li>
+
             
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="#">Kuldevis nad Surname</a>
+    <a tabindex="-1" href="#">Kuldevis and Surname</a>
     <ul class="dropdown-menu">
-                <li><a href="/godwisekuldevi">Godwise Kuldevis</a></li>
-                <li><a href="/surnamewisekuldevi">Surname Kuldevis</a></li>
-                <li><a href="/kuldevisedetails">Kuldevis details</a></li>
+                <li><a href="/home/godwisekuldevi">Godwise Kuldevis</a></li>
+                <li><a href="/home/surnamewisekuldevi">Surname Kuldevis</a></li>
+                <li><a href="/home/kuldevisedetails">Kuldevis details</a></li>
     </ul>
   </li>
  
@@ -194,7 +184,7 @@ $(function() {
           <li>
 
               <div class="span4">
-                     <a data-toggle="modal" href="#example" class="btn btn-primary btn-medium" >Demo Family Tree </a>
+                     <a data-toggle="modal" href="#example" class="btn btn-primary btn-medium" id="headerfont">Demo Family Tree </a>
               </div>
            </li>
   
@@ -279,9 +269,9 @@ $(function() {
      <div class="inner_wrap1">
        <span>&copy MJ. All rights reserved</span>
         <div>
-          <a href="#">Terms and Conditions</a>
+          <a href="/tc">Terms and Conditions</a>
           <a style="color:#8B1001;">|</a>
-          <a href="#">Privacy Policy</a>
+          <a href="/privacy">Privacy Policy</a>
         </div>
       </div>
     </div>   

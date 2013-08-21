@@ -1,6 +1,6 @@
 class FamilyMembersController < ApplicationController
   before_filter :already_logged_in
-  skip_before_filter :already_logged_in, :only => [:family, :create_family, :admin_family, :member_request_notifications, :add_family, :update_payment, :print_tree, :edit_relationship, :update_relation, :delete_member, :join_pending, :accept, :decline, :flag_accept, :flag_decline]
+  skip_before_filter :already_logged_in, :only => [:family, :create_family, :admin_family, :member_request_notifications, :add_family, :update_payment, :print_tree, :edit_relationship, :update_relation, :delete_member, :join_pending, :pending_decline, :accept, :decline, :flag_accept, :flag_decline]
 
   def index
     @family_members = FamilyMember.all
@@ -38,7 +38,7 @@ class FamilyMembersController < ApplicationController
 
   def family
     @user = User.find(params[:id])
-    @all_relations = Relation.all(:order => 'serial', :conditions => 'relationship != "me"')
+    @all_relations = Relation.all(:order => 'serial')
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(@user.id,true)
     @fm = FamilyMember.find_all_by_user_id_and_join_pending(@family_member_user_id, false)
     respond_to do |format|
@@ -65,7 +65,6 @@ class FamilyMembersController < ApplicationController
           @f.family_member_user_id = @user.id
           @f.user_id = current_user.id
           @f.join_pending = false
-          # @f.family_member_dob = @user.dob
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
           if (r.relationship == "Pati") || (r.relationship == "Patni")
@@ -73,18 +72,19 @@ class FamilyMembersController < ApplicationController
           end
           @f.save
           if (r.relationship == "Pati") || (r.relationship == "Patni")
-            if @fm.nil? or @fm.blank?     
+            @fm_reverse = FamilyMember.find_by_user_id_and_family_member_user_id(@user.id,current_user.id)
+            if @fm_reverse.nil? or @fm_reverse.blank?     
               @f = FamilyMember.new
               @f.family_member_user_id = current_user.id
               @f.user_id =  @user.id
               @f.join_pending = false
               @f.spouse_status = true
-              # @f.family_member_dob = current_user.dob
-              if r.relationship == "Patni"   
+              if r.relationship == "Pati"   
+                wife_relation = Relation.find_by_relationship("Patni")
+                @f.relation_id = wife_relation.id
+              elsif r.relationship == "Patni"
                 husband_relation = Relation.find_by_relationship("Pati")
                 @f.relation_id = husband_relation.id
-              else
-                @f.relation_id = r.id
               end
               @f.save
             end
@@ -99,7 +99,6 @@ class FamilyMembersController < ApplicationController
     else
       redirect_to "/family_members/family/#{params[:id]}", :notice => "Select a relation."
     end
-    #@pending_members = FamilyMember.find_all_by_join_pending(true)
   end
 
   
@@ -138,7 +137,9 @@ class FamilyMembersController < ApplicationController
           @r.reverse_relationship = yy.relationship
          end
          unless @r.existing_member_id == @r.new_member_id
+          unless @r.present_id == @r.existing_member_id
            @r.save
+          end
          end
       end
       redirect_to "/family_members/family/#{current_user.id}"

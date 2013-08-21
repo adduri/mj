@@ -1,8 +1,22 @@
 
-<% @family_members.each do |r| %> <% @re = Relation.find(r.relation_id).relationship %>
-  <%= r.user.firstname %> would like to add you as his/her <%= @re %> ?
+
+
+<% @family_members.each do |r| %> 
+<% @relationship = Relation.find(r.relation_id).relationship %>
+<table><tr><td>
+  <% if r.user.photo_file_name.nil? %>
+   <img src="/assets/empty_profile.jpeg" width="150" alt="" />
+  <% else %>
+  <%= image_tag r.user.photo.url(:small) %>
+  <% end %>
+</td><td>
+  <%= @relationship %> 
   <a href="/family_members/add_family/<%= r.id %>">Accept</a> | <a href="/family_members/pending_decline/<%= r.id %>">Decline</a>
+  </td></tr><tr><td>
+  <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname%></td>
+  </tr></table>
 <% end %>
+
 
 <% @send_notification.each do |sn| %> 
   <% unless sn.relationship.nil? %>
@@ -35,7 +49,7 @@
   <% else %>
    <%= image_tag @u_id.photo.url(:small) %>
   <% end %>
-  </td><td><%= an.relationship %> ?
+  </td><td><%= an.reverse_relationship %> ?
   <a href="/family_members/flag_accept/<%= an.id %>">yes</a> | <a href="/family_members/flag_decline/<%= an.id %>">no</a>
   </td></tr>
   <tr><td><a href="/family_members/family/<%= @u_id.id %>"><%= @u%></td>

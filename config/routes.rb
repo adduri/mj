@@ -43,18 +43,13 @@ Mj::Application.routes.draw do
   get "search" => "users#search", :as => "search"
   get "products" => "ads#products", :as => "products"
   get "rajasthan" => "sessions#about_rajasthan", :as => "rajasthan"
-  get "mo" => "users#mo", :as => "mo"
-  get "festivals" => "users#festivals", :as => "festivals"
-  get "traditions" => "users#traditions", :as => "traditions"
-  get "gotra" => "users#gotra", :as => "gotra"
-  get "khaps" => "users#khaps", :as => "khaps"
-  get "godwisekuldevi" => "users#godwisekuldevi", :as => "godwisekuldevi"
- 
-   get "surnamewisekuldevi" => "users#surnamewisekuldevi", :as => "surnamewisekuldevi"
-  
-   get "kuldevisedetails" => "users#kuldevisedetails", :as => "kuldevisedetails"
+
+   get "tc" => "home#tc" , :as => "tc"
+
+   get "privacy" => "home#privacy" , :as => "privacy"
+
   get "demo_family" => "users#demo_family", :as => "demo_family"
-  get "aboutus" => "users#aboutus", :as => "aboutus"
+  get "aboutus" => "home#aboutus", :as => "aboutus"
   get "change_password" => "sessions#forgot", :as => "change_password"
   get "publish_event" => "events#new", :as => "publish_event"
   # get "give_feedback" => "feedbacks#new", :as => "give_feedback"

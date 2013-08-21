@@ -1,3 +1,11 @@
+<style type="text/css">
+
+.table-nonfluid {
+   width: auto;
+}
+</style>
+<div class="row">
+<div class="span6">
 <div>
 <a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
 <a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
@@ -22,3 +30,4 @@
   <%= x.details %>--<%= x.created_at %></br>
 <% end %>
 <br/>
+ 
