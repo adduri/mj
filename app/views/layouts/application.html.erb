@@ -126,6 +126,22 @@ $(function() {
                         <li class ="panel" id="doc"> 
                           <a href="/users/index" style="color:white">My Family Tree</a>
                         </li>
+                        <li><!-- 
+                          <a href="/family_members/member_request_notifications/<%= current_user.id %>">
+                            <img src="https://cdn0.iconfinder.com/data/icons/iVista2/128/Globe_Disconnected.png" width="20" height="20" >
+                          </a> -->
+                          <script type="text/javascript">
+$(function() {
+  $('.menulink').click(function(){
+    $("#bg").attr('src',"https://cdn2.iconfinder.com/data/icons/web-browser/128/1.png");
+  });
+});
+</script>
+
+    <a href="/family_members/member_request_notifications/<%= current_user.id %>" class="menulink">
+    <img src="https://cdn2.iconfinder.com/data/icons/web-browser/128/4.png" id="bg" width="20" height="20"/></a>
+
+                        </li>
                         <li class ="panel" id="doc"> 
                           <a href="/logout" style="color:white">&nbsp; Logout&nbsp;  </a>
                         </li>
@@ -189,7 +205,6 @@ $(function() {
     </div>
   </div>   
 </div>
- 
-    <%= javascript_include_tag "application" %>
+<%= javascript_include_tag "application" %>
    
  
