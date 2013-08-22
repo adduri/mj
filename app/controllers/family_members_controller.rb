@@ -155,7 +155,7 @@ class FamilyMembersController < ApplicationController
           @f = FamilyMember.new
           @f.family_member_user_id = @user.id
           @f.user_id = current_user.id
-         # @f.family_member_user_dob = @user.dob
+         @f.family_member_user_dob = @user.dob
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
           @f.save
