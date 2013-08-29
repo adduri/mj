@@ -278,18 +278,18 @@ class FamilyMembersController < ApplicationController
 
   end
 
-#   def copy_relations
-#     @user = User.find(params[:id])
-#     @family_member = FamilyMember.find_all_by_user_id(current_user.id)
-#     @family_member.each do |f|
-#     @relation = Relation.find(f.relation_id).relationship
-#      if (@relation == "bhaiya") || (@relation == "jiji")
-#       @family = FamilyMember.new
-#       @family.user_id = f.family_member_user_id
-#       @family.family_member_user_id = f.
+  # def copy_relations
+  #   @user = User.find(params[:id])
+  #   @family_member = FamilyMember.find_all_by_user_id(current_user.id)
+  #   @family_member.each do |f|
+  #   @relation = Relation.find(f.relation_id).relationship
+  #    if (@relation == "bhaiya") || (@relation == "jiji")
+  #     @family = FamilyMember.new
+  #     @family.user_id = f.family_member_user_id
+  #     @family.family_member_user_id = f.
 
-# end
-#     end 
-
-#   end
+  #    end
+  #   end 
+  
+  # end
 end

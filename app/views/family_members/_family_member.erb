@@ -7,13 +7,13 @@
     <div class="male-span3"> 
       <div class="span1">
           <% if family_member.photo_file_name.nil? %>
-            <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-          <% else %>
-            <%= image_tag family_member.photo.url(:small), :class => 'img-polaroid'%>
+             <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+            <% else %>
+             <%= image_tag family_member.photo.url(:small), :class => 'img-polaroid'%>
           <% end %>
           <% if @user.id == current_user.id %>
-          <a href="/family_members/delete_member/<%= f.id %>" class="close">
-          <img src="/assets/close.png"/></a>
+            <a href="/family_members/delete_member/<%= f.id %>" class="close">
+            <img src="/assets/close.png"/></a>
           <% end %><br>
           &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
           <a href="/family_members/family/<%= family_member.id %>">
