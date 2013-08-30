@@ -1,39 +1,20 @@
-<div>
-    <a class="btn btn-danger" href="/users?begin=15">Users</a>
-    <a class="btn btn-danger" href="/family_members">Family members</a>
-    <a class="btn btn-danger" href="/relations">Relations</a>
-    <a class="btn btn-danger" href="/feedbacks">View Feedbacks</a>
-    <a class="btn btn-danger" href="/publish_event">Publish Event</a>
-</div>
-<h2>Users</h2> <a href="/users?begin=<%= @begin %>">Next Page</a>
-<table>
-	<tr>
-		<th>Id</th>
-		<th>Mj_Id</th>
-		<th>Firstname</th>
-		<th>Surname</th>
-		<th>Reference Id</th>
-		<th>Mobile</th>
-		<th>Email</th>
-		<th>Gender</th>
-		<th>Station</th>
-		<th>Occupation</th>
-		<th>Address</th>
-	</tr>
-<% @users.each do |u| %>
-	<tr>
-		<td><%= u.id %></td>
-		<td><%= u.mj_id %></td>
-		<td><%= u.firstname %></td>
-		<td><%= u.lastname %></td>
-		<td><%= u.user_id %></td>
-		<td><%= u.mobileno %></td>
-		<td><%= u.email %></td>
-		<td><%= u.gender %></td>
-		<td><%= u.station %></td>
-		<td><%= u.occupation %></td>
-		<td><%= u.address %></td>
-		<td><a href="/users/edit/<%= u.id %>">Edit</a></td>
-	</tr>
-<% end %>
-</table>
+<style>
+  #search {
+    right: 0px;
+    float: left;
+    position: relative;
+  }
+</style>
+  <h1 style="color:#890000;font-size:50px;font-family:arial">Search Panel</h1>
+ 
+   <%= form_tag users_path, :method => 'get', :id => "users_search" do %>
+   <div class="row">
+    <div class="span3" style="padding-top:10em;padding-left:5em;">
+      <%= text_field_tag :search, params[:search] %></br></br></br>
+      <p> &nbsp;&nbsp; &nbsp;&nbsp;You can search by MJ ID,</p><p> &nbsp;&nbsp; &nbsp;&nbsp;Firstname , Surname</p>
+    </div>
+    <% submit_tag "Search", :firstname => nil %>
+   <div class="span7" id="products"><%= render 'products' %></div>
+  <% end %>
+
+</div></div>

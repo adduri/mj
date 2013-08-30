@@ -1,64 +1,133 @@
+<style type="text/css">
+div{border-radius: 10px;}
+td{padding: 10px;}
+
+</style>
 <center>
-<% @family_members.each do |r| %> 
-<% @relationship = Relation.find(r.relation_id).relationship %>
-<table>
-  <tr>
-    <td>Do you want to add
-      <% if r.user.photo_file_name.nil? %>
-       <img src="/assets/empty_profile.jpeg" width="80" alt="" class='img-circle'/>
+<div class="row">
+  <div class="span4">  
+  <% @family_members.each do |r| %> 
+    <% @relationship = Relation.find(r.relation_id).relationship %>
+    <div style="background:lightpink">
+      <table>
+        <tr>
+          <td>
+            <% if r.user.photo_file_name.nil? %>
+             <img src="/assets/empty_profile.jpeg" width="80" alt="" class='img-circle'/>
+            <% else %>
+            <%= image_tag r.user.photo.url(:small), :class => 'img-circle' %>
+            <% end %>
+          </td>
+          <td>
+            <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname.capitalize %>
+            </a>&nbsp;wants to add you as &nbsp;
+            <font size="4" ><%= @relationship %></font>,&nbsp;Do you <br><br>
+            <a href="/family_members/add_family/<%= r.id %>" class="btn btn-info" >Accept
+            </a>&nbsp;or&nbsp;
+            <a href="/family_members/pending_decline/<%= r.id %>" class="btn btn-info">Decline</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  <% end %> 
+  </div>
+  <div class="span4">
+  <% @send_notification.each do |sn| %> 
+    <% unless sn.relationship.nil? %>
+      <div style="background:lightpink">
+        <table>
+          <tr>
+            <td>
+              <% @u = User.find(sn.new_member_id).firstname.capitalize %>  
+              <% @u_id = User.find(sn.new_member_id) %>
+                <% if @u_id.photo_file_name.nil? %>
+                  <img src="/assets/empty_profile.jpeg" width="80" alt="" 
+                  class='img-circle' />
+                <% else %>
+                  <%= image_tag @u_id.photo.url(:small), :class => 'img-circle'  %>
+                <% end %>
+            </td>
+            <td>
+              <a href="/family_members/family/<%= @u_id.id %>"><%= @u%></a>
+              <strong>is your</strong><font size="4" >
+              <%= sn.relationship %>?</font><br><br>
+              <a href="/family_members/accept/<%= sn.id %>" class="btn btn-info" target="_parent" >yes</a> &nbsp;or &nbsp;<a href="/family_members/decline/<%= sn.id %>" class="btn btn-info" >no</a>
+            </td>
+          </tr>
+        </table>
+      </div>
       <% else %>
-      <%= image_tag r.user.photo.url(:small), :class => 'img-circle' %>
-      <% end %>
-    </td>
-    <td>
-      <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname.capitalize %></a> &nbsp;as your
-      <%= @relationship %>
-      <a href="/family_members/add_family/<%= r.id %>" class="btn btn-info" >Accept</a>
-      <a href="/family_members/pending_decline/<%= r.id %>" class="btn btn-info">Decline</a>
-    </td>
-  </tr>
-</table>
-<% end %> 
+      <div style="background:lightpink">
+        <table>
+          <tr>
+            <td>
+              <% @u = User.find(sn.new_member_id).firstname.capitalize %>  
+              <% @u_id = User.find(sn.new_member_id) %>
+               <% if @u_id.photo_file_name.nil? %>
+                <img src="/assets/empty_profile.jpeg" width="80" alt="" class='img-circle' />
+               <% else %>
+                <%= image_tag @u_id.photo.url(:small), :class => 'img-circle'  %>
+               <% end %>
+            </td>
+            <td>
+              <a href="/family_members/family/<%= @u_id.id %>"><%= @u%></a>
+              <font size="4" ><%= sn.relationship %></font><strong>is related to your family?</strong><br><br>
+              <a href="/family_members/accept/<%= sn.id %>" class="btn btn-info" >yes</a> &nbsp;or &nbsp;<a href="/family_members/decline/<%= sn.id %>" class="btn btn-info" >no</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  <% end %> 
+  </div>
 
-
-<% @send_notification.each do |sn| %> 
-  <% unless sn.relationship.nil? %>
-    <table><tr><td>
-    <% @u = User.find(sn.new_member_id).firstname %>  
-    <% @u_id = User.find(sn.new_member_id) %>
-     <% if @u_id.photo_file_name.nil? %>
-      <img src="/assets/empty_profile.jpeg" width="80" alt="" />
-     <% else %>
-      <%= image_tag @u_id.photo.url(:small) %>
-     <% end %>
-    </td><td>
-    <%= sn.relationship %>  
-    <a href="/family_members/accept/<%= sn.id %>">yes</a> | <a href="/family_members/decline/<%= sn.id %>">no</a>
-   </td></tr>
-   <tr><td>
-   <a href="/family_members/family/<%= @u_id.id %>"><%= @u%></td>
-  </tr></table>
- <% end %> 
-<% end %>
-
-
-
-<% @accept_notification.each do |an| %> 
- <% unless an.relationship.nil? %>
-  <table><tr><td>
-  <% @u = User.find(an.existing_member_id).firstname %> 
-  <% @u_id = User.find(an.existing_member_id) %>
-  <% if @u_id.photo_file_name.nil? %>
-   <img src="/assets/empty_profile.jpeg" width="80" alt="" />
-  <% else %>
-   <%= image_tag @u_id.photo.url(:small) %>
+  <div class="span4">
+  <% @accept_notification.each do |an| %> 
+    <% unless an.relationship.nil? %>
+      <div style="background:lightpink">
+        <table>
+          <tr>
+            <td>
+              <% @u = User.find(an.existing_member_id).firstname %> 
+              <% @u_id = User.find(an.existing_member_id) %>
+              <% if @u_id.photo_file_name.nil? %>
+               <img src="/assets/empty_profile.jpeg" width="80" alt="" class="img-circle" />
+              <% else %>
+               <%= image_tag @u_id.photo.url(:small), :class => 'img-circle' %>
+              <% end %>
+            </td>
+            <td><a href="/family_members/family/<%= @u_id.id %>"><%= @u%></a>
+              <strong>is your</strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
+              <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a>
+              &nbsp;or &nbsp;
+              <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% else %>
+      <div style="background:lightpink">
+        <table>
+          <tr>
+            <td>
+              <% @u = User.find(an.existing_member_id).firstname %> 
+              <% @u_id = User.find(an.existing_member_id) %>
+              <% if @u_id.photo_file_name.nil? %>
+               <img src="/assets/empty_profile.jpeg" width="80" alt="" class="img-circle" />
+              <% else %>
+               <%= image_tag @u_id.photo.url(:small), :class => 'img-circle' %>
+              <% end %>
+            </td>
+            <td><a href="/family_members/family/<%= @u_id.id %>"><%= @u%></a>
+              <font size="4" ><%= an.reverse_relationship %><strong>is related to your family ?</strong></font><br><br>
+              <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a>
+              &nbsp;or &nbsp;
+              <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
+            </td>
+          </tr>
+        </table>
+      </div>  
+    <% end %> 
   <% end %>
-  </td><td><%= an.reverse_relationship %> ?
-  <a href="/family_members/flag_accept/<%= an.id %>">yes</a> | <a href="/family_members/flag_decline/<%= an.id %>">no</a>
-  </td></tr>
-  <tr><td><a href="/family_members/family/<%= @u_id.id %>"><%= @u%></td>
-  </tr>
-  </table>
- <% end %> 
-<% end %>
+  </div>
 </center>

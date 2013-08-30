@@ -1,3 +1,5 @@
+#!/bin/env ruby
+# encoding: utf-8
 class FamilyMembersController < ApplicationController
   before_filter :already_logged_in
   skip_before_filter :already_logged_in, :only => [:family, :create_family, :admin_family, :member_request_notifications, :add_family, :update_payment, :print_tree, :edit_relationship, :update_relation, :delete_member, :join_pending, :pending_decline, :accept, :decline, :flag_accept, :flag_decline]
@@ -40,6 +42,8 @@ class FamilyMembersController < ApplicationController
     @user = User.find(params[:id])
     @all_relations = Relation.all(:order => 'serial')
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(@user.id,true)
+    @send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
+    @accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
     @fm = FamilyMember.find_all_by_user_id_and_join_pending(@family_member_user_id, false)
     respond_to do |format|
       format.html
@@ -67,11 +71,11 @@ class FamilyMembersController < ApplicationController
           @f.join_pending = false
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
-          if (r.relationship == "Pati") || (r.relationship == "Patni")
+          if (r.relationship == "पति") || (r.relationship == "पत्नी")
             @f.spouse_status = true
           end
           @f.save
-          if (r.relationship == "Pati") || (r.relationship == "Patni")
+          if (r.relationship == "पति") || (r.relationship == "पत्नी")
             @fm_reverse = FamilyMember.find_by_user_id_and_family_member_user_id(@user.id,current_user.id)
             if @fm_reverse.nil? or @fm_reverse.blank?     
               @f = FamilyMember.new
@@ -79,11 +83,11 @@ class FamilyMembersController < ApplicationController
               @f.user_id =  @user.id
               @f.join_pending = false
               @f.spouse_status = true
-              if r.relationship == "Pati"   
-                wife_relation = Relation.find_by_relationship("Patni")
+              if r.relationship == "पति"   
+                wife_relation = Relation.find_by_relationship("पत्नी")
                 @f.relation_id = wife_relation.id
-              elsif r.relationship == "Patni"
-                husband_relation = Relation.find_by_relationship("Pati")
+              elsif r.relationship == "पत्नी"
+                husband_relation = Relation.find_by_relationship("पति")
                 @f.relation_id = husband_relation.id
               end
               @f.save
@@ -106,7 +110,7 @@ class FamilyMembersController < ApplicationController
     @fm = FamilyMember.find(params[:id])
     @fm.update_attributes(:join_pending => false)
     r = Relation.find(@fm.relation_id)
-    if (r.relationship == "pati") || (r.relationship == "patni")
+    if (r.relationship == "पति") || (r.relationship == "पत्नी")
       @fm.spouse_status = true
       @fm.save
       @spouse = FamilyMember.find_by_user_id_and_family_member_user_id(@fm.family_member_user_id,@fm.user_id)
@@ -159,17 +163,17 @@ class FamilyMembersController < ApplicationController
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
           @f.save
-           if (r.relationship == "pati") || (r.relationship == "patni")
+           if (r.relationship == "पति") || (r.relationship == "पत्नी")
              if @fm.nil? or @fm.blank?     
                @f = FamilyMember.new
                @f.family_member_user_id = current_user.id
                @f.user_id =  @user.id
                @f.family_member_user_dob = current_user.dob
-               if r.relationship == "patni"   
-                  husband_relation = Relation.find_by_relationship("pati")
+               if r.relationship == "पत्नी"   
+                  husband_relation = Relation.find_by_relationship("पति")
                  @f.relation_id = husband_relation.id
                 else
-                  wife_relation = Relation.find_by_relationship("patni")
+                  wife_relation = Relation.find_by_relationship("पत्नी")
                  @f.relation_id = wife_relation.id
                end
                @f.save
@@ -252,14 +256,14 @@ class FamilyMembersController < ApplicationController
     @fm.family_member_user_dob = @fm_dob
     @fm.save
     unless @fg.reverse_relationship.nil?
-     @f = FamilyMember.new
-     @f.user_id = @fg.new_member_id
-     @f.family_member_user_id = @fg.existing_member_id
-     @f.join_pending = false
-     @f.relation_id = @r_reverse.id
-     @f_dob = User.find(@fg.new_member_id).dob
-     @f.family_member_user_dob = @f_dob
-     @f.save
+      @f = FamilyMember.new
+      @f.user_id = @fg.new_member_id
+      @f.family_member_user_id = @fg.existing_member_id
+      @f.join_pending = false
+      @f.relation_id = @r_reverse.id
+      @f_dob = User.find(@fg.new_member_id).dob
+      @f.family_member_user_dob = @f_dob
+      @f.save
     end
     redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@name.firstname} is added."
   end

@@ -1,6 +1,46 @@
-<h1>Editing video</h1>
+<div class="row">
+<div class="span3"></div>
+<div class="span6">
+  <div class="" style="width:500px;">
+    <form accept-charset="UTF-8"  class="form-centered"  action="/videos" method="post" />
+   <legend>Log In</legend>
+    <div class="control-group">
+      <label for ="mj_id" class="control-label"><b>MJ ID</b></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-user"></i></span>
+          <input type="text" class="input-xlarge" id="mj_id" name="mj_id" required="required" placeholder="MJID">
+        </div>
+      </div>
+    </div>
 
-<%= render 'form' %>
+    <div class="control-group">
+      <label for = "password" class="control-label"><b>Password</b></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-lock"></i></span>
+          <input type="password" id="password" class="input-xlarge" name="password" placeholder="Password" required="required">
+        </div>
+      </div>
+    </div>
 
-<%= link_to 'Show', @video %> |
-<%= link_to 'Back', videos_path %>
+
+    <div class="control-group">
+      <label class="control-label"></label>
+      <div class="controls">
+        <button type="submit" name="commit" value="Log in"class="btn btn-success">Login </button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"></label>
+      <div class="controls">
+        <p>Forgot your password, <a href="/change_password">Recover it !</a><br></p>
+        <p>Are you new to MJ, <a href="/signup">Register here !</a><br></p>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="span3"></div>
+</div>
+<br><br><br><br><br><br><br><br><br>

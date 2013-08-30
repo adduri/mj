@@ -1,33 +1,41 @@
-<style type="text/css">
-
-.table-nonfluid {
-   width: auto;
-}
-</style>
 <div class="row">
-<div class="span6">
-<div>
-<a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
-<a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
-<a class="btn btn-danger" href="/feedbacks/new/<%= current_user.id %>">Give feedback</a>
+	<div class="span6">
+		<div>
+			<a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
+			<a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
+			<a class="btn btn-danger" href="/feedbacks/new/<%= current_user.id %>">Give feedback</a>
+		</div>
+		<h2 style="color:#890000">Give your feedback</h2>
+		<form accept-charset="UTF-8" action="/feedbacks/display_feedback/<%= current_user.id %>"class="new_feedback" id="new_feedback" method="post">
+			<div style="margin:0;padding:0;display:inline">
+				<input name="utf8" type="hidden" value="&#x2713;" />
+				<input name="authenticity_token" type="hidden" value="0QBdPSOO/IsWJsZO2BpIXY8FVGSBZg6jdyHZGTZ1qbY=" />
+			</div>
+			<div class="field">
+	    		<label for="feedback_details">Details</label>
+	    		<textarea cols="40" id="feedback_details" name="feedback[details]" rows="20" 		style="height:150px;width:400px;">
+				</textarea>
+	 		</div>
+			<br/>
+	  		<div class="actions">
+	    		<input class="btn btn-success" name="commit" type="submit" value="Create Feedback" />
+			</div>
+		</form>
+	</div>
+	<div class="span6">
+		<table class="table table-striped table-bordered table-condensed table-hover">
+		    <tr>
+		        <th><center>Details</center></th>
+		   	    <th><center>Created_at</center></th>
+		    </tr>
+		   	<% @show_feedback.each do |x| %>
+		    <tr>
+		    	<td width="65%"><%= x.details %></td>
+		    	<td width="35%"><%= x.created_at %></td>
+		    </tr></br>
+			<% end %>
+		</table>
+	</div>
 </div>
-<h2 style="color:#890000">Give your feedback</h2>
-<form accept-charset="UTF-8" action="/feedbacks/display_feedback/<%= current_user.id %>" class="new_feedback" id="new_feedback" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="0QBdPSOO/IsWJsZO2BpIXY8FVGSBZg6jdyHZGTZ1qbY=" /></div>
-
-  <div class="field">
-    <label for="feedback_details">Details</label>
-    <textarea cols="40" id="feedback_details" name="feedback[details]" rows="20" style="height:150px;width:400px;">
-</textarea>
-  </div>
-<br/>
-  <div class="actions">
-    <input class="btn btn-success" name="commit" type="submit" value="Create Feedback" />
-  </div>
-</form>
-</div>
-<br>
-<% @show_feedback.each do |x| %>
-  <%= x.details %>--<%= x.created_at %></br>
-<% end %>
-<br/>
- 
+<br><br><br><br><br><br><br><br><br>		
+		 

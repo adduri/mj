@@ -2,10 +2,20 @@ class UsersController < ApplicationController
   skip_before_filter :login_required, :only => [:home, :sign_up, :create, :registration_ack, :create_password, :store_password, :reset_password, :update_password, :demo_family, :search]
   before_filter :already_logged_in
   skip_before_filter :already_logged_in, :only => [:search, :index, :edit_profile]
+ 
+  # validate :user_email
+  helper_method :sort_column, :sort_direction
+
   
   def index
-    @users = User.all(:conditions => ['id > ?',params[:begin]], :limit => 30)
-    @begin = @users.last.id
+    @users = User.all  
+    @products = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+
+
+     
+ # @users = User.all(:conditions => ['id > ?',params[:begin]], :limit => 30)
+ #    @begin = @users.last.id
+ 
   end
 
   def sign_up
@@ -13,10 +23,6 @@ class UsersController < ApplicationController
   end
 
   def create
-     params[:user][:firstname] = params[:user][:firstname].upcase
-     params[:user][:lastname] = params[:user][:lastname].upcase
-     params[:user][:station] = params[:user][:station].upcase
-
     @user = User.new(params[:user])
     if @user.save
       redirect_to "/users/registration_ack/#{@user.id}"
@@ -72,6 +78,13 @@ class UsersController < ApplicationController
       mj_id = "MJ" + "#{@user.id}"
       @user.update_column(:mj_id,mj_id)
   end
+# def user_email
+#   email = User.find_all_by_email(params[:id])
+# if email.nil?
+#         errors.add(:email, 'Invalid Company ID')
+#       end
+# end
+# <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
 
   def show
     @user = User.find(params[:id])
@@ -100,10 +113,27 @@ class UsersController < ApplicationController
   end
 
   def search
+  @users = User.search(params[:search]) 
+      @products = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10) 
 
   end
 
   def demo_family
     @user = User.find(1)
   end
+ 
+ 
+
+
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "firstname"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+ 
+
+
+
 end
