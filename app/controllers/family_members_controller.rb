@@ -139,11 +139,13 @@
          @mm.each do |yy|
           @r.reverse_relationship = yy.relationship
          end
-         unless @r.existing_member_id == @r.new_member_id
-          unless @r.present_id == @r.existing_member_id
-           @r.save
+          unless @r.relationship.nil?
+             unless @r.existing_member_id == @r.new_member_id
+               unless @r.present_id == @r.existing_member_id
+                 @r.save
+               end
+              end
           end
-         end
       end
       redirect_to "/family_members/family/#{current_user.id}"
     end 
