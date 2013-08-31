@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-attr_accessible :email, :mj_id, :firstname, :gender, :desig, :lastname, :fathername,:mobileno,:state , :user_id, :visited, :photo, :payment, :due, :family_count, :station, :occupation, :address, :password, :password_confirmation, :dob, :middlename, :city, :country, :zip 
+attr_accessible :email, :mj_id, :firstname, :gender, :desig, :lastname, :fathername,
+:mobileno,:state,:landline , :user_id, :visited, :photo, :payment, :due,
+:family_count, :station, :occupation, :address, :password, :password_confirmation, :dob,
+:middlename, :city, :country, :zip 
 attr_accessor :password, :password_confirmation
   #  before_save :encrypt_password
   belongs_to :user
@@ -25,6 +28,17 @@ attr_accessor :password, :password_confirmation
       nil
     end
   end
+  
+def self.search(search)
+  if search
+    # where('firstname LIKE ? OR mj_id LIKE ?', "%#{search}%" "%#{search}%" "%#{search}%")
+    where('firstname LIKE ? OR mj_id LIKE ? OR lastname LIKE ? OR city LIKE ?' , 
+        "%#{search}%", "%#{search}%" ,
+     "%#{search}%", "%#{search}%" )
+  else
+    scoped
+  end
+end
 
   #  def encrypt_password
   #    logger.info ">>>>>>>>>>>>>>>>>> ENCRYPT PASSWORD"

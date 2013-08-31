@@ -1,52 +1,29 @@
- 
-<style type="text/css">
-.male-span3{width:220px;height:108px;margin-left:0px;margin-top:2px;
-}
-.span1{background:lightblue;
-                width:100px;margin-left:5px;border-radius:10px 0px;}
-.bordered {
-    border: 1px solid #CCCCCC;
-    border-radius: 10px 10px 10px 10px;
-    -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 1px 1px #CCCCCC;
-}
-.img-polaroid{height:40px;width:60px;border-radius:10px}
-.spouse-span1{background:lightpink;border-radius:10px 0px;
-                  width:100px;margin-left:10px;}
-.close{margin-top:0px;position:absolute;padding-left:10px;}
-.single-span1{background:lightgreen;
-                      border-radius:10px 0px;width:100px;margin-left:5px;margin-right:5px;}
-table {
-    border-spacing: 0;
-    margin: 30px;
-} 
-.bordered th {
-    background-color: #DCE9F9;
-    background-image: -moz-linear-gradient(center top , #F8F8F8, #ECECEC);
-    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#F8F8F8), to(#ECECEC), color-stop(.4, #F8F8F8));
-    border-top: medium none;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.bordered th {
-    border-left: 1px solid #CCCCCC;
-    border-top: 1px solid #CCCCCC;
-    border-bottom: 2px solid #CCCCCC;
-    padding: 10px;
-    text-align: left;
-}
-.font{font-size: 16px;position: relative;padding: 4px;}
-
-</style>
 <% if @user.id == current_user.id %>
 <div>
-  <a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
-  <a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
+  <a class="btn btn-info" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
+  <a class="btn btn-success" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
   <a class="btn btn-danger" href="/feedbacks/new/<%= current_user.id %>">Give feedback</a>
+  <a href="/family_members/member_request_notifications/<%= current_user.id %>"
+   class="btn btn-inverse">Notifications
+    <% if @family_members.count > 0 %>
+      <span class="notification" title="request_notifications">
+        <%= @family_members.count %>
+      </span>
+    <% end %>&nbsp;
+    <%if @send_notification.count > 0 %>
+      <span class="notification" style="background:green;" title="send_notifications">
+        <%= @send_notification.count %>
+      </span> 
+    <% end %>&nbsp;  
+    <%if @accept_notification.count > 0 %>
+      <span class="notification"style="background:#9966FF" title="accept_notifications">
+        <%= @accept_notification.count %>
+      </span> 
+    <% end  %>
+  </a>
 </div>
 <% end %>
+
 <br/>
 <div id="treeDiv">
 <% if @user.id == current_user.id %>
@@ -67,10 +44,11 @@ table {
 </form>
 <br/>
 <hr/>
-<a href = "/family_members/member_request_notifications/<%= current_user.id %>">Notifications</a><br/><br/>
-<!-- <a href = "/family_members/copy_relations/<%= current_user.id %>">Push</a> -->
 <% end %>
-<h2><font style="font-family: arial;" color="#890000"><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %>'s Family</font></h2>
+<h2><font style="font-family: arial;" color="#890000">
+  <%= @user.firstname.capitalize %>
+  <%= @user.middlename.capitalize %>
+  <%= @user.lastname.capitalize %>'s Family(<%= @user.mj_id %>)</font></h2>
 <center>
 <div class="MainProfile">
 <table>
@@ -88,8 +66,10 @@ table {
   <tr><td class="font">Mobile</td><td class="font">: &nbsp;<%= @user.mobileno %></td></tr>
   <tr><td class="font">Gender</td><td class="font">: &nbsp;<%= @user.gender %></td></tr>
   <tr><td class="font">Occupation</td><td class="font">: &nbsp;<%= @user.occupation.capitalize %></td></tr>
-  <tr><td class="font">City</td><td class="font">: &nbsp;<%= @user.station.capitalize %></td></tr>
-  <tr><td></td><td class="font">Address</td><td class="font">: &nbsp;<%= @user.address %></td></tr>
+  <tr><td class="font">City</td><td class="font">: &nbsp;<%= @user.city.capitalize %>
+  </td></tr>
+  <tr><td></td><td class="font">Address</td><td class="font">: &nbsp;<%= @user.address %>
+  </td></tr>
 </table>     
 </div>
 <br/><br/>
@@ -132,19 +112,21 @@ table {
         <h1><font style="font-family: arial;" color="#890000">Third Generation</font></h1>
       </th>
   </tr>
+  <tr>
       <td>
-      <div class="male-span3">
+     
           <div class="single-span1" >
-              <% if @user.photo_file_name.nil? %>
-                <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-              <% else %>
-                <%= image_tag @user.photo.url(:small), :class => 'img-polaroid'%>
-              <% end %>
-              &nbsp;<font size="3"><strong>Myself</strong></font><br>
-              &nbsp;<%= @user.firstname.capitalize %><br/>
-              &nbsp;<%= @user.station%>
+            <% if @user.photo_file_name.nil? %>
+              <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+            <% else %>
+              <%= image_tag @user.photo.url(:small), :class => 'img-polaroid'%>
+            <% end %><br>
+            &nbsp;<font size="3"><strong>मैं</strong></font><br>
+            &nbsp;<%= @user.firstname.capitalize %><br/>
+            &nbsp;<%= @user.lastname.capitalize%><br/>
+            <!--  &nbsp;<%= @user.station.capitalize%> -->
           </div>
-      </div>
+      
       </td>
       <% displayed_members_list << current_user.id %>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>

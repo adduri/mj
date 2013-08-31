@@ -1,0 +1,50 @@
+.male-span3{width:220px;height:110px;margin-left:0px;margin-top:2px;margin-bottom: 2px;
+}
+.span1{background:lightblue;
+                width:100px;margin-left:5px;border-radius:10px 0px;height:110px;}
+.bordered {
+    border: 1px solid #CCCCCC;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 1px 1px #CCCCCC;
+}
+.img-polaroid{height:40px;width:60px;border-radius:10px}
+.spouse-span1{background:lightpink;border-radius:10px 0px;
+                  width:100px;margin-left:10px;height:110px;}
+.close{margin-top:0px;position:absolute;padding-left:10px;}
+.single-span1{background:lightgreen;
+                      border-radius:10px 0px;width:100px;margin-left:5px;margin-right:5px;height:110px;}
+table {
+    border-spacing: 0;
+    margin: 30px;
+} 
+.bordered th {
+    background-color: #DCE9F9;
+    background-image: -moz-linear-gradient(center top , #F8F8F8, #ECECEC);
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#F8F8F8), to(#ECECEC), color-stop(.4, #F8F8F8));
+    border-top: medium none;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.bordered th {
+    border-left: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 2px solid #CCCCCC;
+    text-align: left;
+}
+
+.font{font-size: 16px;position: relative;padding: 4px;}
+.notification{ 
+    border-radius: 2px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+    font-family: Arial;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    height: 14px;
+    line-height: 14px;
+    padding: 2px 6px;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}}

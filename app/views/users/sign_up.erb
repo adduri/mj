@@ -1,3 +1,22 @@
+<script>
+  $(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
+</script>
+
+<style type="text/css">
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfont.woff') format('woff'), /* Modern Browsers */
+       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+  }
+.control-label{
+
+ font-family: 'MyFontFamily', Fallback, sans-serif;
+}
+</style>
+
 <div  class="hero-unit" style="background-color:#fff;background-color:transparent; ">
  <div class="accordion" id="accordion2">
   <div class="accordion-group" >
@@ -27,36 +46,53 @@
     </div>
   </div>
 </div>
-  <h2 style="color:#890000"><strong>Registration Form</strong></h2>
- <form accept-charset="UTF-8" action="/users/create" class="new_user" id="new_user" method="post">
-<table border="0" cellspacing="2" cellpadding="3">
-  <tr>
-  <tr>
-    <td><label for="user_desig"><strong>Title</strong></label></td>
-    <td>
-<select id="user_desig" name="user[desig]">
-     <option  value="Mr.">Mr.</option>
-    <option  value="Mrs.">Mrs.</option>
-    <option  value="Miss.">Miss.</option>
-    <option  value="Master">Master</option>
-    <option  value="Late">Late</option>
+  <h1 style="color:#890000;font-size:40px;"><strong>Registration Form</strong></h1><br>
+ <form accept-charset="UTF-8" action="/users/create"  class= "form-horizontal"  id="new_user" method="post">
+<fieldset>
 
-   </select></td>
-  </tr>
-      <td> 
-         <label for="user_firstname"><strong>Name</strong></label>
-    </td>
-    <td><input id="user_firstname" name="user[firstname]" size="30" type="text" required="required" /></td>
-  </tr>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Title</label>
+  <div class="controls">
+      <select id="user[desig]" name="user[desig]" required="required">
+        <option value="Mr.">Mr.</option>
+        <option value="Mrs.">Mrs.</option>
+        <option value="Miss.">Miss.</option>
+        <option value="Master.">Master.</option>
+        <option value="Late.">Late.</option>
+      </select>    
+  </div>
 </div>
-    <tr>
-    <td><label for="user_middlename"><strong>Middle Name</strong></label></td>
-    <td><input id="user_middlename" name="user[middlename]" size="30" type="text"  /></td>
-  </tr>
-   <tr>
-    <td><label for="user_lastname"><strong>Surname</strong></label> </td>
-    <td>
-        <input list="surnames" name="user[lastname]" size="30" type="text" required="required">
+
+
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">First Name</label>
+  <div class="controls">
+    <input id="user[firstname]" name="user[firstname]" maxlength="20" placeholder="krishna" class="input-large" required="required" type="text" pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize; " >
+  
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Middle Name</label>
+  <div class="controls">
+    <input id="user[middlename]" name="user[middlename]" maxlength="20" placeholder="kumar" class="input-large" type="text" pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Surname</label>
+  <div class="controls">
+    <input list="surnames" name="user[lastname]" placeholder="kabra" maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
+
         <datalist id="surnames">
             <option value="Agiwal">
             <option value="Ajmera">
@@ -207,77 +243,190 @@
             <option value="Toshniwal">
             <option value="Totla">
         </datalist>
-</td>
-  </tr>
-  <tr>
-    <td><label for="user_fathername"><strong>Father Name</strong></label></td>
-    <td><input id="user_fathername" name="user[fathername]" size="30" type="text" 
-        required="required" /></td>
-  </tr>
- <tr>
-    <td><strong>Gender</strong></td>
-    <td><input type="radio" name="user[gender]" style="position:absolute" value="Male" />&nbsp;&nbsp;&nbsp;&nbsp;<strong>Male</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <input type="radio" style="position:absolute" name="user[gender]" value="Female" />&nbsp;&nbsp;&nbsp;&nbsp;<strong>Female</strong></td>
-  </tr>
-  <tr>
-    <td><label for="user_dob"><strong>Date Of Birth</strong></label></td>
-    <td> <input id="txtDate" name="user[dob]" type="text" size="30" required="required" /></td>
-  </tr>
-    <tr>
-    <td><label for="user_email"><strong>Email</strong></label></td>
-    <td><input id="user_email" name="user[email]" size="30" type="email" required="required"/></td>
-  </tr>
-  
-</td>
-   <tr>
-    <td><label for="user_mobileno"><strong>Mobile no / Land line</strong></label></td>
-    <td><input id="user_mobileno" name="user[mobileno]" type="text" required="required"/></td>
-  </tr>
-   <tr>
-     <td><input id="user_id" name="user[user_id]" type="hidden" value="2" /></td>
-  </tr>
-  <tr>
-    <td><label for="user_city"><strong>City</strong></label></td>
-    <td><input id="user_city" name="user[city]" size="30" type="text" required="required" /></td>
-  </tr>
-  <tr>
-    <td><label for="user_state"><strong>State</strong></label></td>
-    <td><input id="user_state" name="user[state]" size="30" type="text" required="required" /></td>
-  </tr>
-    <tr>
-    <td><label for="user_country"><strong>Country</strong></label></td>
-    <td><input id="user_country" name="user[country]" size="30" type="text" required="required" /></td>
- <tr>
-    <td><label for="user_zip"><strong>Zip/Pincode</strong></label></td>
-    <td><input id="user_zip" name="user[zip]" size="30" type="text" required="required" /></td>
-  </tr>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Father Name</label>
+  <div class="controls">
+    <input id="user[fathername]" name="user[fathername]" placeholder="hariprasad" 
+    maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="control-group">
+  <label class="control-label">Gender</label>
+  <div class="controls">
+    <label class="radio inline">
+      <input name="user[gender]" value="male" checked="checked" type="radio">
+      male
+    </label>
+    <label class="radio inline">
+      <input name="user[gender]" value="female" type="radio">
+      female
+    </label>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Email</label>
+  <div class="controls">
+
+    <input id="user[email]" name="user[email]" placeholder="abc@xyz.com" class="input-large" required="required" type="email" >
+    <p class="help-block"></p>
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Contact Number</label>
+  <div class="controls">
+    <input id="user[mobileno]" name="user[mobileno]" placeholder="09876543210" 
+    maxlength="12" class="input-large" required="required" type="number" pattern=".{5,12}" data-validation-pattern-message="Contact Number seems to be Wrong" title="min 5 to 12 characters">
+    <p class ="help-block"></p>
+  </div>
+</div>
+<!-- Text input-->
+<!-- <div class="control-group">
+  <label class="control-label">Landline number</label>
+  <div class="controls">
+    <input id="user[landline]" name="user[landline]" placeholder="040 12345678" class="input-large" type="number" maxlength="15">
+    <p class="help-block"></p>
+  </div>
+</div -->
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Date of Birth</label>
+  <div class="controls">
+    <input id="user[dob]" name="user[dob]" placeholder="dd/mm/yyyy" class="input-large" required="required" type="text" maxlength="10"  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
+ data-validation-pattern-message="You might have entered a Wrond Date of Birth">
+    <p class="help-block"></p>
+  </div>
+</div>
+
+
+ <div class="control-group">
+  <label class="control-label">Country</label>
+  <div class="controls">
+   
+    
+   <select name="user[country]" id="user[country]">
+             <option value="select" selected></option>
+             <option value="India">India</option>
+              <option value="Canada">Canada</option>
+             <option value="Mexico">Mexico</option>
+             <option value="United States">United States</option>
+             <option value="Nigeria">Nigeria</option>
+             <option value="Bangladesh">Bangladesh</option>
+             <option value="Bhutan">Bhutan</option>
+             <option value="Brunei">Brunei</option>
+             <option value="Burma (Myanmar)">Burma (Myanmar)</option>
+             <option value="Cambodia">Cambodia</option>
+             <option value="China">China</option>
+             <option value="Italy">Italy</option>
+             <option value="United Kingdom">United Kingdom</option>
+             <option value="Kuwait">Kuwait</option>
+             <option value="Saudi Arabia">Saudi Arabia</option>
+             <option value="Turkey">Turkey</option>
+             <option value="United Arab Emirates">United Arab Emirates</option>
+             <option value="South Africa">South Africa</option>
+             <option value="Indonesia">Indonesia</option>
+             <option value="Korea (north)">Korea (north)</option>
+            <option value="Korea (south)">Korea (south)</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Australia">Australi</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Ice Land">Ice Land</option>
+     </select> 
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">State</label>
+  <div class="controls">
  
-
-  </tr>
- 
-
- <tr><td></td><td></td></tr>
-<tr><td></td><td></td></tr>&nbsp;
-<tr><td></td><td></td></tr>
-     <tr>
-<!--   <td colspan='2'><input type="checkbox" id="chk_tc"/><label>I agree the Terms & Condition</label><br/><br/>
-      <input type="submit" id="btn_submit" value="Register" class="btn btn-success" name="commit" style="margin-left:200px"/></td> -->
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-    <td colspan='2'><input type="checkbox" id="chk_tc" required="required"/> 
-
-         I accept the <a href="/home/tc">Terms and Conditions </a>
- 
-
-      <br/><br/>
-      <input type="submit" id="btn_sub" value="Register" class="btn btn-success" name="commit" style="margin-left:200px"/></td>
-  </tr>
-</table>
-</form>
- <br/><br/><br/>
-
- <!-- //////////////////// -->
-
-
+    <select  name="user[state]" id="user[state]">
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+        <option value="Daman and Diu">Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Orissa">Orissa</option>
+        <option value="Pondicherry">Pondicherry</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttaranchal">Uttaranchal</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="West Bengal">West Bengal</option>
+        </select>
        
-     </body>
- </html>
+  </div>
+</div>
+
+
+<div class="control-group">
+  <label class="control-label">City</label>
+  <div class="controls">
+    <input id="user[city]" name="user[city]" placeholder="Hyderabad" class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed"  style="text-transform: capitalize;">
+    <!-- 
+    <select name="user[city]"  id="city">
+      <option value="select" selected></option>
+    </select> -->
+     
+  </div>
+</div> 
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label">Zip/PinCode</label>
+  <div class="controls">
+    <input id="user[zip]" name="user[zip]" placeholder="500003" class="input-large" required="required" type="number" maxlength="10">
+    
+  </div>
+</div>
+
+  <div class="controls">
+    <input type="checkbox" name="terms-and-conditions" required data-validation-required-message=
+    "You must agree to the terms and conditions">
+    I accept the <a href="/home/tc">Terms and Conditions </a>
+  <div>
+
+    <br>  
+
+  <div class="controls">
+    <button type ="submit" id="btn_sub" name="commit" class="btn btn-success">Register</button>
+  </div>
+</fieldset>
+</form>
+
+

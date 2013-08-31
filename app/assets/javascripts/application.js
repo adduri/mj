@@ -19,13 +19,31 @@ $('.carousel').carousel({
 }) 
 $('.dropdown-toggle').dropdown();
 
-$(function () {
-    var options = {
+// $(function () {
+//     var options = {
         
-        changeYear: true, 
-        yearRange: "-213:+1"
-    }
-    $("#txtDate").datepicker(options);
-});
+//         changeYear: true, 
+//         yearRange: "-213:+1"
+//     }
+//     $("#txtDate").datepicker(options);
+// });
+
 
 $(".collapse").collapse()
+
+
+
+
+$(function() {
+  $("#products th a, #products .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#users_search input").keyup(function() {
+    $.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
+    return false;
+  });
+});
+
+
+ 

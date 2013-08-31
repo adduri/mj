@@ -3,9 +3,9 @@ Mj::Application.routes.draw do
     # root :to => "home#index"
 
 
-  get "home/index"
+  get "home/aboutus"
 
-  root :to => redirect('/ads')
+  root :to => redirect('/aboutus')
 
 
  
@@ -40,7 +40,7 @@ Mj::Application.routes.draw do
   get '/ads/:id/sai', to: 'ads#sai'
 
 
-  get "search" => "users#search", :as => "search"
+  get "search" => "users#index", :as => "search"
   get "products" => "ads#products", :as => "products"
   get "rajasthan" => "sessions#about_rajasthan", :as => "rajasthan"
 

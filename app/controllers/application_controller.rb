@@ -20,4 +20,9 @@ class ApplicationController < ActionController::Base
 	    redirect_to "/sessions/login_page/#{current_user.id}"
 	  end
 	end
+	def required_login
+		unless current_user
+			redirect_to "/videos/2/edit" , :notice => "show more videos"
+		end
+	end
 end

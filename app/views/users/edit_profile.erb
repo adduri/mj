@@ -1,39 +1,48 @@
- <div  class="hero-unit" style="background-color:#fff;width:42em;background-color:transparent; ">
+<div  class="hero-unit" 
+    style="background-color:#fff;width:42em;background-color:transparent; ">
+        <div>
+            <a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile
+            </a>
+            <a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
+            <a class="btn btn-danger" href="/give_feedback">Give feedback</a>
+        </div>
+    <br/>
+<form action="/sessions/edit_page/<%= @user.id %>" method="post" 
+    enctype="multipart/form-data">
+    <h3>
+        <font color="#890000" ><%= @user.mj_id %> - <%= @user.firstname.capitalize %> <%= @user.middlename.capitalize %> <%=@user.lastname.capitalize %>'s profile
+        </font>
+    </h3>
+<table border="0" cellpadding="4" cellspacing="2">
 
+    <tr>
+        <tr>
+            <td><label for="user_desig"><strong>Title</strong></label></td>
+            <td>
+                <select id="user_desig" name="user[desig]" required="required" 
+                value="<%= @user.desig %>">
+                    <option value="<%= @user.desig %>"><%= @user.desig %></option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Miss.">Miss.</option>
+                    <option value="Master.">Master.</option>
+                    <option value="Late.">Late.</option>
+                </select>
+            </td>
+        </tr>
+            <td><strong>First Name</strong> </td>
+            <td><input id="user_firstname" name="user[firstname]" size="30" type="text" value="<%= @user.firstname.capitalize %>" style="text-transform: capitalize;" placeholder="krishna" maxlength="20" required="required"/></td>
+    </tr>
+    <tr>
+        <td><label for="user_middlename"><strong>Middlename</strong></label></td>
+        <td><input id="user_middlename" name="user[middlename]" size="30" type="text" value="<%= @user.middlename.capitalize %>" style="text-transform: capitalize;" placeholder="kumar" maxlength="20" required="required"/></td>
 
- <div>
-<a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
-<a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
-<a class="btn btn-danger" href="/give_feedback">Give feedback</a>
-</div>
-<br/>
-<form action="/sessions/edit_page/<%= @user.id %>" method="post" enctype="multipart/form-data">
-  <h3 ><font color="#890000" ><%= @user.mj_id %> - <%= @user.firstname %> <%=@user.lastname%>'s profile</font></h3>
-  <table border="0" cellpadding="4" cellspacing="2">
-  <tr>
-
- 
-
- <tr>
-     <td><label for="user_desig"><strong>Title</strong></label></td>
-    <td><select id="user_desig" name="user[desig]"   value="<%= @user.desig %>"/>
-    <option  value="Mr.">Mr.</option>
-    <option  value="Mrs.">Mrs.</option>
-    <option  value="Miss.">Miss.</option>
-    <option  value="Master">Master</option>
-   </select></td>
-   </tr>
-
- 
-  
-    <td><strong>Name:</strong> </td>
-    <td><input id="user_firstname" name="user[firstname]" size="30" type="text" value="<%= @user.firstname %>"/></td>
-  </tr>
-  <tr>
-    <td><label for="user_lastname"><strong>Surname</strong></label> </td>
-    <td>
-        <input list="surnames" name="user[lastname]" size="30" type="text" required="required" value="<%= @user.lastname %>">
-        <datalist id="surnames">
+    </tr>
+    <tr>
+        <td><label for="user_lastname"><strong>Surname</strong></label> </td>
+        <td>
+            <input list="surnames" value="<%= @user.lastname %>" name="user[lastname]" size="30" type="text" required="required" style="text-transform: capitalize;" placeholder="kabra" maxlength="20">
+            <datalist id="surnames">
             <option value="<%= @user.lastname %>">
             <option value="Agiwal">
             <option value="Ajmera">
@@ -183,78 +192,101 @@
             <option value="Thirani">
             <option value="Toshniwal">
             <option value="Totla">
-        </datalist></td>
-  </tr>
-  <tr>
-    <td><strong>Father Name:</strong> </td>
-    <td><input id="user_fathername" name="user[fathername]" size="30" type="text" value="<%= @user.fathername %>"/></td>
-  </tr>
-  <tr>
-    <td><label for="user_email"><strong>Email</strong></label></td>
-    <td><input id="user_email" name="user[email]" size="30" type="text" value="<%= @user.email %>"/></td>
-  </tr>
+        </datalist>        
+    </tr>    
+    <tr>
+        <td><label for="user_fathername"><strong>Father Name</strong></label> </td>
+        <td><input id="user_fathername" name="user[fathername]" size="30" type="text" value="<%= @user.fathername.capitalize %>"/style="text-transform: capitalize;" placeholder="hariprasad" maxlength="20" required="required"></td>
   
-
- 
- 
- 
-
- 
-  <tr> 
-    <td><label for="user_station"><strong>City</strong></label></td>
-    <td><input id="user_station" name="user[station]" size="30" type="text" value="<%= @user.station %>"/></td>
-  </tr>
-  <tr>
-    <td><label for="user_state"><strong>State</strong></label></td>
-    <td><input id="user_state" name="user[state]" size="30" type="text" value="<%= @user.state %>"/></td>
-  </tr>
-  <tr>
-    <td><label for="user_occupation"><strong>Occupation</strong></label></td>
-    <td><input id="user_occupation" name="user[occupation]" size="30" type="text" value="<%= @user.occupation %>"/></td>
-  </tr>
-  <tr>
-    <td><label for="user_mobileno"><strong>Mobile no / Landline</strong></label></td>
-    <td><input id="user_mobileno" name="user[mobileno]" type="text" value="<%= @user.mobileno %>"/></td>
-  </tr>
-  <tr>
-    <td><label for="user_address"><strong>Address</strong></label></td>
-    <td><textarea rows="4" cols="30" id =" user_address" name="user[address]" ><%= @user.address %></textarea></td>
-  </tr>
-  <tr>
-    
-      <tr>
-    <td><label for="user_dob"><strong>DOB</strong></label></td>
-    <td><input id="user_dob" name="user[dob]" type="text" value="<%= @user.dob %>"/></td>
-  </tr>
-  <tr>
-
-    <td><strong>Gender:</strong> </td>
-    <td><input type="radio"  style="position:absolute" name="user[gender]" value="Male" <% if current_user.gender == "Male" %> checked <% end %>/><strong>&nbsp;&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 
-    <input type="radio" style="position:absolute" name="user[gender]" value="Female" <% if current_user.gender == "Female" %> checked <% end %> /><strong>&nbsp;&nbsp;&nbsp;&nbsp;Female</strong> </td>
-  </tr>
+    </tr>
+    <tr>
+        <td><label for = "user_gender"><strong>Gender</strong></label> </td>
+        <td>
+            <input type="radio"  style="position:absolute" name="user[gender]" value="Male" <% if current_user.gender == "Male" %> checked <% end %>/>
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input type="radio" style="position:absolute" name="user[gender]" value="Female" <% if current_user.gender == "Female" %> checked <% end %> /><strong>&nbsp;&nbsp;&nbsp;&nbsp;Female</strong>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="user_email"><strong>Email</strong></label></td>
+        <td>
+            <input id="user_email" name="user[email]" size="30" type="email" value="<%= @user.email %>" placeholder="abc@xyz.com"/>
+            <p class="help-block"></p>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="user_dob"><strong>DOB</strong></label></td>
+        <td>
+            <input id="user_dob" name="user[dob]" type="text" value="<%= @user.dob %>" placeholder="dd/mm/yyyy" size="30" maxlength="10" required="required" pattern="\d{1,2}/\d{1,2}/\d{4}" max="31/12/2013"/>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="user_occupation"><strong>Occupation</strong></label></td>
+        <td><input id="user_occupation" name="user[occupation]" size="30" type="text" 
+            value="<%= @user.occupation.capitalize %>" style="text-transform: capitalize;" placeholder="bussiness"/></td>
+    </tr>
+    <tr>
+        <td><label for="user_mobileno"><strong>Contact Number</strong></label></td>
+        <td>
+            <input id="user_mobileno" name="user[mobileno]" type="number" 
+            value="<%= @user.mobileno %>" style="text-transform: capitalize;"  maxlength="12" pattern=".{5,12}" title="min 5 to 12 characters" placeholder="09876543210" required="required"/>
+            <p class="help-block"></p>
+        </td>
+    </tr>
   
+    <tr>
+        <td><label for="user_address"><strong>Address</strong></label></td>
+        <td>
+            <textarea rows="4" cols="30" id =" user_address" name="user[address]" >
+                <%= @user.address %></textarea></td>
+    </tr>
+    <tr>
+        <td><label for="user_country"><strong>Country</strong></label></td>
+        <td>
+            <input id="user_country" name="user[country]" size="30" type="text" 
+            value="<%= @user.country.capitalize %>"style="text-transform: capitalize;" placeholder="india"  required="required"/>
+        </td>
+
+    </tr>
+    <tr>
+        <td><label for="user_state"><strong>State</strong></label></td>
+        <td>
+            <input id="user_state" name="user[state]" size="30" type="text" 
+            value="<%= @user.state.capitalize %>" style="text-transform: capitalize;" placeholder="andhra pradesh"  required="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="user_city"><strong>City</strong></label></td>
+        <td>
+            <input id="user_city" name="user[city]" size="30" type="text" 
+            value="<%= @user.city %>"style="text-transform: capitalize;" placeholder="Hyderabad"  required="required"/>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="user_zip"><strong>Zipcode</strong></label></td>
+        <td>
+            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="10"/></td>
+    </tr>
 
 
-  <tr>
-  <td><label for="photo"><strong>Photo</strong></label></td>
-  <td><% if !current_user.photo_file_name.nil? %>
-    <%= image_tag current_user.photo.url(:small) %><br />
-  <% else %>
-    <img src="/assets/empty_profile.jpeg" height="50" width="50" alt="" /><br />
-  <% end %>
-  <input id="photo"   name="user[photo]" type="file" value="<%= @user.photo %>"/>
-</td>
-</tr>
 
-
-
-
-  <tr>
-   <td> <input name="submit" type="submit" value="submit"   class="btn btn-success" /></td>
-  </tr>
+    <tr>
+        <td><label for="photo"><strong>Photo</strong></label></td>
+        <td>
+            <% if !current_user.photo_file_name.nil? %>
+                <%= image_tag current_user.photo.url(:small) %><br />
+            <% else %>
+                <img src="/assets/empty_profile.jpeg" height="50" width="50" alt="" /><br />
+            <% end %>
+            <input id="photo"   name="user[photo]" type="file" value="<%= @user.photo %>"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input name="submit" type="submit" value="submit"   class="btn btn-success" />
+        </td>
+    </tr>
 </table>
 </form>
 </div>
-
-
- </br></br></br></br></br></br>
+</br></br></br></br></br></br>

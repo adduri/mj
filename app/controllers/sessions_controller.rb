@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
     if current_user.user_id == 0
-      redirect_to "/users?begin=1"
+      redirect_to "/family_members/family/#{@user.id}"
     else
       redirect_to "/family_members/family/#{@user.id}"
     end
@@ -45,11 +45,11 @@ class SessionsController < ApplicationController
   end
 
   def edit_page
-    params[:user][:firstname] = params[:user][:firstname].upcase
-    params[:user][:lastname] = params[:user][:lastname].upcase
-    params[:user][:station] = params[:user][:station].upcase
-    params[:user][:occupation] = params[:user][:occupation].upcase
-    params[:user][:address] = params[:user][:address].upcase
+    params[:user][:firstname] = params[:user][:firstname]
+    params[:user][:lastname] = params[:user][:lastname]
+    params[:user][:station] = params[:user][:station]
+    params[:user][:occupation] = params[:user][:occupation]
+    params[:user][:address] = params[:user][:address]
     @user = User.find(params[:id])
     logger.info ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{params[:user][:photo]}"
     @user.update_attributes(params[:user])
