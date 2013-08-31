@@ -139,11 +139,13 @@
          @mm.each do |yy|
           @r.reverse_relationship = yy.relationship
          end
-         unless @r.existing_member_id == @r.new_member_id
-          unless @r.present_id == @r.existing_member_id
-           @r.save
+          unless @r.relationship.nil?
+             unless @r.existing_member_id == @r.new_member_id
+               unless @r.present_id == @r.existing_member_id
+                 @r.save
+               end
+              end
           end
-         end
       end
       redirect_to "/family_members/family/#{current_user.id}"
     end 
@@ -251,6 +253,9 @@
     @fm.family_member_user_id = @fg.new_member_id
     @fm.join_pending = false
     @fm.relation_id = @r.id
+   if (@fg.relationship == "पति") || (@fg.relationship == "पत्नी")
+    @fm.spouse_status = true
+   end
     @fm_dob = User.find(@fg.existing_member_id).dob
     @fm.family_member_user_dob = @fm_dob
     @fm.save
@@ -260,6 +265,9 @@
       @f.family_member_user_id = @fg.existing_member_id
       @f.join_pending = false
       @f.relation_id = @r_reverse.id
+     if (@fg.reverse_relationship == "पति") || (@fg.reverse_relationship == "पत्नी")
+      @f.spouse_status = true
+     end
       @f_dob = User.find(@fg.new_member_id).dob
       @f.family_member_user_dob = @f_dob
       @f.save

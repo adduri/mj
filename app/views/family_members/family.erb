@@ -84,7 +84,7 @@
   <tr>
       <% @user.relations.group("relationship").having("priority = ?", 1).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
@@ -131,7 +131,7 @@
       <% displayed_members_list << current_user.id %>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>
           <td>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
                 <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
               <% end %>
           </td>
@@ -146,7 +146,7 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 4).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
@@ -161,7 +161,7 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 5).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob desc').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
