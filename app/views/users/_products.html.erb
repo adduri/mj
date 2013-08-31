@@ -16,6 +16,7 @@ id="products">
     <th><%= sortable "Mj Id" %></th>
     <th><%= sortable "surname" %></th>
     <th><%= sortable "firstname" %></th>
+    <th><%= sortable "city"%>
     <th><%= sortable "photo" %></th>
   </tr>
   <% for product in @products %>
@@ -23,6 +24,7 @@ id="products">
       <td><%= product.mj_id %></td>
       <td><%= product.lastname %></td>
       <td><%= product.firstname %></td>
+      <td><%= product.city%></td>
       <td><%= image_tag  product.photo.url(:small) %></a></td>
     </tr>
   <% end %>

@@ -32,8 +32,9 @@ attr_accessor :password, :password_confirmation
 def self.search(search)
   if search
     # where('firstname LIKE ? OR mj_id LIKE ?', "%#{search}%" "%#{search}%" "%#{search}%")
-    where('firstname LIKE ? OR mj_id LIKE ? OR lastname LIKE ?' , "%#{search}%", "%#{search}%" ,
-     "%#{search}%")
+    where('firstname LIKE ? OR mj_id LIKE ? OR lastname LIKE ? OR city LIKE ?' , 
+        "%#{search}%", "%#{search}%" ,
+     "%#{search}%", "%#{search}%" )
   else
     scoped
   end
