@@ -17,9 +17,7 @@
         <a href="/family_members/family/<%= family_member.id %>">
         &nbsp;<%= family_member.firstname.capitalize %></a><br/>
         &nbsp;<%= family_member.lastname.capitalize %><br/>
-    
     </div>
-
     <% displayed_members_list << family_member.id %>
 
     <% spouse_relation = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(f.family_member_user_id,true,false) %>

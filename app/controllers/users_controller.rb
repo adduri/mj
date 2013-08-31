@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   def create
+     # params[:user][:firstname] = params[:user][:firstname].upcase
+     # params[:user][:lastname] = params[:user][:lastname].upcase
+     # params[:user][:station] = params[:user][:station].upcase
+
     @user = User.new(params[:user])
     if @user.save
       redirect_to "/users/registration_ack/#{@user.id}"

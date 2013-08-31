@@ -1,6 +1,5 @@
-#!/bin/env ruby
-# encoding: utf-8
-class FamilyMembersController < ApplicationController
+ # encoding: utf-8
+ class FamilyMembersController < ApplicationController
   before_filter :already_logged_in
   skip_before_filter :already_logged_in, :only => [:family, :create_family, :admin_family, :member_request_notifications, :add_family, :update_payment, :print_tree, :edit_relationship, :update_relation, :delete_member, :join_pending, :pending_decline, :accept, :decline, :flag_accept, :flag_decline]
 
@@ -231,13 +230,13 @@ class FamilyMembersController < ApplicationController
     @fg.save
     @u = @fg.new_member_id
     @name = User.find(@u)
-    redirect_to "/family_members/family/#{current_user.id}", :notice => "Request has been sent to #{@name.firstname}."
+    redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "Request has been sent to #{@name.firstname}."
   end
 
   def decline
     @fg = Relative.find(params[:id])
     @fg.destroy
-    redirect_to "/family_members/family/#{current_user.id}"
+    redirect_to "/family_members/member_request_notifications/#{current_user.id}"
   end
 
   def flag_accept
@@ -265,13 +264,13 @@ class FamilyMembersController < ApplicationController
       @f.family_member_user_dob = @f_dob
       @f.save
     end
-    redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@name.firstname} is added."
+    redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
   end
 
   def flag_decline
     @fg = Relative.find(params[:id])
     @fg.destroy
-    redirect_to "/family_members/family/#{current_user.id}"
+    redirect_to "/family_members/member_request_notifications/#{current_user.id}"
   end
 
   def member_request_notifications
@@ -279,21 +278,6 @@ class FamilyMembersController < ApplicationController
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(params[:id],true)
     @send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
     @accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
-
   end
 
-#   def copy_relations
-#     @user = User.find(params[:id])
-#     @family_member = FamilyMember.find_all_by_user_id(current_user.id)
-#     @family_member.each do |f|
-#     @relation = Relation.find(f.relation_id).relationship
-#      if (@relation == "bhaiya") || (@relation == "jiji")
-#       @family = FamilyMember.new
-#       @family.user_id = f.family_member_user_id
-#       @family.family_member_user_id = f.
-
-# end
-#     end 
-
-#   end
-end
+ end
