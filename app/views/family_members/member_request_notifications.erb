@@ -68,7 +68,7 @@ td{padding: 10px;}
 
   <div class="span4">
   <% @accept_notification.each do |an| %> 
-    <% if !an.relationship.nil? %>
+    <% if !an.reverse_relationship.nil? %>
       <div style="background:lightpink">
         <table>
           <tr>
@@ -102,7 +102,7 @@ td{padding: 10px;}
               <% end %>
             </td>
             <td><a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname %></a>
-              <font size="4" > <%= @u_id.firstname%> wants to add you as <%= an.relationship %>.</font><br><br>
+              <%= @u_id.firstname%> wants to add you as <font size="4" > <%= an.relationship %>.</font><br><br>
               <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a>
               &nbsp;or &nbsp;
               <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>

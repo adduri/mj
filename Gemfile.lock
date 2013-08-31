@@ -182,6 +182,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country_select (~> 1.2.0)
   jquery-rails (= 2.3.0)
+  kaminari
   less-rails
   mysql2
   paperclip
