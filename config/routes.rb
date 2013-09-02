@@ -1,11 +1,14 @@
 Mj::Application.routes.draw do
 
-    # root :to => "home#index"
+  # root :to => "home#index"
+  
+  get "home/index"
 
+  root :to => redirect('/ads')
 
-  get "home/aboutus"
+  # get "home/aboutus"
 
-  root :to => redirect('/aboutus')
+  # root :to => redirect('/aboutus')
 
 
  
