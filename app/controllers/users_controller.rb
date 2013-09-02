@@ -28,10 +28,11 @@ class UsersController < ApplicationController
      # params[:user][:station] = params[:user][:station].upcase
 
     @user = User.new(params[:user])
-    if @user.save
+    if verify_recaptcha
+      @user.save
       redirect_to "/users/registration_ack/#{@user.id}"
     else
-      render 'new'
+      redirect_to signup_path, :notice => "You might have entered the Wrong Captcha Code, please Enter it Again"
     end
   end
 

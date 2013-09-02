@@ -10,8 +10,9 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rmagick'
 gem 'paperclip'
 
-# install wkhtmltopdf for wicked_pdf to work
-# gem 'wicked_pdf'
+#captcha
+gem 'recaptcha', :require => 'recaptcha/rails'
+ 
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
