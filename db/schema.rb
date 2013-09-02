@@ -93,14 +93,13 @@ ActiveRecord::Schema.define(:version => 20130826122728) do
   end
 
   create_table "family_members", :force => true do |t|
-    t.integer  "user_id",                :default => 0,     :null => false
-    t.integer  "family_member_user_id",  :default => 0,     :null => false
-    t.boolean  "join_pending",           :default => true
-    t.integer  "relation_id",            :default => 0,     :null => false
-    t.boolean  "spouse_status",          :default => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.date     "family_member_user_dob"
+    t.integer  "user_id",               :default => 0,     :null => false
+    t.integer  "family_member_user_id", :default => 0,     :null => false
+    t.boolean  "join_pending",          :default => true
+    t.integer  "relation_id",           :default => 0,     :null => false
+    t.boolean  "spouse_status",         :default => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"

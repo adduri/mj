@@ -115,18 +115,18 @@
   <tr>
       <td>
      
-          <div class="single-span1" >
+            <div class="single-span1" >
             <% if @user.photo_file_name.nil? %>
               <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
             <% else %>
               <%= image_tag @user.photo.url(:small), :class => 'img-polaroid'%>
-            <% end %><br>
+            <% end %>
             &nbsp;<font size="3"><strong>मैं</strong></font><br>
-            &nbsp;<%= @user.firstname.capitalize %><br/>
+            &nbsp;<%= @user.firstname.capitalize %>
             &nbsp;<%= @user.lastname.capitalize%><br/>
-            <!--  &nbsp;<%= @user.station.capitalize%> -->
+            &nbsp;<%= @user.dob%><br/>
+            &nbsp;<%= @user.city.capitalize%><br/>           
           </div>
-      
       </td>
       <% displayed_members_list << current_user.id %>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>

@@ -1,7 +1,7 @@
-.male-span3{width:220px;height:110px;margin-left:0px;margin-top:2px;margin-bottom: 2px;
+.male-span3{width:400px;margin-left:0px;margin-top:2px;margin-bottom: 2px;
 }
 .span1{background:lightblue;
-                width:100px;margin-left:5px;border-radius:10px 0px;height:110px;}
+                width:180px;margin-left:5px;border-radius:10px 0px;}
 .bordered {
     border: 1px solid #CCCCCC;
     border-radius: 10px 10px 10px 10px;
@@ -11,10 +11,11 @@
 }
 .img-polaroid{height:40px;width:60px;border-radius:10px}
 .spouse-span1{background:lightpink;border-radius:10px 0px;
-                  width:100px;margin-left:10px;height:110px;}
-.close{margin-top:0px;position:absolute;padding-left:10px;}
+                  width:180px;margin-left:10px;}
+.close{margin-top:0px;position:absolute;padding-left:85px;}
 .single-span1{background:lightgreen;
-                      border-radius:10px 0px;width:100px;margin-left:5px;margin-right:5px;height:110px;}
+                      border-radius:10px 0px;width:190px;margin-left:5px;
+                      margin-right:5px;}
 table {
     border-spacing: 0;
     margin: 30px;
