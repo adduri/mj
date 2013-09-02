@@ -419,10 +419,17 @@
     <input type="checkbox" name="terms-and-conditions" required data-validation-required-message=
     "You must agree to the terms and conditions">
     I accept the <a href="/home/tc">Terms and Conditions </a>
-  <div>
+  </div>
 
-    <br>  
-
+    <br> 
+    <div class="control-group">
+  <label class="control-label">Are You Human ?, verify by enter the correct code </label>
+  <div class="controls">
+   <%= recaptcha_tags :display => { :theme => "clean" } %> 
+    
+  </div>
+</div>
+     
   <div class="controls">
     <button type ="submit" id="btn_sub" name="commit" class="btn btn-success">Register</button>
   </div>
