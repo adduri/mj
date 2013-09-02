@@ -160,7 +160,7 @@
           @f = FamilyMember.new
           @f.family_member_user_id = @user.id
           @f.user_id = current_user.id
-         @f.family_member_user_dob = @user.dob
+          @f.family_member_user_dob = @user.dob
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
           @f.save
@@ -172,10 +172,10 @@
                @f.family_member_user_dob = current_user.dob
                if r.relationship == "पत्नी"   
                   husband_relation = Relation.find_by_relationship("पति")
-                 @f.relation_id = husband_relation.id
+                  @f.relation_id = husband_relation.id
                 else
                   wife_relation = Relation.find_by_relationship("पत्नी")
-                 @f.relation_id = wife_relation.id
+                  @f.relation_id = wife_relation.id
                end
                @f.save
              end
@@ -241,34 +241,7 @@
     redirect_to "/family_members/member_request_notifications/#{current_user.id}"
   end
 
-  # def flag_accept
-  #   @fg = Relative.find(params[:id])
-  #   @fg.update_attributes(:flag => true)
-  #   @fg.save
-  #   @r = Relation.find_by_relationship(@fg.relationship)
-  #   @name = User.find(@fg.existing_member_id)
-  #   @r_reverse = Relation.find_by_relationship(@fg.reverse_relationship)
-  #   @fm = FamilyMember.new
-  #   @fm.user_id = @fg.existing_member_id
-  #   @fm.family_member_user_id = @fg.new_member_id
-  #   @fm.join_pending = false
-  #   @fm.relation_id = @r.id
-  #   @fm_dob = User.find(@fg.existing_member_id).dob
-  #   @fm.family_member_user_dob = @fm_dob
-  #   @fm.save
-  #   unless @fg.reverse_relationship.nil?
-  #     @f = FamilyMember.new
-  #     @f.user_id = @fg.new_member_id
-  #     @f.family_member_user_id = @fg.existing_member_id
-  #     @f.join_pending = false
-  #     @f.relation_id = @r_reverse.id
-  #     @f_dob = User.find(@fg.new_member_id).dob
-  #     @f.family_member_user_dob = @f_dob
-  #     @f.save
-  #   end
-  #   redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
-  # end
-def flag_accept
+  def flag_accept
     @fg = Relative.find(params[:id])
     @fg.update_attributes(:flag => true)
     @fg.save
@@ -276,6 +249,7 @@ def flag_accept
     @name = User.find(@fg.existing_member_id)
     @r_reverse = Relation.find_by_relationship(@fg.reverse_relationship)
     @family = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.existing_member_id,@fg.new_member_id)
+    @family_member_row_exist = FamilyMember.find_by_user_id_and_family_member_user_id_and_join_pending(@fg.existing_member_id,@fg.new_member_id,true)
        if @family.nil? or @family.blank?
           @fm = FamilyMember.new
           @fm.user_id = @fg.existing_member_id
@@ -288,10 +262,16 @@ def flag_accept
           @fm_dob = User.find(@fg.existing_member_id).dob
           @fm.family_member_user_dob = @fm_dob
           @fm.save
+       else 
+        @family_member_row_exist.update_attributes(:join_pending => false)
+          if (@fg.relationship == "पति") || (@fg.relationship == "पत्नी")
+             @family_member_row_exist.update_attributes(:spouse_status => true)
+          end
        end  
         unless @fg.reverse_relationship.nil?
           @family_member_exist = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.new_member_id,@fg.existing_member_id)
-           if @family_member_exist.nil? or @family_member_exit.blank?
+          @fm_row_exist = FamilyMember.find_by_user_id_and_family_member_user_id_and_join_pending(@fg.new_member_id,@fg.existing_member_id,true)        
+          if @family_member_exist.nil? or @family_member_exist.blank?
              @f = FamilyMember.new
              @f.user_id = @fg.new_member_id
              @f.family_member_user_id = @fg.existing_member_id
@@ -303,16 +283,22 @@ def flag_accept
              @f_dob = User.find(@fg.new_member_id).dob
              @f.family_member_user_dob = @f_dob
              @f.save
-           end
+          else 
+             @fm_row_exist.update_attributes(:join_pending => false)
+               if (@fg.reverse_relationship == "पति") || (@fg.reverse_relationship == "पत्नी")
+                 @fm_row_exist.update_attributes(:spouse_status => true)
+               end
+          end   
         end
-        redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
+      redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
   end
+  
   def flag_decline
     @fg = Relative.find(params[:id])
     @fg.destroy
     redirect_to "/family_members/member_request_notifications/#{current_user.id}"
   end
-
+  
   def member_request_notifications
     @user = User.find(params[:id])
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(params[:id],true)
