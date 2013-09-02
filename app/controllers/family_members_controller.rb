@@ -248,31 +248,37 @@
     @r = Relation.find_by_relationship(@fg.relationship)
     @name = User.find(@fg.existing_member_id)
     @r_reverse = Relation.find_by_relationship(@fg.reverse_relationship)
-    @fm = FamilyMember.new
-    @fm.user_id = @fg.existing_member_id
-    @fm.family_member_user_id = @fg.new_member_id
-    @fm.join_pending = false
-    @fm.relation_id = @r.id
-   if (@fg.relationship == "पति") || (@fg.relationship == "पत्नी")
-    @fm.spouse_status = true
-   end
-    @fm_dob = User.find(@fg.existing_member_id).dob
-    @fm.family_member_user_dob = @fm_dob
-    @fm.save
-    unless @fg.reverse_relationship.nil?
-      @f = FamilyMember.new
-      @f.user_id = @fg.new_member_id
-      @f.family_member_user_id = @fg.existing_member_id
-      @f.join_pending = false
-      @f.relation_id = @r_reverse.id
-     if (@fg.reverse_relationship == "पति") || (@fg.reverse_relationship == "पत्नी")
-      @f.spouse_status = true
-     end
-      @f_dob = User.find(@fg.new_member_id).dob
-      @f.family_member_user_dob = @f_dob
-      @f.save
-    end
-    redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
+    @family = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.existing_member_id,@fg.new_member_id)
+       if @family.nil? or @family.blank?
+          @fm = FamilyMember.new
+          @fm.user_id = @fg.existing_member_id
+          @fm.family_member_user_id = @fg.new_member_id
+          @fm.join_pending = false
+          @fm.relation_id = @r.id
+          if (@fg.relationship == "पति") || (@fg.relationship == "पत्नी")
+             @fm.spouse_status = true
+          end
+          @fm_dob = User.find(@fg.existing_member_id).dob
+          @fm.family_member_user_dob = @fm_dob
+          @fm.save
+       end  
+        unless @fg.reverse_relationship.nil?
+          @family_member_exist = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.new_member_id,@fg.existing_member_id)
+           if @family_member_exist.nil? or @family_member_exit.blank?
+             @f = FamilyMember.new
+             @f.user_id = @fg.new_member_id
+             @f.family_member_user_id = @fg.existing_member_id
+             @f.join_pending = false
+             @f.relation_id = @r_reverse.id
+              if (@fg.reverse_relationship == "पति") || (@fg.reverse_relationship == "पत्नी")
+                @f.spouse_status = true
+              end
+             @f_dob = User.find(@fg.new_member_id).dob
+             @f.family_member_user_dob = @f_dob
+             @f.save
+           end
+        end
+        redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
   end
 
   def flag_decline
