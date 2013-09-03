@@ -28,6 +28,12 @@ class UsersController < ApplicationController
      # params[:user][:station] = params[:user][:station].upcase
 
     @user = User.new(params[:user])
+        @user.firstname = params[:user][:firstname].capitalize
+        @user.middlename = params[:user][:middlename].capitalize
+        @user.lastname  = params[:user][:lastname].capitalize
+        @user.fathername  = params[:user][:fathername].capitalize
+        @user.email = params[:user][:email].downcase
+        @user.city = params[:user][:city].capitalize
     if verify_recaptcha
       @user.save
       redirect_to "/users/registration_ack/#{@user.id}"
@@ -131,7 +137,7 @@ class UsersController < ApplicationController
 
 
   def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "firstname"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
   end
   
   def sort_direction
