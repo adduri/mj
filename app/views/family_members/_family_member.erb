@@ -1,3 +1,7 @@
+<style type="text/css">
+a:hover{
+text-decoration:none;}
+</style>
 <% family_member = User.find(f.family_member_user_id) %>
 <% logger.info "FAMILY MEMBER >>>>>>>>> #{family_member.firstname.inspect} #{family_member.id.inspect}" %>
 
@@ -15,8 +19,8 @@
       <% end %>
         &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
         <a href="/family_members/family/<%= family_member.id %>">
-        &nbsp;<%= family_member.firstname.capitalize %></a>
-        &nbsp;<%= family_member.lastname.capitalize %><br/>
+        &nbsp;<%= family_member.firstname.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
+        <br/>
         &nbsp;<%= family_member.dob %><br/>
         &nbsp;<%= family_member.city.capitalize %><br/> 
     </div>
@@ -42,8 +46,8 @@
               <% end %> 
             &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>              
             <a href="/family_members/family/<%= spouse.id %>">
-              &nbsp;<%= spouse.firstname.capitalize %></a>
-              &nbsp;<%= spouse.lastname.capitalize %><br>
+              <%= spouse.firstname.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
+              <br>
               &nbsp;<%= spouse.dob %><br>
               &nbsp;<%= spouse.city.capitalize %><br>               
           </div>
