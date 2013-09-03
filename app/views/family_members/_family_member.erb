@@ -39,7 +39,7 @@
               <% if @user.id == current_user.id %>
                 <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close">
                 <img src="/assets/close.png"/></a>
-              <% end %>
+              <% end %> 
             &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>              
             <a href="/family_members/family/<%= spouse.id %>">
               &nbsp;<%= spouse.firstname.capitalize %></a>

@@ -92,9 +92,9 @@
               @f.save
             end
           end
-          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname} #{@user.lastname} added."
+          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize} added."
         else
-          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname} #{@user.lastname} already exists."
+          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize} already exists."
         end
       else
         redirect_to "/family_members/family/#{params[:id]}", :notice => "User does not exist."
@@ -180,9 +180,9 @@
                @f.save
              end
            end
-          redirect_to "/family_members/family/#{current_user.id}", :notice => "Request has been sent to #{@user.firstname} #{@user.lastname}."
+          redirect_to "/family_members/family/#{current_user.id}", :notice => "Request has been sent to #{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize}."
          else
-          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname} #{@user.lastname} already exists."
+          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize} already exists."
          end
        else
         redirect_to "/family_members/family/#{params[:id]}", :notice => "User does not exist."
@@ -232,7 +232,7 @@
     @fg.save
     @u = @fg.new_member_id
     @name = User.find(@u)
-    redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "Request has been sent to #{@name.firstname}."
+    redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "Request has been sent to #{@name.firstname.capitalize} #{@name.middlename.capitalize} #{@name.lastname.capitalize}."
   end
 
   def decline
@@ -249,7 +249,7 @@
     @name = User.find(@fg.existing_member_id)
     @r_reverse = Relation.find_by_relationship(@fg.reverse_relationship)
     @family = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.existing_member_id,@fg.new_member_id)
-    @family_member_row_exist = FamilyMember.find_by_user_id_and_family_member_user_id_and_join_pending(@fg.existing_member_id,@fg.new_member_id,true)
+    @family_member_row_exist = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.existing_member_id,@fg.new_member_id)
        if @family.nil? or @family.blank?
           @fm = FamilyMember.new
           @fm.user_id = @fg.existing_member_id
@@ -270,7 +270,7 @@
        end  
         unless @fg.reverse_relationship.nil?
           @family_member_exist = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.new_member_id,@fg.existing_member_id)
-          @fm_row_exist = FamilyMember.find_by_user_id_and_family_member_user_id_and_join_pending(@fg.new_member_id,@fg.existing_member_id,true)        
+          @fm_row_exist = FamilyMember.find_by_user_id_and_family_member_user_id(@fg.new_member_id,@fg.existing_member_id)        
           if @family_member_exist.nil? or @family_member_exist.blank?
              @f = FamilyMember.new
              @f.user_id = @fg.new_member_id
@@ -290,7 +290,7 @@
                end
           end   
         end
-      redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname} is added."
+      redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname.capitalize} #{@name.middlename.capitalize} #{@name.lastname.capitalize} is added."
   end
   
   def flag_decline
