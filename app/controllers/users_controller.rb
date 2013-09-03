@@ -137,7 +137,7 @@ class UsersController < ApplicationController
 
 
   def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "firstname"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
   end
   
   def sort_direction
