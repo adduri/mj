@@ -10,9 +10,9 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-
-ActiveRecord::Schema.define(:version => 20130903060401) do
-
+ 
+ActiveRecord::Schema.define(:version => 20130903082330) do
+ 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
     t.string   "resource_type", :null => false
@@ -93,14 +93,16 @@ ActiveRecord::Schema.define(:version => 20130903060401) do
   end
 
   create_table "family_members", :force => true do |t|
-    t.integer  "user_id",                :default => 0,     :null => false
-    t.integer  "family_member_user_id",  :default => 0,     :null => false
-    t.boolean  "join_pending",           :default => true
-    t.integer  "relation_id",            :default => 0,     :null => false
-    t.boolean  "spouse_status",          :default => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.date     "family_member_user_dob"
+ 
+    t.integer  "user_id",                 :default => 0,     :null => false
+    t.integer  "family_member_user_id",   :default => 0,     :null => false
+    t.boolean  "join_pending",            :default => true
+    t.integer  "relation_id",             :default => 0,     :null => false
+    t.boolean  "spouse_status",           :default => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "family_member_user_dob"
+    t.string   "family_member_user_doby"
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"
@@ -216,6 +218,8 @@ ActiveRecord::Schema.define(:version => 20130903060401) do
     t.string   "desig"
     t.integer  "zip"
     t.integer  "ccode"
+    t.integer  "landline"
+    t.integer  "doby"
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
