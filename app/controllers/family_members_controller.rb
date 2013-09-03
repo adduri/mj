@@ -41,8 +41,8 @@
     @user = User.find(params[:id])
     @all_relations = Relation.all(:order => 'serial')
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(@user.id,true)
-    @send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
-    @accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
+    #@send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
+   #@accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
     @fm = FamilyMember.find_all_by_user_id_and_join_pending(@family_member_user_id, false)
     respond_to do |format|
       format.html
@@ -161,6 +161,7 @@
           @f.family_member_user_id = @user.id
           @f.user_id = current_user.id
           @f.family_member_user_dob = @user.dob
+          @f.family_member_user_doby = @user.doby
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
           @f.save
@@ -170,6 +171,7 @@
                @f.family_member_user_id = current_user.id
                @f.user_id =  @user.id
                @f.family_member_user_dob = current_user.dob
+               @f.family_member_user_doby = current_user.doby
                if r.relationship == "पत्नी"   
                   husband_relation = Relation.find_by_relationship("पति")
                   @f.relation_id = husband_relation.id
@@ -260,7 +262,9 @@
              @fm.spouse_status = true
           end
           @fm_dob = User.find(@fg.existing_member_id).dob
+          @fm_doby = User.find(@fg.existing_member_id).doby
           @fm.family_member_user_dob = @fm_dob
+          @fm.family_member_user_doby = @fm_doby
           @fm.save
        else 
         @family_member_row_exist.update_attributes(:join_pending => false)
@@ -281,7 +285,9 @@
                 @f.spouse_status = true
               end
              @f_dob = User.find(@fg.new_member_id).dob
+             @f_doby = User.find(@fg.new_member_id).doby
              @f.family_member_user_dob = @f_dob
+             @f.family_member_user_doby = @f_doby
              @f.save
           else 
              @fm_row_exist.update_attributes(:join_pending => false)
