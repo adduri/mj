@@ -24,6 +24,7 @@
 }
 </style>
 
+
 <div  class="hero-unit" style="background-color:#fff;background-color:transparent; ">
  <div class="accordion" id="accordion2">
   <div class="accordion-group" >
@@ -549,12 +550,20 @@
   </div>
 </div -->
 
+
+<script>
+function myFunction()
+{
+alert("Format should be :dd/mm/yyyy");
+}
+</script>
+
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label">Date of Birth</label>
   <div class="controls">
-    <input id="user[dob]" name="user[dob]" placeholder="dd/mm/yyyy" class="input-large" required="required" type="text" maxlength="10"  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
- data-validation-pattern-message="You might have entered a Wrond Date of Birth">
+    <input id="user[dob]" name="user[dob]"   class="input-large" required="required" type="text" maxlength="10"  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
+ data-validation-pattern-message="You might have entered a Wrond Date of Birth (dd/mm/yyy)" onclick="myFunction()">
     <p class="help-block"></p>
   </div>
 </div>
@@ -647,7 +656,7 @@
 <div class="control-group">
   <label class="control-label">City</label>
   <div class="controls">
-    <input id="user[city]" name="user[city]" placeholder="Hyderabad" class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed"  style="text-transform: capitalize;">
+    <input id="user[city]" name="user[city]" class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed"  style="text-transform: capitalize;">
     
      
   </div>
@@ -656,7 +665,7 @@
 <div class="control-group">
   <label class="control-label">Zip/PinCode</label>
   <div class="controls">
-    <input id="user[zip]" name="user[zip]" placeholder="500003" class="input-large" required="required" type="number" maxlength="10">
+    <input id="user[zip]" name="user[zip]"  class="input-large" type="number" maxlength="10">
     
   </div>
 </div>
