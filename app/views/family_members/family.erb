@@ -10,7 +10,16 @@
         <%= @family_members.count %>
       </span>
     <% end %>&nbsp;
-    
+    <%if @send_notification.count > 0 %>
+      <span class="notification" style="background:green;" title="send_notifications">
+        <%= @send_notification.count %>
+      </span> 
+    <% end %>&nbsp;  
+    <%if @accept_notification.count > 0 %>
+      <span class="notification"style="background:#9966FF" title="accept_notifications">
+        <%= @accept_notification.count %>
+      </span> 
+    <% end  %>
   </a>
 </div>
 <% end %>
@@ -42,7 +51,7 @@
   <%= @user.lastname.capitalize %>'s Family(<%= @user.mj_id %>)</font></h2>
 <center>
 <div class="MainProfile">
-<table>
+<table >
   <tr>
     <td rowspan="7">
         <% if @user.photo_file_name.nil? %>
@@ -75,7 +84,7 @@
   <tr>
       <% @user.relations.group("relationship").having("priority = ?", 1).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_doby desc').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
@@ -90,7 +99,7 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 2).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_doby').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
@@ -106,23 +115,23 @@
   <tr>
       <td>
      
-            <div class="single-span1" >
+          <div class="single-span1" >
             <% if @user.photo_file_name.nil? %>
               <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
             <% else %>
               <%= image_tag @user.photo.url(:small), :class => 'img-polaroid'%>
-            <% end %>
+            <% end %><br>
             &nbsp;<font size="3"><strong>मैं</strong></font><br>
-            &nbsp;<%= @user.firstname.capitalize %>
+            &nbsp;<%= @user.firstname.capitalize %><br/>
             &nbsp;<%= @user.lastname.capitalize%><br/>
-            &nbsp;<%= @user.dob%><br/>
-            &nbsp;<%= @user.city.capitalize%><br/>           
+            <!--  &nbsp;<%= @user.station.capitalize%> -->
           </div>
+      
       </td>
       <% displayed_members_list << current_user.id %>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>
           <td>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_doby desc').each do |f| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
                 <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
               <% end %>
           </td>
@@ -137,7 +146,7 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 4).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_doby desc').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
@@ -152,7 +161,7 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 5).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_doby desc').each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
           </td>
