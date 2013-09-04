@@ -1,6 +1,8 @@
 <style type="text/css">
 div{border-radius: 10px;}
 td{padding: 10px;}
+a:hover{
+text-decoration:none;}   
 </style>
 <center>
 <div class="row">
@@ -15,21 +17,14 @@ td{padding: 10px;}
              <img src="/assets/empty_profile.jpeg" width="80" alt="" class='img-circle'/>
             <% else %>
             <%= image_tag r.user.photo.url(:small), :class => 'img-circle' %>
-            <% end %>
+            <% end %> <br>           
+            <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname.capitalize %><%= r.user.lastname.capitalize %>
           </td>
           <td>
-            <%= r.user.firstname.capitalize %> <%= r.user.middlename.capitalize %> <%= r.user.lastname.capitalize %>
-            &nbsp;wants to add you as &nbsp;
-            <font size="4" ><%= @relationship %></font>,&nbsp;Do you <br><br>
+            </a><strong>Wants to add you as</strong> &nbsp;
+            <font size="4" ><%= @relationship %></font>,<br><strong>Do you </strong><br><br>
             <a href="/family_members/add_family/<%= r.id %>" class="btn btn-info" >Accept
-            </a>&nbsp;or&nbsp;
-            <a href="/family_members/pending_decline/<%= r.id %>" class="btn btn-info">Decline</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-             <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname.capitalize %> <%= r.user.middlename.capitalize %> <%= r.user.lastname.capitalize %>
-            </a>
+            </a> or <a href="/family_members/pending_decline/<%= r.id %>" class="btn btn-info">Decline</a>
           </td>
         </tr>
       </table>
@@ -54,20 +49,17 @@ td{padding: 10px;}
                   class='img-circle' />
                 <% else %>
                   <%= image_tag @u_id.photo.url(:small), :class => 'img-circle'  %>
-                <% end %>
+                <% end %><br>
+                <a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %></a>
             </td>
             <td>
               
-              <strong><%= @person_who_initiated_notification.firstname.capitalize %> <%= @person_who_initiated_notification.middlename.capitalize %> <%= @person_who_initiated_notification.lastname.capitalize %> added <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> as <%= relation %>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" >
+              <strong><%= @person_who_initiated_notification.firstname.capitalize %> <%= @person_who_initiated_notification.lastname.capitalize %> added <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> as <font size="4" ><%= relation %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong>
+              <font size="4" >
               <%= sn.relationship %>?</font><br><br>
-              <a href="/family_members/accept/<%= sn.id %>" class="btn btn-info" target="_parent" >yes</a> &nbsp;or &nbsp;<a href="/family_members/decline/<%= sn.id %>" class="btn btn-info" >no</a>
+              <a href="/family_members/accept/<%= sn.id %>" class="btn btn-info" target="_parent" >yes</a> or <a href="/family_members/decline/<%= sn.id %>" class="btn btn-info" >no</a>
             </td>
           </tr>
-          <tr>
-            <td>
-               <a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname.capitalize %>  <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %></a>
-             </td>
-           </tr>
         </table>
       </div>
     <% end %>
@@ -87,17 +79,16 @@ td{padding: 10px;}
                <img src="/assets/empty_profile.jpeg" width="80" alt="" class="img-circle" />
               <% else %>
                <%= image_tag @u_id.photo.url(:small), :class => 'img-circle' %>
-              <% end %>
-              
+              <% end %><br>
+              <a href="/family_members/family/<%= @u_id.id %>">
+                <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %>
+              </a>
             </td>
             <td>
-              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <%= an.relationship %>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
-              <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a>
-              &nbsp;or &nbsp;
-              <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
+              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
+              <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a> or <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
             </td>
           </tr>
-          <tr><td><a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %></a></td></tr>
         </table>
       </div>
      <% else %>
@@ -110,20 +101,16 @@ td{padding: 10px;}
                <img src="/assets/empty_profile.jpeg" width="80" alt="" class="img-circle" />
               <% else %>
                <%= image_tag @u_id.photo.url(:small), :class => 'img-circle' %>
-              <% end %>
-              
+              <% end %><br>
+              <a href="/family_members/family/<%= @u_id.id %>">
+                <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %>
+              </a>
             </td>
             <td>
-              <%= @u_id.firstname %> <%= @u_id.middlename %> <%= @u_id.lastname %>  wants to add you as <font size="4" > <%= an.relationship %>.</font><br><br>
-              <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a>
-              &nbsp;or &nbsp;
-              <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
+              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
+              <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a> or <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
             </td>
           </tr>
-          <tr>
-            <td><a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname %> <%= @u_id.middlename %> <%= @u_id.lastname %> </a>
-            </td>
-            </tr>              
         </table>
       </div>  
     <% end %> 

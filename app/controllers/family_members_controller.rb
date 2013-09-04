@@ -161,7 +161,7 @@
           @f.family_member_user_id = @user.id
           @f.user_id = current_user.id
           @f.family_member_user_dob = @user.dob
-          @f.family_member_user_doby = @user.doby
+          
           @f.relation_id = params[:relation]
           r = Relation.find(params[:relation])
           @f.save
@@ -171,7 +171,7 @@
                @f.family_member_user_id = current_user.id
                @f.user_id =  @user.id
                @f.family_member_user_dob = current_user.dob
-               @f.family_member_user_doby = current_user.doby
+               
                if r.relationship == "पत्नी"   
                   husband_relation = Relation.find_by_relationship("पति")
                   @f.relation_id = husband_relation.id
@@ -262,9 +262,9 @@
              @fm.spouse_status = true
           end
           @fm_dob = User.find(@fg.existing_member_id).dob
-          @fm_doby = User.find(@fg.existing_member_id).doby
+           
           @fm.family_member_user_dob = @fm_dob
-          @fm.family_member_user_doby = @fm_doby
+           
           @fm.save
        else 
         @family_member_row_exist.update_attributes(:join_pending => false)
@@ -285,9 +285,9 @@
                 @f.spouse_status = true
               end
              @f_dob = User.find(@fg.new_member_id).dob
-             @f_doby = User.find(@fg.new_member_id).doby
+           
              @f.family_member_user_dob = @f_dob
-             @f.family_member_user_doby = @f_doby
+       
              @f.save
           else 
              @fm_row_exist.update_attributes(:join_pending => false)

@@ -62,7 +62,7 @@
     </td>
   </tr>
   <tr><td class="font">Name</td><td class="font">: &nbsp;<%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></td></tr>
-  <tr><td class="font">Email</td><td class="font">: &nbsp;<%= @user.email %></td></tr>
+  <tr><td class="font">Email</td><td class="font">: &nbsp;<%= @user.email.downcase %></td></tr>
   <tr><td class="font">Mobile</td><td class="font">: &nbsp;<%= @user.mobileno %></td></tr>
   <tr><td class="font">Gender</td><td class="font">: &nbsp;<%= @user.gender %></td></tr>
   <tr><td class="font">Occupation</td><td class="font">: &nbsp;<%= @user.occupation.capitalize %></td></tr>
