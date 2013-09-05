@@ -41,8 +41,8 @@
     @user = User.find(params[:id])
     @all_relations = Relation.all(:order => 'serial')
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(@user.id,true)
-    #@send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
-   #@accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
+    @send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
+   @accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
     @fm = FamilyMember.find_all_by_user_id_and_join_pending(@family_member_user_id, false)
     respond_to do |format|
       format.html
