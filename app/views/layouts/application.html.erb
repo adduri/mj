@@ -53,6 +53,7 @@
       sticky_relocate();
     });
   </script>
+
 </head>
 
 <div class = "navbar-inner">
@@ -61,18 +62,26 @@
       <a class="brand" href="/"><img src="/assets/logo.png" style="height:60px;padding-top:5px;" id="logo"/></a>
     </div><!--span2-->
 
-    <div class="span5" style="padding-top:20px ; padding-left: 10em;">
+    <div class="span2" style="padding-top:20px ; padding-left: 10em;">
       <a href="/search">
         <button class="btn btn-success" type="button">Members Search</button>      </a>
     </div>
-      <% if current_user  %>
-        <div class = "span3" style = "float:right; padding-top:8px;height:62px;" >
+
+    <div class="span6" >
+      <div class ="span3"  style="float:right">
+      <font size="2">Promoted By</font>
+       <a href="http://www.salasarindia.com/index.php"  target="_blank"> <img src="/assets/saalsar_india_logo.jpg" style="width:120px;height:45px;margin:10px"/></a>
+     </div>
+    
+     <% if current_user  %>
+        <div class = "span2" style =  " margin:5px;height:62px;" >
           <div class="well well-small" style = "float:right; color:#610335;">
             <a href="/users/index" style="color:white"><%= image_tag current_user.photo.url(:small) %></a>
             <font face="Times"><%= current_user.mj_id%></font>
           </div>
         </div>
       <% end %>
+      </div>
   </div> <!--container-->
 </div>
 
@@ -117,10 +126,10 @@
                       </ul>
                     </li>
                     <li id="doc">
-                    <a id="headerfont" href="#"></i>MjBlog*</a>
+                    <a id="headerfont" href="/home/mjblog"></i>MJ Blog*</a>
                     </li>
                     <li id="doc">
-                    <a id="headerfont" href="#"></i>MjNews*</a>
+                    <a id="headerfont" href="/home/uc"></i>MJ News*</a>
                     </li>
 
                     <li>
