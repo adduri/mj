@@ -1,0 +1,29 @@
+ <div class ="news">
+ 
+<!--   <center>
+    <font size="14">MJ News</font>
+  </center><br> -->
+  <% @mjnews.reverse_each  do |mjnews| %>
+  <table>
+    <tr>
+      <td colspan="2" ><h2 style = "color:brown"><%= mjnews.title %></h2></td>
+    </tr>
+    <tr>   
+      <td colspan="2">
+      <p style="width:1000px;">
+        <%= image_tag mjnews.photo.url(:small),:style => 'width:500px;height:250px; float:left;padding:10px;' %>
+         <font size ="3"face="Times"><i><%= mjnews.content %></i></font> </p>
+        </td>    
+    </tr>
+    <tr>
+      <td>Location:<%= mjnews.location %></td>
+      <td>Date:<%= mjnews.created_at %></td>
+    </tr>
+  </table><br>
+  <% end %>
+
+ 
+</div>
+
+
+
