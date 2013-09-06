@@ -22,9 +22,9 @@ id="products">
   <% for product in @products %>
     <tr>
       <td><%= product.mj_id %></td>
-      <td><%= product.lastname %></td>
-      <td><%= product.firstname %></td>
-      <td><%= product.city%></td>
+      <td><%= product.lastname.capitalize %></td>
+      <td><%= product.firstname.capitalize %></td>
+      <td><%= product.city.capitalize%></td>
       <td><%= image_tag  product.photo.url(:small) %></a></td>
     </tr>
   <% end %>
