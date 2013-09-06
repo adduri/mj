@@ -1,0 +1,27 @@
+<div style="width:350px;float:right"> <iframe src="http://www.zeitverschiebung.net/clock-widget-iframe?language=en&timezone=Asia%2FKolkata" width="100%" height="130" frameborder="0" seamless></iframe>  </div>
+ 
+<div class ="news" style="background:transparent;">
+  <% @mjnews.reverse_each  do |mjnews| %>
+    <table>
+      <tr>
+        <td colspan="2" ><h2 style = "color:brown"><%= mjnews.title %></h2></td>
+      </tr>
+      <tr>   
+        <td colspan="2">
+          <p>
+            <%= image_tag mjnews.photo.url(:small),:style => 'width:500px;height:250px; float:left;padding-right:10px;' %>
+            <font size ="3"face="Times"><i><%= mjnews.content %></i></font>
+          </p>
+        </td>    
+      </tr>
+      <tr>
+        <td><b>Location:<%= mjnews.location %></b></td>
+        <td><b>Date:<%= mjnews.created_at.strftime("%d %b. %Y") %></b></td>
+      </tr>
+    </table>
+    <br>
+  <% end %>
+</div>
+
+
+

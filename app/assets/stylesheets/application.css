@@ -39,7 +39,7 @@ color:red;
 .panel {
    
 color:white
-    float: right;
+    text-align:right;
     position: relative;
 }
 

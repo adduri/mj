@@ -1,5 +1,7 @@
 Mj::Application.routes.draw do
 
+
+
   # root :to => "home#index"
   
   get "home/index"
@@ -18,6 +20,7 @@ Mj::Application.routes.draw do
   resources :videos
 
 
+  resources :mjnews
 
  
   resources :ads
@@ -34,6 +37,8 @@ Mj::Application.routes.draw do
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
+
+  get "mjnews" => "mjnews#index", :as => "mjnews"
 
 
 
