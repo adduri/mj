@@ -10,8 +10,9 @@
    <%= form_tag users_path, :method => 'get', :id => "users_search" do %>
    <div class="row">
     <div class="span3" style="padding-top:10em;padding-left:5em;">
-      <%= text_field_tag :search, params[:search] %></br></br></br>
-      <p> &nbsp;&nbsp; &nbsp;&nbsp;You can search by MJ ID,</p><p> &nbsp;&nbsp; &nbsp;&nbsp;Firstname , Surname</p>
+      <%= text_field_tag :search, params[:search] , :autofocus => true %></br></br></br>
+
+       <p> &nbsp;&nbsp; &nbsp;&nbsp;You can search by MJ ID,</p><p> &nbsp;&nbsp; &nbsp;&nbsp;Firstname , Surname</p>
     </div>
     <% submit_tag "Search", :firstname => nil %>
    <div class="span7" id="products"><%= render 'products' %></div>
