@@ -13,7 +13,7 @@ ActiveAdmin.register Mjnews do
      column :content
      column :location
      default_actions
-     column "Title" do |post|
+     column "Photo" do |post|
     link_to image_tag(post.photo.url, :height => '150', :width => '150'),
     admin_mjnews_path(post)
     
