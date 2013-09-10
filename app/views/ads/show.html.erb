@@ -11,20 +11,18 @@
               <p align='center'> &#x2605;&nbsp;<%=link_to ad.title,edit_ad_path(ad) %></p>
             </div> 
             <% if ad.datax == 1 && ad.datay == 1 %><%then%>   
-            <%= image_tag ad.photo1,:style => "width:120px;height:90px"%>
+ <%= link_to image_tag(ad.photo1, :style => "width:120px;height:90px"), edit_ad_path(ad)%>
 
-
-            <% elsif ad.datax == 1 && ad.datay == 2 %><%then%> 
-            <%= image_tag ad.photo1,:style => "width:120px;height:246px"%>
-
-
-            <% elsif ad.datax == 2 && ad.datay == 1 %><%then%> 
-            <%= image_tag ad.photo1,:style => "width:275px;height:90px"%>
-
-
+             <% elsif ad.datax == 1 && ad.datay == 2 %><%then%> 
+ <%= link_to image_tag(ad.photo1, :style => "width:120px;height:246px"), edit_ad_path(ad)%>
+ 
+             <% elsif ad.datax == 2 && ad.datay == 1 %><%then%> 
+ <%= link_to image_tag(ad.photo1, :style => "width:275px;height:90px"), edit_ad_path(ad)%>
+ 
             <% elsif ad.datax == 2 && ad.datay == 2 %><%then%>
-            <%= image_tag ad.photo1,:style => "width:275px;height:246px"%>
-            <% end %> 
+ <%= link_to image_tag(ad.photo1, :style => "width:275px;height:246px"), edit_ad_path(ad)%>
+ 
+             <% end %> 
           </li><br>       
         <% end %>
       </ul>
