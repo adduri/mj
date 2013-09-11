@@ -4,10 +4,10 @@ ActiveAdmin.register Ad do
     f.input :title  
     # f.input :contact, :class => "ckeditor"
 
-    f.input :pin_code , collection: ["bschools","finance","flyhigh","insurance","news","services","vidyapeeth",
+    f.input :pin_code, :label => "Catagory" ,  collection: ["bschools","finance","flyhigh","insurance","news","services","vidyapeeth",
       "heritage","infotech","fitnesscenter","ashram","seva","club","matrimony","shopee","entertainement",
       "electronics","iron_steel","automobiles","ayurvedic","sanitation","builders_promoters","caters","textiles_clothing",
-      "coal","hospitals","furniture","health","jewellers","machinery","cement","paper","pumps","realestate","shipping",
+      "coal","hospitals","furniture","health","jewellers","machinessh root@166.78.24.248  ry","cement","paper","pumps","realestate","shipping",
       "smartcards","eventmanagers","tyres","homeneeds","samaj","medicals","bhavan","manthav","lawyers","electricals",
       "doctors","architects","art","teachers","ca"]
     f.input :company_name
@@ -53,6 +53,7 @@ index do
   column :datax
   column :row
   column :col
+  column "Catagory", :pin_code 
       default_actions
   column "Title" do |post|
     link_to image_tag(post.photo1.url, :height => '150', :width => '150'),
