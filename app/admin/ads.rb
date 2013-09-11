@@ -7,7 +7,7 @@ ActiveAdmin.register Ad do
     f.input :pin_code , collection: ["bschools","finance","flyhigh","insurance","news","services","vidyapeeth",
       "heritage","infotech","fitnesscenter","ashram","seva","club","matrimony","shopee","entertainement",
       "electronics","iron_steel","automobiles","ayurvedic","sanitation","builders_promoters","caters","textiles_clothing",
-      "coal","hospitals","furniture","health","jewellers","machinary","cement","paper","pumps","realestate","shipping",
+      "coal","hospitals","furniture","health","jewellers","machinery","cement","paper","pumps","realestate","shipping",
       "smartcards","eventmanagers","tyres","homeneeds","samaj","medicals","bhavan","manthav","lawyers","electricals",
       "doctors","architects","art","teachers","ca"]
     f.input :company_name
