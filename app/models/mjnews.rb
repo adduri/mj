@@ -1,5 +1,5 @@
 class Mjnews < ActiveRecord::Base
-  attr_accessible :content, :title, :photo, :location
+  attr_accessible :p1, :p2, :p3 , :title, :photo, :location
 
     has_attached_file :photo, :styles => { :small => "250x250>" },
                   :url  => "/assets/products/:id/:style/:basename.:extension",
