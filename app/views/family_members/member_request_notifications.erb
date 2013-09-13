@@ -18,10 +18,10 @@ text-decoration:none;}
             <% else %>
             <%= image_tag r.user.photo.url(:small), :class => 'img-circle' %>
             <% end %> <br>           
-            <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname.capitalize %><%= r.user.lastname.capitalize %>
+            <a href="/family_members/family/<%= r.user.id %>"><%= r.user.firstname.capitalize %> <%= r.user.middlename.capitalize %> <%= r.user.lastname.capitalize %>
           </td>
           <td>
-            </a><strong>Wants to add you as</strong> &nbsp;
+            </a><strong><%= r.user.firstname.capitalize %> <%= r.user.middlename.capitalize %> <%= r.user.lastname.capitalize %> Wants to add you as</strong> &nbsp;
             <font size="4" ><%= @relationship %></font>,<br><strong>Do you </strong><br><br>
             <a href="/family_members/add_family/<%= r.id %>" class="btn btn-info" >Accept
             </a> or <a href="/family_members/pending_decline/<%= r.id %>" class="btn btn-info">Decline</a>
@@ -31,7 +31,7 @@ text-decoration:none;}
     </div>
   <% end %> 
   </div>
-
+    
 
   <div class="span4">
   <% @send_notification.each do |sn| %> 
@@ -50,11 +50,11 @@ text-decoration:none;}
                 <% else %>
                   <%= image_tag @u_id.photo.url(:small), :class => 'img-circle'  %>
                 <% end %><br>
-                <a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %></a>
+                <a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %></a>
             </td>
             <td>
               
-              <strong><%= @person_who_initiated_notification.firstname.capitalize %> <%= @person_who_initiated_notification.lastname.capitalize %> added <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> as <font size="4" ><%= relation %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong>
+              <strong><%= @person_who_initiated_notification.firstname.capitalize %> <%= @person_who_initiated_notification.middlename.capitalize %> <%= @person_who_initiated_notification.lastname.capitalize %> added <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> as <font size="4" ><%= relation %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong>
               <font size="4" >
               <%= sn.relationship %>?</font><br><br>
               <a href="/family_members/accept/<%= sn.id %>" class="btn btn-info" target="_parent" >yes</a> or <a href="/family_members/decline/<%= sn.id %>" class="btn btn-info" >no</a>
@@ -81,11 +81,11 @@ text-decoration:none;}
                <%= image_tag @u_id.photo.url(:small), :class => 'img-circle' %>
               <% end %><br>
               <a href="/family_members/family/<%= @u_id.id %>">
-                <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %>
+                <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %>
               </a>
             </td>
             <td>
-              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
+              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
               <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a> or <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
             </td>
           </tr>
@@ -103,11 +103,11 @@ text-decoration:none;}
                <%= image_tag @u_id.photo.url(:small), :class => 'img-circle' %>
               <% end %><br>
               <a href="/family_members/family/<%= @u_id.id %>">
-                <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %>
+                <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %>
               </a>
             </td>
             <td>
-              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
+              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
               <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a> or <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
             </td>
           </tr>
