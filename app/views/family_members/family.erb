@@ -87,6 +87,21 @@
             <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <% if family_member_user.photo_file_name.nil? %>
+                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                  <% else %>
+                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                  <% end %>
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                   <br/>
+                   &nbsp;<%= family_member_user.dob %><br/>
+                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
+              <% end %>
+              <% end %>
           </td>
       <% end %>
   </tr>
@@ -102,6 +117,21 @@
             <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <% if family_member_user.photo_file_name.nil? %>
+                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                  <% else %>
+                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                  <% end %>
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                   <br/>
+                   &nbsp;<%= family_member_user.dob %><br/>
+                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
+              <% end %>
+              <% end %>
           </td>
       <% end %>
   </tr>
@@ -113,27 +143,26 @@
       </th>
   </tr>
   <tr>
-      <td>
-     
-          <div class="single-span1" >
-            <% if @user.photo_file_name.nil? %>
-              <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-            <% else %>
-              <%= image_tag @user.photo.url(:small), :class => 'img-polaroid'%>
-            <% end %><br>
-            &nbsp;<font size="3"><strong>मैं</strong></font><br>
-            &nbsp;<%= @user.firstname.capitalize %><br/>
-            &nbsp;<%= @user.lastname.capitalize%><br/>
-            <!--  &nbsp;<%= @user.station.capitalize%> -->
-          </div>
-      
-      </td>
-      <% displayed_members_list << current_user.id %>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>
           <td>
               <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
                 <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
               <% end %>
+               <% if @user.id == current_user.id %>
+                <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <% if family_member_user.photo_file_name.nil? %>
+                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                  <% else %>
+                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                  <% end %>
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                   <br/>
+                   &nbsp;<%= family_member_user.dob %><br/>
+                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                <% end %>
+                <% end %>
           </td>
       <% end %>
   </tr>
@@ -149,6 +178,21 @@
             <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <% if family_member_user.photo_file_name.nil? %>
+                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                  <% else %>
+                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                  <% end %>
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                   <br/>
+                   &nbsp;<%= family_member_user.dob %><br/>
+                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
+              <% end %>
+              <% end %>
           </td>
       <% end %>
   </tr>
@@ -164,8 +208,26 @@
             <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <% if family_member_user.photo_file_name.nil? %>
+                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                  <% else %>
+                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                  <% end %>
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                   <br/>
+                   &nbsp;<%= family_member_user.dob %><br/>
+                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
+              <% end %>
+              <% end %>
           </td>
       <% end %>
   </tr>
 </table>
+ 
+
+
  
