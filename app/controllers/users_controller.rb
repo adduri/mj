@@ -36,6 +36,14 @@ class UsersController < ApplicationController
         @user.city = params[:user][:city].capitalize
     if verify_recaptcha
       @user.save
+      @myself = FamilyMember.new
+      @myself.user_id = @user.id
+      @myself.family_member_user_id = @user.id
+      @myself.join_pending = false
+      @myself.relation_id = 13
+      @dob = User.find(@user.id).dob
+      @myself.family_member_user_dob = @dob
+      @myself.save
       redirect_to "/users/registration_ack/#{@user.id}"
     else
       redirect_to signup_path, :notice => "You might have entered the Wrong Captcha Code, please Enter it Again"
