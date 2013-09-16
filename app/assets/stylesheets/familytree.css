@@ -13,9 +13,15 @@
 .spouse-span1{background:lightpink;border-radius:10px 0px;
                   width:180px;margin-left:10px;}
 .close{margin-top:0px;position:absolute;padding-left:85px;}
-.single-span1{background:lightgreen;
-                      border-radius:10px 0px;width:190px;margin-left:5px;
-                      margin-right:5px;}
+.new-span1{background:#e6cdfd;border-radius:10px 0px;width:180px;
+    margin-left:5px;margin-top:2px;margin-bottom: 2px;}
+#watermark {
+  color: green;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  position: absolute;
+  text-align: center; 
+}
 table {
     border-spacing: 0;
     margin: 30px;

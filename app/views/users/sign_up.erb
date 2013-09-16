@@ -15,7 +15,7 @@
   src: url('webfont.eot'); /* IE9 Compat Modes */
   src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('webfont.woff') format('woff'), /* Modern Browsers */
-       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.ttf') format('truetype'), /* Safari, Android, iOS */
        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
   }
 .control-label{
@@ -24,13 +24,13 @@
 }
 </style>
 
-<div  class="hero-unit" style="background-color:#fff;background-color:transparent; ">
+<div class="hero-unit" style="background-color:#fff;background-color:transparent; ">
  <div class="accordion" id="accordion2">
   <div class="accordion-group" >
     <div class="accordion-heading" style="padding-right:44px">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" >
-           <input type="submit"  value="Guidelines For Registration Process" 
-         class="btn btn-success btn-large" style="width:868px"   />
+           <input type="submit" value="Guidelines For Registration Process"
+         class="btn btn-success btn-large" style="width:868px" />
         </a>
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
@@ -54,7 +54,7 @@
   </div>
 </div>
   <h1 style="color:#890000;font-size:40px;"><strong>Registration Form</strong></h1><br>
- <form accept-charset="UTF-8" action="/users/create" name="myform" class= "form-horizontal"  id="new_user" method="post">
+ <form accept-charset="UTF-8" action="/users/create" name="myform" class= "form-horizontal" id="new_user" method="post">
 <fieldset>
 
 
@@ -69,7 +69,7 @@
         <option value="Miss.">Miss.</option>
         <option value="Master.">Master.</option>
         <option value="Late.">Late.</option>
-      </select>    
+      </select>
   </div>
 </div>
 
@@ -285,7 +285,7 @@
   <label class="control-label">Email</label>
   <div class="controls">
 
-    <input id="user[email]" name="user[email]"   class="input-large" required="required" type="email" >
+    <input id="user[email]" name="user[email]" class="input-large" required="required" type="email" >
     <p class="help-block"></p>
   </div>
 </div>
@@ -524,7 +524,7 @@
     <option value="+967">Yemen</option>
     <option value="+260">Zambia</option>
     <option value="+263">Zimbabwe</option>
-    </select> &nbsp; 
+    </select> &nbsp;
     </div>
  
  <!-- Text input-->
@@ -532,21 +532,21 @@
   <label class="control-label">Contact Number</label>
   <div class="controls">
 
- <input name="user[ccode]" id="outputtext" class="input-mini" style="width:3em;">  
+ <input name="user[ccode]" id="outputtext" class="input-mini" style="width:3em;">
 
 
-    <input id="user[mobileno]" name="user[mobileno]"    style="width:11em"
+    <input id="user[mobileno]" name="user[mobileno]" style="width:11em"
     maxlength="12" class="input-large" required="required" type="number" pattern=".{5,12}" data-validation-pattern-message="Contact Number seems to be Wrong" title="min 5 to 12 characters">
     <p class ="help-block"></p>
   </displayv>
 </div>
 <!-- Text input-->
 <!-- <div class="control-group">
-  <label class="control-label">Landline number</label>
-  <div class="controls">
-    <input id="user[landline]" name="user[landline]" placeholder="040 12345678" class="input-large" type="number" maxlength="15">
-    <p class="help-block"></p>
-  </div>
+<label class="control-label">Landline number</label>
+<div class="controls">
+<input id="user[landline]" name="user[landline]" placeholder="040 12345678" class="input-large" type="number" maxlength="15">
+<p class="help-block"></p>
+</div>
 </div -->
 
 <!-- Text input-->
@@ -594,7 +594,7 @@
             <option value="Australia">Australi</option>
             <option value="New Zealand">New Zealand</option>
             <option value="Ice Land">Ice Land</option>
-     </select> 
+     </select>
   </div>
 </div>
 
@@ -602,7 +602,7 @@
   <label class="control-label">State</label>
   <div class="controls">
  
-    <select  name="user[state]" id="user[state]">
+    <select name="user[state]" id="user[state]">
         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
         <option value="Andhra Pradesh">Andhra Pradesh</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -647,16 +647,16 @@
 <div class="control-group">
   <label class="control-label">City</label>
   <div class="controls">
-    <input id="user[city]" name="user[city]"   class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed"  style="text-transform: capitalize;">
+    <input id="user[city]" name="user[city]" class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;">
     
      
   </div>
-</div> 
+</div>
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label">Zip/PinCode</label>
   <div class="controls">
-    <input id="user[zip]" name="user[zip]"   class="input-large" required="required" type="number" maxlength="10">
+    <input id="user[zip]" name="user[zip]" class="input-large" required="required" type="number" maxlength="10">
     
   </div>
 </div>
@@ -666,11 +666,11 @@
     "You must agree to the terms and conditions">
     I accept the <a href="/home/tc">Terms and Conditions </a>
   </div>
- <br> 
+ <br>
     <div class="control-group">
   <label class="control-label">Verify yourself by enter the correct code </label>
   <div class="controls">
-   <%= recaptcha_tags :display => { :theme => "clean" } %> 
+   <%= recaptcha_tags :display => { :theme => "clean" } %>
     
   </div>
 </div>
