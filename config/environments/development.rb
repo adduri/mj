@@ -44,7 +44,7 @@ Mj::Application.configure do
     :port => 587,
     :domain => 'maheshwarijagruth.com',
     :user_name => 'maheshwari',
-    :password => 'mahesh123',
+    :password => 'mahesh1234',
     :authentication => 'plain',
     :enable_starttls_auto => true
   }
