@@ -10,7 +10,7 @@ Mj::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
@@ -44,7 +44,7 @@ Mj::Application.configure do
     :port => 587,
     :domain => 'maheshwarijagruth.com',
     :user_name => 'maheshwari',
-    :password => 'mahesh1234',
+    :password => 'mahesh123',
     :authentication => 'plain',
     :enable_starttls_auto => true
   }
