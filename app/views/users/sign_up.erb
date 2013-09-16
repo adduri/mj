@@ -1,10 +1,10 @@
 <script>
  function addtext() {
-  var newtext = document.frm.inputtext.value;
-  if (document.frm.placement) {
-    document.frm.outputtext.value = "";
+  var newtext = document.myform.inputtext.value;
+  if (document.myform.placement) {
+    document.myform.outputtext.value = "";
     }
-  document.frm.outputtext.value = newtext;
+  document.myform.outputtext.value = newtext;
 }
    $(function () { $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); } );
 </script>
@@ -15,7 +15,7 @@
   src: url('webfont.eot'); /* IE9 Compat Modes */
   src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('webfont.woff') format('woff'), /* Modern Browsers */
-       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.ttf') format('truetype'), /* Safari, Android, iOS */
        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
   }
 .control-label{
@@ -24,13 +24,13 @@
 }
 </style>
 
-<div  class="hero-unit" style="background-color:#fff;background-color:transparent; ">
+<div class="hero-unit" style="background-color:#fff;background-color:transparent; ">
  <div class="accordion" id="accordion2">
   <div class="accordion-group" >
     <div class="accordion-heading" style="padding-right:44px">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" >
-           <input type="submit"  value="Guidelines For Registration Process" 
-         class="btn btn-success btn-large" style="width:868px"   />
+           <input type="submit" value="Guidelines For Registration Process"
+         class="btn btn-success btn-large" style="width:868px" />
         </a>
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
@@ -54,7 +54,7 @@
   </div>
 </div>
   <h1 style="color:#890000;font-size:40px;"><strong>Registration Form</strong></h1><br>
- <form accept-charset="UTF-8" action="/users/create" name="frm" class= "form-horizontal"  id="new_user" method="post">
+ <form accept-charset="UTF-8" action="/users/create" name="myform" class= "form-horizontal" id="new_user" method="post">
 <fieldset>
 
 
@@ -69,7 +69,7 @@
         <option value="Miss.">Miss.</option>
         <option value="Master.">Master.</option>
         <option value="Late.">Late.</option>
-      </select>    
+      </select>
   </div>
 </div>
 
@@ -259,7 +259,7 @@
 <div class="control-group">
   <label class="control-label">Father Name</label>
   <div class="controls">
-    <input id="user[fathername]" name="user[fathername]"  
+    <input id="user[fathername]" name="user[fathername]"
     maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
   </div>
 </div>
@@ -285,66 +285,16 @@
   <label class="control-label">Email</label>
   <div class="controls">
 
-    <input id="user[email]" name="user[email]"   class="input-large" required="required" type="email" >
+    <input id="user[email]" name="user[email]" class="input-large" required="required" type="email" >
     <p class="help-block"></p>
   </div>
 </div>
-<!-- 
-  <tr>
-    <td><label for="user_country"><strong>Country</strong></label></td>
-    <td><select name="user[country]" id="country" onchange="setStates();">
-             <option value="select" selected>select</option>
-             <option value="India">India</option>
-              <option value="Canada">Canada</option>
-             <option value="Mexico">Mexico</option>
-             <option value="United States">United States</option>
-             <option value="Nigeria">Nigeria</option>
-             <option value="Bangladesh">Bangladesh</option>
-             <option value="Bhutan">Bhutan</option>
-             <option value="Brunei">Brunei</option>
-             <option value="Burma (Myanmar)">Burma (Myanmar)</option>
-             <option value="Cambodia">Cambodia</option>
-             <option value="China">China</option>
-             <option value="Italy">Italy</option>
-             <option value="United Kingdom">United Kingdom</option>
-             <option value="Kuwait">Kuwait</option>
-             <option value="Saudi Arabia">Saudi Arabia</option>
-             <option value="Turkey">Turkey</option>
-             <option value="United Arab Emirates">United Arab Emirates</option>
-             <option value="South Africa">South Africa</option>
-             <option value="Indonesia">Indonesia</option>
-             <option value="Korea (north)">Korea (north)</option>
-            <option value="Korea (south)">Korea (south)</option>
-            <option value="Malaysia">Malaysia</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Australia">Australi</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Ice Land">Ice Land</option>
-        </select> <br />
-    </td>
-  </tr><br/>
-  <tr>
-    <td><label for="user_state"><strong>State</strong></label></td>
-    <td>
-         <select name="user[state]" id="state" onchange="setCities();">
-            <option value="user[state]">select</option>
-        </select>
-    </td>
-  </tr><br />
 
-  <tr>
-    <td><label for="user_city"><strong>City</strong></label></td>
-    <td> <select name="user[city]"  id="city">
-              <option value="select">select</option>
-         </select>
-    </td>
-  </tr><br /> -->
 
 <div class="control-group">
   <label class="control-label">Countrycode</label>
  &nbsp;&nbsp;
-    <select name="inputtext" name="user[country]" id="country" onClick="addtext();" onchange="setStates();" >
+    <select name="inputtext" onClick="addtext();" >
     <option value="">Select</option>
     <option value="+91">India</option>
     <option value="+93">Afghanistan</option>
@@ -574,7 +524,7 @@
     <option value="+967">Yemen</option>
     <option value="+260">Zambia</option>
     <option value="+263">Zimbabwe</option>
-    </select> &nbsp; 
+    </select> &nbsp;
     </div>
  
  <!-- Text input-->
@@ -582,35 +532,35 @@
   <label class="control-label">Contact Number</label>
   <div class="controls">
 
- <input name="user[ccode]" id="outputtext" class="input-mini" style="width:3em;">  
+ <input name="user[ccode]" id="outputtext" class="input-mini" style="width:3em;">
 
 
-    <input id="user[mobileno]" name="user[mobileno]"    style="width:11em"
-    maxlength="10" class="input-large" required="required" type="number" pattern=".{5,10}" data-validation-pattern-message="Contact Number seems to be Wrong" title="min 5 to 10 characters">
+    <input id="user[mobileno]" name="user[mobileno]" style="width:11em"
+    maxlength="12" class="input-large" required="required" type="number" pattern=".{5,12}" data-validation-pattern-message="Contact Number seems to be Wrong" title="min 5 to 12 characters">
     <p class ="help-block"></p>
   </displayv>
 </div>
 <!-- Text input-->
 <!-- <div class="control-group">
-  <label class="control-label">Landline number</label>
-  <div class="controls">
-    <input id="user[landline]" name="user[landline]" placeholder="040 12345678" class="input-large" type="number" maxlength="15">
-    <p class="help-block"></p>
-  </div>
+<label class="control-label">Landline number</label>
+<div class="controls">
+<input id="user[landline]" name="user[landline]" placeholder="040 12345678" class="input-large" type="number" maxlength="15">
+<p class="help-block"></p>
+</div>
 </div -->
 
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label">Date of Birth</label>
   <div class="controls">
-    <input id="user[dob]" name="user[dob]" placeholder="dd-mm-yyyy" class="input-large" required="required" type="text" maxlength="10"  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}"
- data-validation-pattern-message="You might have entered a Wrond Date of Birth">
+    <input id="user[dob]" name="user[dob]" placeholder="dd-mm-yyyy" class="input-large" required="required" type="text" maxlength="10" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}"
+ data-validation-pattern-message="You might have entered a Wrong Date of Birth">
     <p class="help-block"></p>
   </div>
 </div>
 
 
-<!--  <div class="control-group">
+ <div class="control-group">
   <label class="control-label">Country</label>
   <div class="controls">
    
@@ -644,7 +594,7 @@
             <option value="Australia">Australi</option>
             <option value="New Zealand">New Zealand</option>
             <option value="Ice Land">Ice Land</option>
-     </select> 
+     </select>
   </div>
 </div>
 
@@ -652,7 +602,7 @@
   <label class="control-label">State</label>
   <div class="controls">
  
-    <select  name="user[state]" id="user[state]">
+    <select name="user[state]" id="user[state]">
         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
         <option value="Andhra Pradesh">Andhra Pradesh</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -691,107 +641,22 @@
         </select>
        
   </div>
-</div> -->
-<tr>
-    <td><label for="user_state"><strong>State</strong></label></td>
-    <td>
-         <select name="user[state]" id="state" onchange="setCities();">
-            <option value="user[state]">sele    SORT
+</div>
 
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-    SORT
-
-    General Knowledge shared Damn! Funny's photo.
-    Visit our Page -► @[271269216248230:274:Damn! Funny] ◄- For more.
-    Visit our Page -► Damn! Funny ◄- For more.
-    Like · · Share · 131 · 6 minutes ago ·
-    Options
-ct</option>
-        </select>
-    </td>
-  </tr><br />
-
-  <tr>
-    <td><label for="user_city"><strong>City</strong></label></td>
-    <td> <select name="user[city]"  id="city">
-              <option value="select">select</option>
-         </select>
-    </td>
-  </tr>
 
 <div class="control-group">
   <label class="control-label">City</label>
   <div class="controls">
-    <input id="user[city]" name="user[city]"   class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed"  style="text-transform: capitalize;">
+    <input id="user[city]" name="user[city]" class="input-large" required="required" type="text"pattern="^[A-z]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;">
     
      
   </div>
-</div> 
+</div>
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label">Zip/PinCode</label>
   <div class="controls">
-    <input id="user[zip]" name="user[zip]"   class="input-large" required="required" type="number" maxlength="10">
+    <input id="user[zip]" name="user[zip]" class="input-large" required="required" type="number" maxlength="10">
     
   </div>
 </div>
@@ -801,11 +666,11 @@ ct</option>
     "You must agree to the terms and conditions">
     I accept the <a href="/home/tc">Terms and Conditions </a>
   </div>
- <br> 
+ <br>
     <div class="control-group">
   <label class="control-label">Verify yourself by enter the correct code </label>
   <div class="controls">
-   <%= recaptcha_tags :display => { :theme => "clean" } %> 
+   <%= recaptcha_tags :display => { :theme => "clean" } %>
     
   </div>
 </div>
