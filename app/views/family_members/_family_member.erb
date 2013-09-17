@@ -19,7 +19,7 @@ text-decoration:none;}
       <% end %>
         &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
         <a href="/family_members/family/<%= family_member.id %>">
-        &nbsp;<%= family_member.firstname.capitalize %>&nbsp;<%= family_member.middlename.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
+        &nbsp;<% if family_member.desig == 'Late.' %><%= family_member.desig %><% end %><%= family_member.firstname.capitalize %>&nbsp;<%= family_member.middlename.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
         <br/>
         &nbsp;<%= family_member.dob %><br/>
         &nbsp;<%= family_member.city.capitalize %><br/> 
@@ -46,7 +46,7 @@ text-decoration:none;}
               <% end %> 
             &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>              
             <a href="/family_members/family/<%= spouse.id %>">
-              <%= spouse.firstname.capitalize %>&nbsp;<%= spouse.middlename.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
+              &nbsp;<% if family_member.desig == 'Late.' %><%= family_member.desig %><% end %><%= spouse.firstname.capitalize %>&nbsp;<%= spouse.middlename.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
               <br>
               &nbsp;<%= spouse.dob %><br>
               &nbsp;<%= spouse.city.capitalize %><br>               
