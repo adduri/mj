@@ -90,17 +90,20 @@
              <% if @user.id == current_user.id %>
               <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
-                  <% if family_member_user.photo_file_name.nil? %>
-                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-                  <% else %>
-                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                  <% end %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <p id="watermark">un confirmed</p>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
-                   <br/>
-                   &nbsp;<%= family_member_user.dob %><br/>
-                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
-              <% end %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                  </div>
+                <% end %>
               <% end %>
           </td>
       <% end %>
@@ -120,17 +123,20 @@
              <% if @user.id == current_user.id %>
               <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
-                  <% if family_member_user.photo_file_name.nil? %>
-                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-                  <% else %>
-                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                  <% end %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <p id="watermark">un confirmed</p>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
-                   <br/>
-                   &nbsp;<%= family_member_user.dob %><br/>
-                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
-              <% end %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                  </div>
+                <% end %>
               <% end %>
           </td>
       <% end %>
@@ -151,16 +157,20 @@
                <% if @user.id == current_user.id %>
                 <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
-                  <% if family_member_user.photo_file_name.nil? %>
-                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-                  <% else %>
-                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                  <% end %>
+
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <p id="watermark">un confirmed</p>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
-                   <br/>
-                   &nbsp;<%= family_member_user.dob %><br/>
-                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                    <br/>
+                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %>
+                  </div> 
                 <% end %>
                 <% end %>
           </td>
@@ -181,17 +191,20 @@
              <% if @user.id == current_user.id %>
               <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
-                  <% if family_member_user.photo_file_name.nil? %>
-                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-                  <% else %>
-                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                  <% end %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <p id="watermark">un confirmed</p>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
-                   <br/>
-                   &nbsp;<%= family_member_user.dob %><br/>
-                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
-              <% end %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %><br/>
+                  </div> 
+                <% end %>
               <% end %>
           </td>
       <% end %>
@@ -211,23 +224,22 @@
              <% if @user.id == current_user.id %>
               <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
-                  <% if family_member_user.photo_file_name.nil? %>
-                     <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
-                  <% else %>
-                     <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                  <% end %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <p id="watermark">un confirmed</p>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
-                   <br/>
-                   &nbsp;<%= family_member_user.dob %><br/>
-                   &nbsp;<%= family_member_user.city.capitalize %><br/> 
-              <% end %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %><br/>
+                  </div>  
+                <% end %>
               <% end %>
           </td>
       <% end %>
   </tr>
 </table>
- 
-
-
- 

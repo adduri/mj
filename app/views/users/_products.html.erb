@@ -17,7 +17,8 @@ id="products">
     <th><%= sortable "surname" %></th>
     <th><%= sortable "firstname" %></th>
     <th><%= sortable "city"%>
-    <th><%= sortable "photo" %></th>
+   <th><%= sortable "Address"%>
+     <th><%= sortable "photo" %></th>
   </tr>
   <% for product in @products %>
     <tr>
@@ -25,7 +26,26 @@ id="products">
       <td><%= product.lastname.capitalize %></td>
       <td><%= product.firstname.capitalize %></td>
       <td><%= product.city.capitalize%></td>
-      <td><%= image_tag  product.photo.url(:small) %></a></td>
+      <td><%= product.address%></td>
+
+<td>
+ <% if product.photo_file_name.nil? %>
+          <%=image_tag ('/assets/empty_profile.jpeg'),
+          :style => "height:25px;width:45px", :class => 'img-polaroid'%>
+        <% else %>
+       <%= image_tag product.photo.url(:small),
+       :style => "height:35px;width:50px", :class =>'img-polaroid'%>
+        <% end %>
+
+</td>
+
+
+
+ 
+
+
+
+
     </tr>
   <% end %>
 </table>
