@@ -284,100 +284,20 @@
     </tr>
     <tr>
         <td><label for="user_state"><strong>State</strong></label></td>
-        <td>
+      
+         <td>
+    <input type="text" value="<%= @user.state.capitalize %>" disabled/>
+         </td>
+ 
+  <td>
             <select name="user[state]" id="state"  >
-               <option value=<%= @user.state.capitalize %> selected><%= @user.state.capitalize %>
+      <option value=<%= @user.state.capitalize %> selected><%= @user.state.capitalize %>
                </option>
            </select>
         </td>
-         <td><input size="30" type="text" 
-            value=" <%= @user.state.capitalize %>" style="text-transform: capitalize;" placeholder="bussiness"/></td>
+
     </tr>
-
-   
-
-
-
-<!-- 
- <div class="control-group">
-  <label class="control-label"> Country</label>
-  <div class="controls">
-    <select name="user[country]" id="country" onchange="setStates();">
-             <option value="select" selected>select</option>
-             <option value="India">India</option>
-              <option value="Canada">Canada</option>
-             <option value="Mexico">Mexico</option>
-             <option value="United States">United States</option>
-             <option value="Nigeria">Nigeria</option>
-             <option value="Bangladesh">Bangladesh</option>
-             <option value="Bhutan">Bhutan</option>
-             <option value="Brunei">Brunei</option>
-             <option value="Burma (Myanmar)">Burma (Myanmar)</option>
-             <option value="Cambodia">Cambodia</option>
-             <option value="China">China</option>
-             <option value="Italy">Italy</option>
-             <option value="United Kingdom">United Kingdom</option>
-             <option value="Kuwait">Kuwait</option>
-             <option value="Saudi Arabia">Saudi Arabia</option>
-             <option value="Turkey">Turkey</option>
-             <option value="United Arab Emirates">United Arab Emirates</option>
-             <option value="South Africa">South Africa</option>
-             <option value="Indonesia">Indonesia</option>
-             <option value="Korea (north)">Korea (north)</option>
-            <option value="Korea (south)">Korea (south)</option>
-            <option value="Malaysia">Malaysia</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Australia">Australi</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Ice Land">Ice Land</option>
-        </select>
-
-</div>
-</div>
-
-<div class="control-group">
-  <label class="control-label">State</label>
-  <div class="controls">
-    <select name="user[state]" id="state">
-            <option value="user[state]">select</option>
-        </select>
-    
-</div>
-</div>
-
-
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
     <tr>
         <td><label for="user_city"><strong>City</strong></label></td>
         <td>
