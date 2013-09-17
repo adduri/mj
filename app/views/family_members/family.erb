@@ -20,10 +20,24 @@
         <%= @accept_notification.count %>
       </span> 
     <% end  %>
-  </a>
-</div>
+  </a>                             
 <% end %>
+<div style="float:right">  <% if current_user.mj_id == "MJ1" %>
+                              <form name="input" action="/family_members/family/" method="post">
+                              <% @users = User.all %>
+                                        
+                              <select  name="id" class="input-medium">
 
+                              <% @users.each do |user| %>
+                                 <% u = user.id %>
+                                <option value="<%= u %>"><%= user.mj_id %> <%= user.firstname.capitalize%>   </options>
+                                <% end %>
+                                </select>
+                                <input type="submit" value="View Family Tree" class ="btn btn-inverse" >
+                                </form>
+                              <% end %> 
+</div> 
+</div>
 <br/>
 <div id="treeDiv">
 <% if @user.id == current_user.id %>
@@ -68,7 +82,7 @@
   <tr><td class="font">Occupation</td><td class="font">:<%= @user.occupation.capitalize %></td></tr>
   <tr><td class="font">City</td><td class="font">:<%= @user.city.capitalize %>
   </td></tr>
-  <tr><td class="font">Address</td><td class="font" style="max-width:350px;">:<%= @user.address %>
+  <tr><td class="font">Address :-</td><td class="font" style="max-width:350px;"><address><%= @user.address %></address>
   </td></tr>
 </table>     
 </div>
