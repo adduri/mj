@@ -78,7 +78,7 @@ color:white
   #content_links a{ background: #890000; border: 1px solid #890000; padding: 3px 8px; margin-right: 15px;
 text-decoration: none; color: #fff; border-radius: 8px;
    }
-   #treeDiv .MainProfile{font-size: 14px;background: #ccc; border: 1px solid gray; position: relative; height: 240px; border-radius: 8px;
+   #treeDiv .MainProfile{font-size: 14px;background: #ccc; border: 1px solid gray; position: relative; height: auto; border-radius: 8px;
 
    }
    #treeDiv .MainProfile h2{margin:0px; padding:0px; position: absolute; left: 5px; top: 5px;}
@@ -240,6 +240,7 @@ border-radius: 5px;
 .leadname {
     font-size: 12px;
     margin: 0px 0px 10px;
+    text-align: center;
 }
 .leadname a {
     text-decoration: underline;

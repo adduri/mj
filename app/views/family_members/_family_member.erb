@@ -6,7 +6,7 @@ text-decoration:none;}
 <% logger.info "FAMILY MEMBER >>>>>>>>> #{family_member.firstname.inspect} #{family_member.id.inspect}" %>
 
 <% unless displayed_members_list.include? family_member.id %>
-  <div class="male-span3"> 
+  <div class="male-span3">
    <div class="span1">
       <% if family_member.photo_file_name.nil? %>
         <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
@@ -19,21 +19,21 @@ text-decoration:none;}
       <% end %>
         &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
         <a href="/family_members/family/<%= family_member.id %>">
-        &nbsp;<%= family_member.firstname.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
+        &nbsp;<% if family_member.desig == 'Late.' %><%= family_member.desig %><% end %><%= family_member.firstname.capitalize %>&nbsp;<%= family_member.middlename.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
         <br/>
         &nbsp;<%= family_member.dob %><br/>
-        &nbsp;<%= family_member.city.capitalize %><br/> 
+        &nbsp;<%= family_member.city.capitalize %><br/>
     </div>
 
     <% displayed_members_list << family_member.id %>
 
     <% spouse_relation = FamilyMember.find_by_user_id_and_spouse_status_and_join_pending(f.family_member_user_id,true,false) %>
-    <% unless spouse_relation.nil? or spouse_relation.blank? %> 
+    <% unless spouse_relation.nil? or spouse_relation.blank? %>
     <% logger.info "SPOUSE EXISTS >>>>>>>>>>> #{spouse_relation.family_member_user_id.inspect}" %>
       <% spouse = User.find(spouse_relation.family_member_user_id) %>
       <% unless displayed_members_list.include? spouse.id %>
         <% current_user_relation_with_member_spouse = FamilyMember.find_by_user_id_and_family_member_user_id(@user.id,spouse.id) %>
-        <% unless current_user_relation_with_member_spouse.nil? %> 
+        <% unless current_user_relation_with_member_spouse.nil? %>
         <div class="spouse-span1">
             <% if spouse.photo_file_name.nil? %>
               <img src="/assets/empty_profile.jpeg" alt="" class="img-polaroid"/>
@@ -43,15 +43,15 @@ text-decoration:none;}
               <% if @user.id == current_user.id %>
                 <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close">
                 <img src="/assets/close.png"/></a>
-              <% end %> 
-            &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>              
+              <% end %>
+            &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>             
             <a href="/family_members/family/<%= spouse.id %>">
-              <%= spouse.firstname.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
+              &nbsp;<% if spouse.desig == 'Late.' %><%= spouse.desig %><% end %><%= spouse.firstname.capitalize %>&nbsp;<%= spouse.middlename.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
               <br>
               &nbsp;<%= spouse.dob %><br>
-              &nbsp;<%= spouse.city.capitalize %><br>               
+              &nbsp;<%= spouse.city.capitalize %><br>              
           </div>
-        <% end %>      
+        <% end %>     
         <% displayed_members_list << spouse.id %>
       <% end %>
     <% end %>
