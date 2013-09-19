@@ -251,7 +251,7 @@ countries['Venezuela'] = '|Caracas||Amazonas|Anzoategui|Apure|Aragua|Barinas|Bol
 ////////////////////////////////////////////////////////////////////////////
 
 var citys = Object();
-citys['Andhra Pradesh'] = '|Adilabad|Anantapur|Chittoor|East Godavari|Guntur|Hyderabad|Kadapa|Karimnagar|Khammam|Krishna|Kurnool|Mahbubnagar|Medak|Nalgonda|Nellore|Nizamabad|Prakasam|KonarRangareddy|Srikakulam|Vishakhapatnam|Vizianagaram|Warangal|West Godavari';
+citys['Andhra Pradesh'] = '|Adilabad|Anantapur|Chittoor|East Godavari|Guntur|Hyderabad|Kadapa|Karimnagar|Khammam|Krishna|Kurnool|Mahbubnagar|Medak|Nalgonda|Nellore|Nizamabad|Prakasam|Rangareddy|Srikakulam|Vishakhapatnam|Vizianagaram|Warangal|West Godavari';
 citys['Goa'] = '|North Goa|South Goa';
 citys['Jammu/Kashmir'] = '|Jammu|Srinagar|Anantnag|Baramula|Kupwara|Badgam|Rajouri|Kathua|Pulwama|Udhampur|Punch|Kulgam|Doda|Bandipora|Samba|Reasi|Ganderbal|Ramban|Shupiyan|Kishtwar|Kargil|Leh';
 citys['Dadra/Nagar Haveli'] = '|Dadra and Nagar Haveli';
@@ -339,5 +339,4 @@ function print_city(oCountrySel, oCity_StateSel)
 	else document.getElementById('txtplacename').innerHTML = country;
 }
 
- 
  
