@@ -2,6 +2,9 @@ Mj::Application.routes.draw do
 
 
 
+  resources :posts
+
+
   # root :to => "home#index"
   
   get "home/index"
@@ -12,16 +15,15 @@ Mj::Application.routes.draw do
 
   # root :to => redirect('/aboutus')
 
-
+match 'contact' => 'contact#new', :as => 'contact', :via => :get
+match 'contact' => 'contact#create', :as => 'contact', :via => :post
  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   resources :videos
 
-
-  resources :mjnews
-
+ 
  
   resources :ads
 
@@ -38,7 +40,7 @@ Mj::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
 
-  get "mjnews" => "mjnews#index", :as => "mjnews"
+  get "mjnews" => "posts#index", :as => "posts"
 
 
 
