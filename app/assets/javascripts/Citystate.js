@@ -305,7 +305,7 @@ function set_country(oRegionSel, oCountrySel, oCity_StateSel)
 	{
 		oCountrySel.disabled = false;
 		oCity_StateSel.disabled = true;
-		oCountrySel.options[0] = new Option('SELECT COUNTRY','');
+		oCountrySel.options[0] = new Option('Select','');
 		countryArr = countries[state].split('|');
 		for (var i = 0; i < countryArr.length; i++)
 			oCountrySel.options[i + 1] = new Option(countryArr[i], countryArr[i]);
@@ -322,7 +322,7 @@ function set_country(oRegionSel, oCountrySel, oCity_StateSel)
 	if (citys[country])
 	{
 		oCity_StateSel.disabled = false;
-		oCity_StateSel.options[0] = new Option('SELECT NEAREST DIVISION','');
+		oCity_StateSel.options[0] = new Option('Select','');
 		cityArr = citys[country].split('|');
 		for (var i = 0; i < cityArr.length; i++)
 			oCity_StateSel.options[i+1] = new Option(cityArr[i],cityArr[i]);

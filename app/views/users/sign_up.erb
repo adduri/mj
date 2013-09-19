@@ -553,10 +553,10 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 
 
 <div class="control-group">
- <label class="control-label">Region</label>
+ <label class="control-label">Country</label>
   <div class="controls">
      <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
-     <option value="" selected="selected">SELECT REGION</option>
+     <option value="" selected="selected">Select</option>
      <option value=""></option>
      <script type="text/javascript">
      setRegions(this);
@@ -565,14 +565,14 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
     </div>
 </div>
 <div class="control-group">
-  <label class="control-label">Country</label>
+  <label class="control-label">State</label>
    <div class="controls">
      <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country"></select>
     </div>
 </div>
 
 <div class="control-group">
-  <label class="control-label">City/State</label>
+  <label class="control-label">City</label>
    <div class="controls">
      <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,this)" id="city"></select>
     </div>
