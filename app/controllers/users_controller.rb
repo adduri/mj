@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         @user.lastname  = params[:user][:lastname].capitalize
         @user.fathername  = params[:user][:fathername].capitalize
         @user.email = params[:user][:email].downcase
-        @user.city = params[:user][:city].capitalize
+        # @user.city = params[:user][:city].capitalize
     if verify_recaptcha
       @user.save
       @myself = FamilyMember.new
