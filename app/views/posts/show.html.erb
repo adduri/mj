@@ -1,0 +1,21 @@
+<div class="hero-unit" style="background:white;min-height:700px;">
+  <h2 style="color:#890000"><%= @post.title %></h2>
+  <font style="font-size:14px;color:rgb(150, 150, 150);font-family:georgia">
+  Place : <%= @post.location %> | Updated on : <%= @post.created_at.strftime("%d %b. %Y") %>
+  </font>
+  <p>
+  <%= image_tag @post.photo, :style =>'float:right;margin-left:10px;
+  max-height:600px;min-height:400px;' %>
+  <%= @post.p1 %><br>
+  <%= @post.p2 %>
+  </p>
+  <p>
+  <%= @post.p3 %>
+  </p>
+</div>
+<style type="text/css">
+p {font-family: georgia;
+line-height: 1.5em;
+text-align: justify;
+font-size: 16px;}
+</style>

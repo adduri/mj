@@ -324,3 +324,21 @@ border: 1px solid #DDD;
 border-left-width: 0;
 }
  
+
+
+/*-----mjnews-----*/
+.a_space {
+  float: left;
+  display: inline;
+  width: 214px;
+  padding: 0px 5px 6px 0px;
+  overflow: hidden;
+  height: 280px;
+}
+.i_space {
+  border: 1px solid rgb(204, 204, 204);
+  margin: 0px 0px 3px;
+  padding: 8px 9px;
+  background: none repeat scroll 0% 0% rgb(255, 255, 255);
+  box-shadow: 1px 4px 5px rgb(170, 170, 170);
+}
