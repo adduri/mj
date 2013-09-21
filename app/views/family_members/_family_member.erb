@@ -22,7 +22,7 @@ text-decoration:none;}
         &nbsp;<% if family_member.desig == 'Late.' %><%= family_member.desig %><% end %><%= family_member.firstname.capitalize %>&nbsp;<%= family_member.middlename.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
         <br/>
         &nbsp;<%= family_member.dob.to_time.strftime('%dth %B') %><br/>
-        &nbsp;<%= family_member.city.capitalize %><br/>
+        &nbsp;<%= family_member.city %><br/>
     </div>
 
     <% displayed_members_list << family_member.id %>
@@ -49,7 +49,7 @@ text-decoration:none;}
               &nbsp;<% if spouse.desig == 'Late.' %><%= spouse.desig %><% end %><%= spouse.firstname.capitalize %>&nbsp;<%= spouse.middlename.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
               <br>
               &nbsp;<%= spouse.dob.to_time.strftime('%dth %B') %><br>
-              &nbsp;<%= spouse.city.capitalize %><br>              
+              &nbsp;<%= spouse.city %><br>              
           </div>
         <% end %>     
         <% displayed_members_list << spouse.id %>

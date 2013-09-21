@@ -1,10 +1,4 @@
-<head>
-      <script type="text/javascript" src="/assets/citystate.js"></script>
-
-</head>
-
-
-<div  class="hero-unit" 
+<div  class="hero-unit"
     style="background-color:#fff;width:42em;background-color:transparent; ">
         <div>
             <a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile
@@ -13,7 +7,7 @@
             <a class="btn btn-danger" href="/give_feedback">Give feedback</a>
         </div>
     <br/>
-<form action="/sessions/edit_page/<%= @user.id %>" method="post" 
+<form action="/sessions/edit_page/<%= @user.id %>" method="post"
     enctype="multipart/form-data">
     <h3>
         <font color="#890000" ><%= @user.mj_id %> - <%= @user.firstname.capitalize %> <%= @user.middlename.capitalize %> <%=@user.lastname.capitalize %>'s profile
@@ -25,7 +19,7 @@
         <tr>
             <td><label for="user_desig"><strong>Title</strong></label></td>
             <td>
-                <select id="user_desig" name="user[desig]" required="required" 
+                <select id="user_desig" name="user[desig]" required="required"
                 value="<%= @user.desig %>">
                     <option value="<%= @user.desig %>"><%= @user.desig %></option>
                     <option value="Mr.">Mr.</option>
@@ -198,12 +192,12 @@
             <option value="Thirani">
             <option value="Toshniwal">
             <option value="Totla">
-        </datalist>        
-    </tr>    
+        </datalist>       
+    </tr>   
     <tr>
         <td><label for="user_fathername"><strong>Father Name</strong></label> </td>
         <td><input id="user_fathername" name="user[fathername]" size="30" type="text" value="<%= @user.fathername.capitalize %>"/style="text-transform: capitalize;" placeholder="hariprasad" maxlength="20" required="required"></td>
-  
+ 
     </tr>
     <tr>
         <td><label for = "user_gender"><strong>Gender</strong></label> </td>
@@ -228,62 +222,105 @@
     </tr>
     <tr>
         <td><label for="user_occupation"><strong>Occupation</strong></label></td>
-        <td><input id="user_occupation" name="user[occupation]" size="30" type="text" 
+        <td><input id="user_occupation" name="user[occupation]" size="30" type="text"
             value="<%= @user.occupation.capitalize %>" style="text-transform: capitalize;" placeholder="bussiness"/></td>
     </tr>
     <tr>
         <td><label for="user_mobileno"><strong>Contact Number</strong></label></td>
         <td>
-            <input id="user_mobileno" name="user[mobileno]" type="number" 
+            <input id="user_mobileno" name="user[mobileno]" type="number"
             value="<%= @user.mobileno %>" style="text-transform: capitalize;"  maxlength="12" pattern=".{5,12}" title="min 5 to 12 characters" placeholder="09876543210" required="required"/>
             <p class="help-block"></p>
         </td>
     </tr>
-  
+ 
     <tr>
         <td><label for="user_address"><strong>Address</strong></label></td>
         <td>
             <textarea rows="4" cols="30" id =" user_address" name="user[address]" >
-                <%= @user.address %></textarea></td>
-    </tr>
-    <tr>
-        <td><label for="user_country"><strong>Country</strong></label></td>
-        <td>
-         <select name="user[country]" id="state" onchange="set_country(this,country,city)">
-            <option value='<%= @user.country %>' selected><%= @user.country %></option>
-     
-            <script type="text/javascript">
-              setRegions(this);
-            </script>
-         </select>
+                <%= @user.address %></textarea>
         </td>
     </tr>
-    
+     <tr>
+        <td><label for="user_country"><strong>Country</strong></label></td>
+        <td>
+            <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
+              <option value=<%= @user.country.capitalize %>   ><%= @user.country.capitalize %>
+              </option>
+   
+               <script type="text/javascript">
+                setRegions(this);
+               </script>
+            </select>
+        </td>
+
+    </tr>
     <tr>
-       <td><label for="user_state"><strong>State</strong></label></td>
-       <td>
-         <select name="user[state]" size="1"  disabled="disabled" onchange="set_city(this,city)" id="country">
-            <option value='<%= @user.state.capitalize %>' selected><%= @user.state.capitalize %>
-            </option>
-         </select>
-       </td>
+        <td><label for="user_state"><strong>State</strong></label></td>
+        <td>
+            <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country">
+            <option value=<%= @user.state.capitalize %> selected><%= @user.state.capitalize %>
+               </option>
+           </select>
+        </td>
     </tr>
  
     <tr>
-       <td><label for="user_city"><strong>City</strong></label></td>
-       <td>
-         <select name="user[city]" size="1"  disabled="disabled" onchange="print_city(country,this)" id="city">
-           <option value="<%= @user.city.capitalize %>" selected><%= @user.city.capitalize %>
-           </option>
-         </select>
-       </td>
+        <td><label for="user_city"><strong>City</strong></label></td>
+        <td>
+             <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,this)" id="city">
+                <option value=<%= @user.city %> selected><%= @user.city %>
+               </option>
+
+            </select>
+
+
+
+        </td>
+      
     </tr>
-    
+
+
+
+
+<!--  
+
+<div class="control-group">
+ <label class="control-label">Country</label>
+  <div class="controls">
+     <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
+     <option value="" selected="selected">Select</option>
+     <option value=""></option>
+     <script type="text/javascript">
+     setRegions(this);
+     </script>
+     </select>
+    </div>
+</div>
+<div class="control-group">
+  <label class="control-label">State</label>
+   <div class="controls">
+     <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country"></select>
+    </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">City</label>
+   <div class="controls">
+     <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,this)" id="city"></select>
+    </div>
+</div>
+  -->
+
+
+
+
+
+
     <tr>
         <td><label for="user_zip"><strong>Zipcode</strong></label></td>
         <td>
-            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="10"/>
-        </td>
+            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="10"/></td>
     </tr>
 
 
