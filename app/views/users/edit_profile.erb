@@ -1,3 +1,9 @@
+<head>
+      <script type="text/javascript" src="/assets/citystate.js"></script>
+
+</head>
+
+
 <div  class="hero-unit" 
     style="background-color:#fff;width:42em;background-color:transparent; ">
         <div>
@@ -240,75 +246,44 @@
             <textarea rows="4" cols="30" id =" user_address" name="user[address]" >
                 <%= @user.address %></textarea></td>
     </tr>
-
-
-
-
-
-
     <tr>
         <td><label for="user_country"><strong>Country</strong></label></td>
         <td>
-           <select name="user[country]" id="country" onchange="setStates();">
-             <option   value=<%= @user.country.capitalize %> selected><%= @user.country.capitalize %></option>
-             <option value="India">India</option>
-              <option value="Canada">Canada</option>
-             <option value="Mexico">Mexico</option>
-             <option value="United States">United States</option>
-             <option value="Nigeria">Nigeria</option>
-             <option value="Bangladesh">Bangladesh</option>
-             <option value="Bhutan">Bhutan</option>
-             <option value="Brunei">Brunei</option>
-             <option value="Burma (Myanmar)">Burma (Myanmar)</option>
-             <option value="Cambodia">Cambodia</option>
-             <option value="China">China</option>
-             <option value="Italy">Italy</option>
-             <option value="United Kingdom">United Kingdom</option>
-             <option value="Kuwait">Kuwait</option>
-             <option value="Saudi Arabia">Saudi Arabia</option>
-             <option value="Turkey">Turkey</option>
-             <option value="United Arab Emirates">United Arab Emirates</option>
-             <option value="South Africa">South Africa</option>
-             <option value="Indonesia">Indonesia</option>
-             <option value="Korea (north)">Korea (north)</option>
-            <option value="Korea (south)">Korea (south)</option>
-            <option value="Malaysia">Malaysia</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Australia">Australi</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Ice Land">Ice Land</option>
-        </select>
+         <select name="user[country]" id="state" onchange="set_country(this,country,city)">
+            <option value='<%= @user.country %>' selected><%= @user.country %></option>
+     
+            <script type="text/javascript">
+              setRegions(this);
+            </script>
+         </select>
         </td>
-
     </tr>
+    
     <tr>
-        <td><label for="user_state"><strong>State</strong></label></td>
-      
-         <td>
-    <input type="text" value="<%= @user.state.capitalize %>" disabled/>
-         </td>
- 
-  <td>
-            <select name="user[state]" id="state"  >
-      <option value=<%= @user.state.capitalize %> selected><%= @user.state.capitalize %>
-               </option>
-           </select>
-        </td>
-
+       <td><label for="user_state"><strong>State</strong></label></td>
+       <td>
+         <select name="user[state]" size="1"  disabled="disabled" onchange="set_city(this,city)" id="country">
+            <option value='<%= @user.state.capitalize %>' selected><%= @user.state.capitalize %>
+            </option>
+         </select>
+       </td>
     </tr>
  
     <tr>
-        <td><label for="user_city"><strong>City</strong></label></td>
-        <td>
-            <input id="user_city" name="user[city]" size="30" type="text" 
-            value="<%= @user.city %>"style="text-transform: capitalize;" placeholder="Hyderabad"  required="required"/>
-        </td>
+       <td><label for="user_city"><strong>City</strong></label></td>
+       <td>
+         <select name="user[city]" size="1"  disabled="disabled" onchange="print_city(country,this)" id="city">
+           <option value="<%= @user.city.capitalize %>" selected><%= @user.city.capitalize %>
+           </option>
+         </select>
+       </td>
     </tr>
+    
     <tr>
         <td><label for="user_zip"><strong>Zipcode</strong></label></td>
         <td>
-            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="10"/></td>
+            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="10"/>
+        </td>
     </tr>
 
 
