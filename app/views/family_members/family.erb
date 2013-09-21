@@ -80,7 +80,7 @@
   <tr><td class="font">Mobile</td><td class="font">:<%= @user.mobileno %></td></tr>
   <tr><td class="font">Gender</td><td class="font">:<%= @user.gender %></td></tr>
   <tr><td class="font">Occupation</td><td class="font">:<%= @user.occupation.capitalize %></td></tr>
-  <tr><td class="font">City</td><td class="font">:<%= @user.city.capitalize %>
+  <tr><td class="font">City</td><td class="font">:<%= @user.city %>
   </td></tr>
   <tr><td class="font">Address :-</td><td class="font" style="max-width:350px;"><address><%= @user.address %></address>
   </td></tr>
@@ -110,11 +110,11 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <p id="watermark">un confirmed</p>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
-                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
                     &nbsp;<%= family_member_user.city.capitalize %><br/> 
                   </div>
                 <% end %>
@@ -143,11 +143,11 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <p id="watermark">un confirmed</p>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
-                    &nbsp;<%= family_member_user.dob %><br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
                     &nbsp;<%= family_member_user.city.capitalize %><br/> 
                   </div>
                 <% end %>
@@ -178,12 +178,12 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <p id="watermark">un confirmed</p>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
-                    &nbsp;<%= family_member_user.dob %><br/>
-                    &nbsp;<%= family_member_user.city.capitalize %>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city %>
                   </div> 
                 <% end %>
                 <% end %>
@@ -211,12 +211,12 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <p id="watermark">un confirmed</p>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
-                    &nbsp;<%= family_member_user.dob %><br/>
-                    &nbsp;<%= family_member_user.city.capitalize %><br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city %><br/>
                   </div> 
                 <% end %>
               <% end %>
@@ -244,12 +244,12 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <p id="watermark">un confirmed</p>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
-                    &nbsp;<%= family_member_user.dob %><br/>
-                    &nbsp;<%= family_member_user.city.capitalize %><br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city %><br/>
                   </div>  
                 <% end %>
               <% end %>
