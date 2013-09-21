@@ -22,7 +22,7 @@ text-decoration:none;}
         &nbsp;<% if family_member.desig == 'Late.' %><%= family_member.desig %><% end %><%= family_member.firstname.capitalize %>&nbsp;<%= family_member.middlename.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
         <br/>
         &nbsp;<%= family_member.dob %><br/>
-        &nbsp;<%= family_member.city.capitalize %><br/>
+        &nbsp;<%= family_member.city %><br/>
     </div>
 
     <% displayed_members_list << family_member.id %>
