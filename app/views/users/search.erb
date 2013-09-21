@@ -1,91 +1,46 @@
-<h2 style="color:#890000">Search</h2>
-<form>
-  Search by: &nbsp;
+<div class="row">
+<div class="span3"></div>
+<div class="span6">
+  <div class="" style="width:500px;">
+    <form accept-charset="UTF-8"  class="form-centered"  action="/users/logsearch" method="post" />
+   <legend>Log In</legend>
+    <div class="control-group">
+      <label for ="mj_id" class="control-label"><b>MJ ID</b></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-user"></i></span>
+          <input type="text" class="input-xlarge" id="mj_id" name="mj_id" required="required" placeholder="MJID" autofocus>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for = "password" class="control-label"><b>Password</b></label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-lock"></i></span>
+          <input type="password" id="password" class="input-xlarge" name="password" placeholder="Password" required="required">
+        </div>
+      </div>
+    </div>
 
 
-
-
-  <select name="search" class="select_style">
-    <option  value="firstname">Name</option>
-    <option  value="lastname">Surname</option>
-    <option  value="occupation">Occupation</option>
-    <option  value="mobileno">Mobileno</option>
-    <option  value="station">Station</option>
-  </select> 
-
- 
- 
- 
-<!-- <input type="text" name="searchname"  > -->
-
-  
-
-  <br/><br/>
-  whom do u want to search?
-  <input type="text" name="searchname" value="" id="searchbox" placeholder="Search for member"/><input type="submit" id="search_button" />
-  <!-- <p class="button">
-    <input name="commit" type="submit" value="Search" class="button_style" />
-  </p> -->
-
-</form>
-<table>
-  <%  if params[:search] == "firstname" %>
-
-
-
-
-    <%  @x = User.find_all_by_firstname(params[:searchname]) %>
-    <% @x.each do |f| %>
-      <tr>
-        <td><%= f.firstname %></td> <td> -- <%= f.mj_id%></td>
-      </tr>
-    <% end %>
-  <% end %>
-
-  <% if params[:search] == "lastname" %>
-    <%  @y = User.find_all_by_lastname(params[:searchname]) %>
-    <% @y.each do |s| %>
-      <tr>
-        <td> <%= s.firstname %></td> <td> -- <%= s.mj_id%> </td>
-      </tr>
-    <% end %>
-  <% end %>
-
-  <% if params[:search] == "occupation" %>
-    <% @z = User.find_all_by_occupation(params[:searchname]) %>
-    <% @z.each do |o| %>
-      <tr>
-        <td><%= o.firstname %></td> 
-
-   <td>  <%= o.lastname %>   </td>
-   <td>  <%= o.occupation %>   </td>
-
-<!--    <td>  <% o.firstname %>    </td>
- -->
-   <td>  <% image_tag  o.photo.url(:small) %>  </td>
-
- 
-        <td> -- <%= o.mj_id%> </td>
-      </tr>
-    <% end %>
-  <% end %>
-
-  <% if params[:search] == "station" %>
-    <% @p = User.find_all_by_station(params[:searchname]) %>
-    <% @p.each do |s| %>
-      <tr>
-        <td><%= s.firstname %></td><td> -- <%= s.mj_id%> </td>
-      </tr>
-    <% end %>
-  <% end %>
-
-  <% if params[:search] == "mobileno" %>
-    <% @q = User.find_all_by_mobileno(params[:searchname]) %>
-    <% @q.each do |m| %>
-      <tr>
-        <td><%= m.firstname %> -- <%= m.mj_id%> </td>
-      </tr><br/>
-    <% end %>
-  <% end %>
-</table>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <div class="control-group">
+      <label class="control-label"></label>
+      <div class="controls">
+        <button type="submit" name="commit" value="Log in" class="btn btn-success">Login </button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"></label>
+      <div class="controls">
+        <p>Forgot your password, <a href="/change_password">Recover it !</a><br></p>
+        <p>Are you new to MJ, <a href="/signup">Register here !</a><br></p>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="span3"></div>
+</div>
+<br><br><br><br><br><br><br><br><br>

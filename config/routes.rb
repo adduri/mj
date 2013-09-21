@@ -51,6 +51,7 @@ match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
 
   get "search" => "users#index", :as => "search"
+    get "log" => "users#search", :as => "log"
   get "products" => "ads#products", :as => "products"
   get "rajasthan" => "sessions#about_rajasthan", :as => "rajasthan"
 

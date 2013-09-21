@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def registration_ack
     @user = User.find(params[:id])
     @user.update_attribute(:reqstatus, false)
-    UserMailer.welcome_email(@user).deliver
+    # UserMailer.welcome_email(@user).deliver
   end
 
   def store_password
@@ -104,9 +104,18 @@ class UsersController < ApplicationController
 #       end
 # end
 # <p><%= link_to 'Change my password', edit_password_url(@resource, :reset_password_token => @resource.reset_password_token) %></p>
-
   def show
     @user = User.find(params[:id])
+  end
+  def logsearch
+    user = User.authenticate(params[:mj_id], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect_to "/search", :notice => "Logged in!"
+    else
+#      flash.now.alert = "Invalid email or password"
+       redirect_to "/log", :notice => "Invalid MJID or password"
+    end
   end
 
   def reset_password
@@ -132,7 +141,7 @@ class UsersController < ApplicationController
   end
 
   def search
-  @users = User.search(params[:search]) 
+      @users = User.search(params[:search]) 
       @products = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10) 
 
   end
@@ -151,8 +160,4 @@ class UsersController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
- 
-
-
-
 end
