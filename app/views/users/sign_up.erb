@@ -622,7 +622,11 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
     <div class="control-group">
   <label class="control-label">Verify yourself by enter the correct code </label>
   <div class="controls">
-   <%= recaptcha_tags :display => { :theme => "clean" } %>
+  
+  
+  <%= captcha_tag %> 
+  <%= text_field_tag :captcha %> 
+  
     
   </div>
 </div>
