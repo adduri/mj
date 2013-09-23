@@ -29,7 +29,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 }
 </style>
 
-<div class="hero-unit" style="background-color:#fff;background-color:transparent; ">
+<div class="hero-unit" style="width:100%">
  <div class="accordion" id="accordion2">
   <div class="accordion-group" >
     <div class="accordion-heading" style="padding-right:44px">
@@ -58,7 +58,8 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
     </div>
   </div>
 </div>
-  <h1 style="color:#890000;font-size:40px;"><strong>Registration Form</strong></h1><br>
+<h1 style="color:#890000;font-size:40px;"><strong>Registration Form</strong></h1><br>
+<div style="width:65%;float:left;">
  <form accept-charset="UTF-8" action="/users/create" name="myform" class= "form-horizontal" id="new_user" method="post">
 <fieldset>
 
@@ -579,32 +580,28 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 </div>
  
  
-
 <div class="control-group">
-  <label class="control-label">Address1</label>
-  <div class="controls">
-    <input id="user[address1]" name="user[address1]" class="input-large" required="required" maxlength="25">
-    
-  </div>
+   <label class="control-label"> Address Line1 </label> 
+     <div class="controls">
+            <input class="input-large" type="text" required="required" id =" user_address1" required="required" name="user[address1]" >
+                </input> 
+    </div>
 </div>
-
 <div class="control-group">
-  <label class="control-label">Address2</label>
-  <div class="controls">
-    <input id="user[address2]" name="user[address2]" class="input-large" required="required" maxlength="25">
-    
-  </div>
+   <label class="control-label"> Address Line2</label> 
+     <div class="controls">
+            <input class="input-large" type="text" required="required" id =" user_address2" required="required" name="user[address2]" >
+                </input> 
+    </div>
 </div>
-
 <div class="control-group">
-  <label class="control-label">Address3</label>
-  <div class="controls">
-    <input id="user[address3]" name="user[address3]" class="input-large" required="required" maxlength="25">
-    
-  </div>
+   <label class="control-label"> Address Line3</label> 
+     <div class="controls">
+            <input class="input-large" type="text" id =" user_address" name="user[address3]" >
+                </input> 
+    </div>
 </div>
-
-
+ 
 
 
 
@@ -612,7 +609,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">Zip/PinCode</label>
   <div class="controls">
-    <input id="user[zip]" name="user[zip]" class="input-large" required="required" type="number" maxlength="10">
+    <input id="user[zip]" name="user[zip]" class="input-large" required="required" type="number" maxlength="6">
     
   </div>
 </div>
@@ -637,3 +634,10 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   </div>
 </fieldset>
 </form>
+</div>
+<div style="width:35%;float:left;">
+    <div><a href=""><img src="http://cdn3.brafton.com/wp-content/uploads/2013/07/native-ads-in-high-demand-350x266.jpg"></a></div><br>
+    <div><a href=""><img src="http://cdn3.brafton.com/wp-content/uploads/2013/07/native-ads-in-high-demand-350x266.jpg"></a></div><br>
+    <div><a href=""><img src="http://cdn3.brafton.com/wp-content/uploads/2013/07/native-ads-in-high-demand-350x266.jpg"></a></div>
+</div>
+</div>

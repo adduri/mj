@@ -36,7 +36,7 @@
                                 <input type="submit" value="View Family Tree" class ="btn btn-inverse" >
                                 </form>
                               <% end %> 
-</div> 
+</div>
 </div>
 <br/>
 <div id="treeDiv">
@@ -82,7 +82,9 @@
   <tr><td class="font">Occupation</td><td class="font">:<%= @user.occupation.capitalize %></td></tr>
   <tr><td class="font">City</td><td class="font">:<%= @user.city %>
   </td></tr>
-  <tr><td class="font">Address :-</td><td class="font" style="max-width:350px;"><address><%= @user.address1 %></address>
+
+  <tr><td class="font">Address :</td><td class="font" style="max-width:350px;">
+    <%= @user.address1 %><br><%= @user.address2 %><br><%= @user.address3 %>
   </td></tr>
 </table>     
 </div>
@@ -110,12 +112,13 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_member/"><img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
                     &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
                     &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                    &nbsp;<%= family_member_user.mobileno %><br/>
                   </div>
                 <% end %>
               <% end %>
@@ -143,12 +146,13 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_member/"><img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
                     &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
                     &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                    &nbsp;<%= family_member_user.mobileno %><br/>
                   </div>
                 <% end %>
               <% end %>
@@ -178,12 +182,13 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_member/"><img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
                     &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
-                    &nbsp;<%= family_member_user.city %>
+                    &nbsp;<%= family_member_user.city %><br/>
+                    &nbsp;<%= family_member_user.mobileno %><br/>
                   </div> 
                 <% end %>
                 <% end %>
@@ -211,12 +216,13 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_member/"><img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
                     &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
                     &nbsp;<%= family_member_user.city %><br/>
+                    &nbsp;<%= family_member_user.mobileno %><br/>
                   </div> 
                 <% end %>
               <% end %>
@@ -244,12 +250,13 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_member/"><img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
                     &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
                     &nbsp;<%= family_member_user.city %><br/>
+                    &nbsp;<%= family_member_user.mobileno %><br/>
                   </div>  
                 <% end %>
               <% end %>

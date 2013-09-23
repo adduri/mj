@@ -14,11 +14,10 @@ ActiveAdmin.register User do
     f.input :station
     f.input :city
     f.input :zip
-    f.input :state 
-    f.input :address1
-    f.input :address2
+    f.input :address1 
+    f.input :address2 
     f.input :address3
-
+    f.input :state   
    
   end
   f.buttons
