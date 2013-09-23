@@ -10,7 +10,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_salt
       t.string :occupation, :null => false, :default => ""
       t.string :station, :null => false, :default => ""
-      t.text :address
       t.string :gender
       t.string :mj_id, :null => false, :default => ""
       t.boolean :reqstatus

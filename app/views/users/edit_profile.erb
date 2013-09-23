@@ -235,13 +235,24 @@
     </tr>
  
     <tr>
-        <td><label for="user_address"><strong>Address</strong></label></td>
+        <td><label for="user_address1"><strong>Address Line1</strong></label></td>
         <td>
-            <textarea rows="4" cols="30" id =" user_address" name="user[address]" >
-                <%= @user.address %></textarea>
+            <input type="text" id =" user_address1" name="user[address1]" value="<%= @user.address1 %>"></input>
         </td>
     </tr>
-     <tr>
+    <tr>
+        <td><label for="user_address2"><strong>Address Line2</strong></label></td>
+        <td>
+            <input type="text" id =" user_address2" name="user[address2]" value="<%= @user.address2 %>"></input>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="user_address3"><strong>Address Line3</strong></label></td>
+        <td>
+            <input type="text" id =" user_address3" name="user[address3]" value="<%= @user.address3 %>"></input>
+        </td>
+    </tr>
+    <tr>
         <td><label for="user_country"><strong>Country</strong></label></td>
         <td>
             <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
@@ -280,47 +291,10 @@
       
     </tr>
 
-
-
-
-<!--  
-
-<div class="control-group">
- <label class="control-label">Country</label>
-  <div class="controls">
-     <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
-     <option value="" selected="selected">Select</option>
-     <option value=""></option>
-     <script type="text/javascript">
-     setRegions(this);
-     </script>
-     </select>
-    </div>
-</div>
-<div class="control-group">
-  <label class="control-label">State</label>
-   <div class="controls">
-     <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country"></select>
-    </div>
-</div>
-
-<div class="control-group">
-  <label class="control-label">City</label>
-   <div class="controls">
-     <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,this)" id="city"></select>
-    </div>
-</div>
-  -->
-
-
-
-
-
-
     <tr>
         <td><label for="user_zip"><strong>Zipcode</strong></label></td>
         <td>
-            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="10"/></td>
+            <input id="user_zip" name="user[zip]" type="text" value="<%= @user.zip %>" placeholder="500003" maxlength="6"/></td>
     </tr>
 
 
