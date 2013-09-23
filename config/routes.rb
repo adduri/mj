@@ -2,6 +2,8 @@ Mj::Application.routes.draw do
 
 
 
+  captcha_route
+
   resources :posts
 
 
@@ -12,7 +14,6 @@ Mj::Application.routes.draw do
   root :to => redirect('/ads')
 
   # get "home/aboutus"
-
   # root :to => redirect('/aboutus')
 
 match 'contact' => 'contact#new', :as => 'contact', :via => :get

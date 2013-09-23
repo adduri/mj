@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
     params[:user][:lastname] = params[:user][:lastname]
     params[:user][:station] = params[:user][:station]
     params[:user][:occupation] = params[:user][:occupation]
-    params[:user][:address] = params[:user][:address]
+    params[:user][:address1] = params[:user][:address1]
     @user = User.find(params[:id])
     logger.info ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{params[:user][:photo]}"
     @user.update_attributes(params[:user])
