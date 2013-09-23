@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def registration_ack
     @user = User.find(params[:id])
     @user.update_attribute(:reqstatus, false)
-    # UserMailer.welcome_email(@user).deliver
+    UserMailer.welcome_email(@user).deliver
   end
 
   def store_password
