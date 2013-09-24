@@ -28,5 +28,11 @@ class UserMailer < ActionMailer::Base
     @url  = "http://#{SITE_URL}/login"
     mail(:to => @user.email, :subject => "Registration Successful")
   end
+  
+   def verification_email(user)
+    @user = user
+    @url  = "http://#{SITE_URL}/users/create_password/#{@user.id}"
+    mail(:to => user.email, :subject => "Verification Completed")
+  end
 end
 

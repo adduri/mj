@@ -1,3 +1,16 @@
+<style type="text/css">
+.admin-pannel{
+  width: 300px;
+  float: right;
+}
+ select {
+   width: 240px;
+   height: 30px;
+   overflow: hidden;
+   background: url(new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
+</style>
 <% if @user.id == current_user.id %>
 <div>
   <a class="btn btn-info" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
@@ -22,21 +35,40 @@
     <% end  %>
   </a>                             
 <% end %>
-<div style="float:right">  <% if current_user.mj_id == "MJ1" %>
-                              <form name="input" action="/family_members/family/" method="post">
-                              <% @users = User.all %>
-                                        
-                              <select  name="id" class="input-medium">
+ 
 
-                              <% @users.each do |user| %>
-                                 <% u = user.id %>
-                                <option value="<%= u %>"><%= user.mj_id %> <%= user.firstname.capitalize%>   </options>
-                                <% end %>
-                                </select>
-                                <input type="submit" value="View Family Tree" class ="btn btn-inverse" >
-                                </form>
-                              <% end %> 
+
+<div class = "admin-pannel">
+       <% if current_user.mj_id == "MJ1" %>
+      <form name="input" action="/family_members/family/" method="post">
+        <% @users = User.all %> 
+        <select  name="id" class="input-medium">
+      <% @users.reverse_each do |user| %>
+       <% u = user.id %>
+        <option value="<%= u %>"><%= user.mj_id %> <%= user.firstname.capitalize%>   </options>
+      <% end %>
+        </select>
+        <input type="submit" value="View Family Tree" class ="btn btn-inverse" >
+      </form>
+    
+       <form name= "verification_email" action="/posts/show" method="post">
+        <select name ="id"  style="width:150px;">
+        <% @users.each do |user| %>
+        <% u = user.id %>
+          <% unless user.mj_id? %>
+          <option value="<%= u %>"><%= user.id %>-<%= user.firstname.capitalize%>.<%= user.lastname.capitalize %></option>
+          <% end %>
+        <% end %>
+          </select>
+
+          <input type="submit" value="Send Email" class ="btn btn-inverse" >
+        </form>
+ <% end %>
+   
 </div>
+
+
+
 </div>
 <br/>
 <div id="treeDiv">
