@@ -14,7 +14,7 @@ text-decoration:none;}
         <%= image_tag family_member.photo.url(:small), :class => 'img-polaroid'%>
       <% end %>
       <% if @user.id == current_user.id %>
-        <a href="/family_members/delete_member/<%= f.id %>" class="close">
+        <a href="/family_members/delete_member/<%= f.id %>" class="close" onclick="return confirm_delete()">
         <img src="/assets/close.png"/></a>
       <% end %>
         &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
@@ -42,7 +42,7 @@ text-decoration:none;}
               <%= image_tag spouse.photo.url(:small) ,:class => 'img-polaroid' %>
             <% end %>
               <% if @user.id == current_user.id %>
-                <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close">
+                <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close" onclick="return spouse_delete()">
                 <img src="/assets/close.png"/></a>
               <% end %>
             &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>             
@@ -59,3 +59,11 @@ text-decoration:none;}
     <% end %>
   </div><br>
 <% end %>
+<script type="text/javascript">
+function confirm_delete() {
+  return confirm('Are you sure.Do you want to delete ?');
+}
+function spouse_delete() {
+  return confirm('Are you sure.Do you want to delete ?');
+}
+</script>
