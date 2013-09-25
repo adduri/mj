@@ -100,7 +100,7 @@ countries['Honduras'] = 'Tegucigalpa||Atlantida|Choluteca|Colon|Comayagua|Copan|
 countries['Hungary'] = 'Budapest||Bacs-Kiskun|Baranya|Bekes|Bekescsaba|Borsod-Abauj-Zemplen|Csongrad|Debrecen|Dunaujvaros|Eger|Fejer|Gyor|Gyor-Moson-Sopron|Hajdu-Bihar|Heves|Hodmezovasarhely|Jasz-Nagykun-Szolnok|Kaposvar|Kecskemet|Komarom-Esztergom|Miskolc|Nagykanizsa|Nograd|Nyiregyhaza|Pecs|Pest|Somogy|Sopron|Szabolcs-Szatmar-Bereg|Szeged|Szekesfehervar|Szolnok|Szombathely|Tatabanya|Tolna|Vas|Veszprem|Veszprem|Zala|Zalaegerszeg';
 
 countries['Iceland'] = 'Reykjavik||Akranes|Akureyri|Arnessysla|Austur-Bardhastrandarsysla|Austur-Hunavatnssysla|Austur-Skaftafellssysla|Borgarfjardharsysla|Dalasysla|Eyjafjardharsysla|Gullbringusysla|Hafnarfjordhur|Husavik|Isafjordhur|Keflavik|Kjosarsysla|Kopavogur|Myrasysla|Neskaupstadhur|Nordhur-Isafjardharsysla|Nordhur-Mulasys-la|Nordhur-Thingeyjarsysla|Olafsfjordhur|Rangarvallasysla|Saudharkrokur|Seydhisfjordhur|Siglufjordhur|Skagafjardharsysla|Snaefellsnes-og Hnappadalssysla|Strandasysla|Sudhur-Mulasysla|Sudhur-Thingeyjarsysla|Vesttmannaeyjar|Vestur-Bardhastrandarsysla|Vestur-Hunavatnssysla|Vestur-Isafjardharsysla|Vestur-Skaftafellssysla';
-countries['Indian Ocean'] = 'Addu Atoll|Agalega Islands|Amsterdam|Andaman Islands|Anjouan (Nzwani)|Ari Atoll|Ashmore/Cartier Islands|Bali|Barrow|Bathurst|Bompoka|Cape Barren|Car Nicobar|Chagos Archipelago|Christmas|Comoros|Crozet Islands|Danger|Diego Garcia|Eagle Islands|Egmont Islands|Faadhippolhu Atoll|Felidhoo Atoll|Flinders|Goidhoo Atoll|Grand Comore (Njazidja)|Great Nicobar|Hadhdhunmathee|Heard|Huvadhoo Atoll|Ihavandhippolhu Atoll|Java|Kangaroo|Katchall|Keeling Islands (Cocos)|King|Kolhumadulu Atoll|Lakshadweep Islands|Little Andaman|Little Nicobar|Lower Andaman|Maalhosmadulu Atoll|Maamakunudhoo Atoll|Madagascar|Mahe|Maldives|Male\' Atoll|Mauritius|Mayotte|McDonald Islands|Melville|Middle Andaman|Miladhunmafulu Atoll|Moheli (Mwali)|Molaku Atoll|Nancowry|Nelsons Island|Nias|Nicobar Islands|Nilandhoo Atoll|North Andaman|Peros Banhos|Phuket|Prince Edward Islands|Reunion|Rodrigues|St. Paul|Salomon Islands|Seychelles|Shag|Siberut|Simeulue|Sipura|Socotra|Sumatra|Sri Lanka|Tarasa Dwip|Tasmania|Thiladhunmathee Atoll|Three Brothers|Timor|Tromelin|Zanzibar';
+countries['Indian Ocean'] = 'Addu Atoll|Agalega Islands|Amsterdam|Andaman Islands|Anjouan (Nzwani)|Ari Atoll|Ashmore/Cartier Islands|Bali|Barrow|Bathurst|Bompoka|Cape Barren|Car Nicobar|Chagos Archipelago|Christmas|Comoros|Crozet Islands|Danger|Diego Garcia|Eagle Islands|Egmont Islands|Faadhippolhu Atoll|Felidhoo Atoll|Flinders|Goidhoo Atoll|Grand Comore (Njazidja)|Great Nicobar|Hadhdhunmathee|Heard|Huvadhoo Atoll|Ihavandhippolhu Atoll|Java|Kangaroo|Katchall|Keeling Islands (Cocos)|King|Kolhumadulu Atoll|Lakshadweep Islands|Little Andaman|Little Nicobar|Lower Andaman|Maalhosmadulu Atoll|Maamakunudhoo Atoll|Madagascar|Mahe|Maldives|Male\' Atoll|Mauritius|Mayotte|McDonald Islands|Melville|Middle Andaman|Miladhunmafulu Atoll|Moheli (Mwali)|Molaku Atoll|Nancowry|Nelsons Island|Nias|Nicobar Islands|Nilandhoo Atoll|North Andaman|Peros Banhos|Phuket|Prince Edward Islands|Reunion|Rodrigues|St. Paul|Salomon Islands|Seychelles|Shag|Siberut|Simeulue|Sipura|Socotra|Sumatra|Sri Lanka|Tarasa Dwip|Tasmania|Thiladhunmathee Atoll|Three BrOther|Timor|Tromelin|Zanzibar';
 countries['Indonesia'] = 'Jakarta||Aceh|Bali|Banten|Bengkulu|Gorontalo|Jakarta Raya|Jambi|Jawa Barat|Jawa Tengah|Jawa Timur|Kalimantan Barat|Kalimantan Selatan|Kalimantan Tengah|Kalimantan Timur|Kepulauan Bangka Belitung|Lampung|Maluku|Maluku Utara|Nusa Tenggara Barat|Nusa Tenggara Timur|Papua|Riau|Sulawesi Selatan|Sulawesi Tengah|Sulawesi Tenggara|Sulawesi Utara|Sumatera Barat|Sumatera Selatan|Sumatera Utara|Yogyakarta';
 countries['Iran'] = 'Tehran||Ardabil|Azarbayjan-e Gharbi|Azarbayjan-e Sharqi|Bushehr|Chahar Mahall va Bakhtiari|Esfahan|Fars|Gilan|Golestan|Hamadan|Hormozgan|Ilam|Kerman|Kermanshah|Khorasan|Khuzestan|Kohkiluyeh va Buyer Ahmad|Kordestan|Lorestan|Markazi|Mazandaran|Qazvin|Qom|Semnan|Sistan va Baluchestan|Yazd|Zanjan';
 countries['Iraq'] = 'Baghdad||Al Anbar|Al Basrah|Al Muthanna|Al Qadisiyah|An Najaf|Arbil|As Sulaymaniyah|At Ta\'mim|Babil|Dahuk|Dhi Qar|Diyala|Karbala\'|Maysan|Ninawa|Salah ad Din|Wasit';
@@ -245,41 +245,41 @@ countries['Zimbabwe'] = 'Harare||Bulawayo|Manicaland|Mashonaland Central|Mashona
  
 var citys = Object();
 //india
-citys['Andhra Pradesh'] = 'Adilabad|Anantapur|Chittoor|East Godavari|Guntur|Hyderabad|Kadapa|Karimnagar|Khammam|Krishna|Kurnool|Mahbubnagar|Medak|Nalgonda|Nellore|Nizamabad|Prakasam|Rangareddy|Srikakulam|Vishakhapatnam|Vizianagaram|Warangal|West Godavari|others';
-citys['Goa'] = 'North Goa|South Goa|others';
-citys['Jammu/Kashmir'] = 'Jammu|Srinagar|Anantnag|Baramula|Kupwara|Badgam|Rajouri|Kathua|Pulwama|Udhampur|Punch|Kulgam|Doda|Bandipora|Samba|Reasi|Ganderbal|Ramban|Shupiyan|Kishtwar|Kargil|Leh|others';
-citys['Dadra/Nagar Haveli'] = 'Dadra and Nagar Haveli|others';
-citys['Daman/Diu'] = 'Daman|Diu|others';
-citys['Haryana'] = 'Faridabad|Hisar|Bhiwani|Gurgaon|Karnal|Sonipat|Jind|Sirsa|Yamunanagar|Panipat|Ambala|Mewat|Kaithal|Rohtak|Palwal|Kurukshetra|Jhajjar|Fatehabad|Mahendragarh|Rewari|Panchkula|others';
-citys['Lakshadweep'] = 'Lakshadweep|others';
-citys['Andaman/Nicobar Islands'] = 'South Andaman|North And Middle Andaman|Nicobars|others';  
-citys['Arunachal Pradesh']= 'Papumpare|Changlang|Lohit|West Siang|Tirap|East Siang|Kurung Kumey|West Kameng|Upper Subansiri|Lower Subansiri|East Kameng|Lower Dibang Valley|Tawang|Upper Siang|Anjaw|Dibang Valley|others';
-citys['Assam']= 'Tinsukia|Dibrugarh|Sibsagar|Dhemaji|Jorhat|Lakhimpur|Golaghat|Sonitpur|Karbi Anglong|Nagaon|Marigaon|Darrang|Kamrup|Nalbari|Barpeta|Bongaigaon|Goalpara|Kokrajhar|Dhubri|North Cachar Hills|Cachar|Hailakandi|Karimganj|Kamrup Metropolitan|Baksa|Udalguri|Chirang|others';
-citys['Bihar'] = 'Patna|Purbi Champaran| Muzaffarpur|Madhubani|Gaya Samastipur|Saran|Darbhanga|Pashchim Champaran |Vaishali|Sitamarhi|Siwan|Purnia|Katihar|Bhagalpur|Begusarai|Rohtas|Nalanda|Araria|Bhojpur|Gopalganj|Aurangabad|Supaul|Nawada|Banka|Madhepura|Saharsa|Jamui|Buxar|Kishanganj|Khagaria|Kaimur|Munger|Jehanabad|Lakhisarai|Arwal|Sheohar|Sheikhpura|others';
-citys['Chandigarh'] = 'Chandigarh|others';
-citys['Chhattisgarh']= 'Raipur|Durg|Bilaspur|Surguja|Janjgir Champa|Rajnandgaon|Raigarh|Bastar|Korba|Mahasamund|Jashpur|Kabirdham|Dhamtari|Kanker|Korea|Dantewada|Bijapur|Narayanpur|others';
-citys['New Delhi'] = 'North West Delhi|South Delhi|West Delhi|South West Delhi|North East Delhi|East Delhi|North Delhi|Central Delhi|New Delhi|others';
-citys['Gujarat'] = 'Ahmadabad|Surat|Vadodar|Rajkot|Banaskanth|Bhavnagar|Junagadh|Sabarkantha|PanchMahal|Kheda|Jamnagar|Dohad|Anand|Kachchh|Mahesana|Surendranagar|Valsad|Bharuch|Amreli|Gandhinagar|Patan|Navsari|Tapi|Narmada|Porbanda|The Dang|others';
-citys['Himachal Pradesh'] = 'Kangra|Mandi|Shimla|Solan|Sirmaur|Una|Chamba|Hamirpur|Kullu|Bilaspur|Kinna|Lahul and Spit|others';
-citys['Jharkhand'] = 'Ranchi|Dhanbad|Giridih|Purbi Singhbhum|Bokaro|Palamu|Hazaribagh|Pashchimi Singhbhum|Deoghar|Garhwa|Dumka|Godda|Sahibganj|Saraikela Kharsawan|Chatra|Gumla|Ramgarh|Pakur|Jamtara|Latehar|Kodarma|Simdega|Khunti|Lohardag|others';
-citys['Karnataka'] = 'Bangalore|Belgaum|Mysore|Tumkur|Gulbarga|Bellary|Bijapur|Dakshina Kannada|Davanagere|Raichur|Bagalkot|Dharwad|Mandya|Hassan|Shimoga|Bidar|Chitradurga|Haveri|Kolar|Uttara Kannada|Koppal|Chikkaballapura|Udupi|Yadgir|Chikmagalur|Ramanagara|Gadag|Chamarajanagar|Bangalore Rural|Kodagu|others';
-citys['Kerala'] = 'Malappuram|Thiruvananthapuram|Ernakulam|Thrissur|Kozhikode|Palakkad|Kollam|Kannur|Alappuzha|Kottayam|Kasaragod|Pathanamthitta|Idukki|Wayana|others';
-citys['Madhya Pradesh'] = 'Indore|Jabalpur|Sagar|Bhopal|Rewa|Satna|Dhar|Chhindwara|Gwalior|Ujjain|Morena|West Nimar|Chhattarpur|Shivpuri|Bhind|Balaghat|Betul|Dewas|Rajgarh|Shajapur|Vidisha|Ratlam|Tikamgarh|Barwani|Seoni|Mandsaur|Raisen|Sehore|East Nimar|Katni|Damoh|Guna|Hoshangabad|Singrauli|Sidhi|Narsimhapur|Shahdol|Mandla|Jhabua|Panna|Ashoknagar|Neemuch|Datia|Burhanpur|Anuppur|Alirajpur|Dindori|Sheopur|Umaria|Harda|others';
-citys['Maharashtra'] = 'Thane|Pune|Mumbai Suburban|Nashik|Nagpur|Ahmadnagar|Solapur|Jalgaon|Kolhapur|Aurangabad|Nanded|Mumbai City|Satara|Amravati|Sangli|Yavatmal|Raigarh|Buldana|Bid|Latur|Chandrapur|Dhule|Jalna|Parbhani|Akola|Osmanabad|Nandurbar|Ratnagiri|Gondiya|Wardha|Bhandara|Washim|Hingoli|Gadchiroli|Sindhudur|others';
-citys['Manipur'] = 'Imphal West|Imphal East|Thoubal|Churachandpur|Bishnupur|Senapati|Ukhrul|Chandel|Tamenglong|others';  
-citys['Meghalaya'] = 'East Khasi Hills|West Garo Hills|Jaintia Hills|West Khasi Hills|East Garo Hills|Ri Bhoi|South Garo Hills|others'; 
-citys['Mizoram']= 'Aizawl|Lunglei|Champhai|Lawngtlai|Mamit|Kolasib|Serchhip|Saiha|others';  
-citys['Nagaland'] = 'Dimapur|Kohima|Mon|Tuensang|Mokokchung|Wokha|Phek|Zunheboto|Peren|Kiphire|Longleng|others';
-citys['Orissa'] = 'Ganjam|Cuttack|Mayurbhanj|Baleshwar|Khordha|Sundargarh|Jajapur|Kendujhar|Puri|Balangir|Kalahandi|Bhadrak|Bargarh|Kendrapara|Koraput|Anugul|Nabarangapur|Dhenkanal|Jagatsinghapur|Sambalpur|Rayagada|Nayagarh|Kandhamal|Malkangiri|Nuapada|Subarnapur|Jharsuguda|Gajapati|Baudh|Debagarh|others';
-citys['Pondicherry'] = 'Puducherry|Karaikal|Yanam|Mahe|others';
-citys['Punjab'] = 'Ludhiana|Amritsar|Gurdaspur|Jalandhar|Firozpur|Patiala|Sangrur|Hoshiarpur|Bathinda|Tarn Taran|Moga|Mohali|Muktsar|Kapurthala|Mansa|Rupnagar|Faridkot|Shahid Bhagat Singh Nagar|Fatehgarh Sahib|Barnala|others';
-citys['Rajasthan'] = 'Jaipur|Jodhpur|Alwar|Nagaur|Udaipur|Sikar|Barmer|Ajmer|Bharatpur|Bhilwara|Bikaner|Jhunjhunun|Churu|Pali|Ganganagar|Kota|Jalor|Banswara|Hanumangarh|Dausa|Chittaurgarh|Karauli|Tonk|Jhalawar|Dungarpur|Sawai Madhopur|Baran|Dhaulpur|Rajsamand|Bundi|Sirohi|Pratapgarh|Jaisalmer|others';
-citys['Sikkim'] = 'East Sikkim|South Sikkim|West Sikkim|North Sikkim|others';
-citys['Tamil Nadu'] = 'Chennai|Kancheepuram|Vellore|Thiruvallur|Salem|Viluppuram|Coimbatore|Tirunelveli|Madurai|Tiruchirappalli|Cuddalore|Tiruppur|Tiruvannamalai|Thanjavur|Erode|Dindigul|Virudhunagar|Krishnagiri|Kanniyakumari|Thoothukkudi|Namakkal|Pudukkottai|Nagapattinam|Dharmapuri|Ramanathapuram|Sivaganga|Thiruvarur|Theni|Karur|Ariyalur|The Nilgiris|Perambalur|others';
-citys['Tripura'] = 'West Tripura|South Tripura|North Tripura|Dhalai|others';
-citys['Uttaranchal'] = 'Haridwar|Dehradun|Udham Singh Nagar|Nainital|Pauri Garhwal|Almora|Tehri Garhwal|Pithoragarh|Chamoli|Uttarkashi|Bageshwar|Champawat|Rudraprayag|others';
-citys['Uttar Pradesh'] = 'Bijnaur|Maharajganj|Gonda|Unnao|Lalitpur|Kushinagar|Lakhimpur|Basti|Banda|Jalaun|Pilibheet|Muzaffarnagar|Allahabad|Mahoba|Jhansi|Chandauli|Saharanpur|Ajamgarh|Chitrakut|Bagpat|Jyotibapulanger|Mau|Hamirpur|Ambedkar|Shahjahanpur|Hardoi|Varanashi|Meerut|Kannauj|Kanpur|Kabir Nagar|Etawah|Etah|St. Rabidas Nagar|Kaushambi|Auraiya|Kanpur City|Muradabad|Balia|Mirzapur|Fatehpur|Rampur|Baharaich|Bulandshahar|Aligarh|Deoria|Sonbhadra|Jaunpur|Pratapgarh|Sultanpur|Sitapur|Mainpuri|Balrampur|Hathras|Gorakhpur|Ghazipur|Shraswati|Barieli|Badaun|Gautambuddh Nagar|Raibariely|Faizabad|Firozabad|Farrukabad|Siddharth Nagar|Agra|Lucknow|Barabanki|Mathura|Ghaziabad|others';
-citys['West Bengal'] = 'Bankura|Bardhaman|Birbhum|East Midnapore|Hooghly|Purulia|West Midnapore|Cooch Behar|Darjeeling|Jalpaiguri|Malda|North Dinajpur|South Dinajpur|Howrah|Kolkata|Murshidabad|Nadia|North 24 Parganas|South 24 Parganas|others';
+citys['Andhra Pradesh'] = 'Adilabad|Anantapur|Chittoor|East Godavari|Guntur|Hyderabad|Kadapa|Karimnagar|Khammam|Krishna|Kurnool|Mahbubnagar|Medak|Nalgonda|Nellore|Nizamabad|Prakasam|Rangareddy|Srikakulam|Vishakhapatnam|Vizianagaram|Warangal|West Godavari|Other';
+citys['Goa'] = 'North Goa|South Goa|Other';
+citys['Jammu/Kashmir'] = 'Jammu|Srinagar|Anantnag|Baramula|Kupwara|Badgam|Rajouri|Kathua|Pulwama|Udhampur|Punch|Kulgam|Doda|Bandipora|Samba|Reasi|Ganderbal|Ramban|Shupiyan|Kishtwar|Kargil|Leh|Other';
+citys['Dadra/Nagar Haveli'] = 'Dadra and Nagar Haveli|Other';
+citys['Daman/Diu'] = 'Daman|Diu|Other';
+citys['Haryana'] = 'Faridabad|Hisar|Bhiwani|Gurgaon|Karnal|Sonipat|Jind|Sirsa|Yamunanagar|Panipat|Ambala|Mewat|Kaithal|Rohtak|Palwal|Kurukshetra|Jhajjar|Fatehabad|Mahendragarh|Rewari|Panchkula|Other';
+citys['Lakshadweep'] = 'Lakshadweep|Other';
+citys['Andaman/Nicobar Islands'] = 'South Andaman|North And Middle Andaman|Nicobars|Other';  
+citys['Arunachal Pradesh']= 'Papumpare|Changlang|Lohit|West Siang|Tirap|East Siang|Kurung Kumey|West Kameng|Upper Subansiri|Lower Subansiri|East Kameng|Lower Dibang Valley|Tawang|Upper Siang|Anjaw|Dibang Valley|Other';
+citys['Assam']= 'Tinsukia|Dibrugarh|Sibsagar|Dhemaji|Jorhat|Lakhimpur|Golaghat|Sonitpur|Karbi Anglong|Nagaon|Marigaon|Darrang|Kamrup|Nalbari|Barpeta|Bongaigaon|Goalpara|Kokrajhar|Dhubri|North Cachar Hills|Cachar|Hailakandi|Karimganj|Kamrup Metropolitan|Baksa|Udalguri|Chirang|Other';
+citys['Bihar'] = 'Patna|Purbi Champaran| Muzaffarpur|Madhubani|Gaya Samastipur|Saran|Darbhanga|Pashchim Champaran |Vaishali|Sitamarhi|Siwan|Purnia|Katihar|Bhagalpur|Begusarai|Rohtas|Nalanda|Araria|Bhojpur|Gopalganj|Aurangabad|Supaul|Nawada|Banka|Madhepura|Saharsa|Jamui|Buxar|Kishanganj|Khagaria|Kaimur|Munger|Jehanabad|Lakhisarai|Arwal|Sheohar|Sheikhpura|Other';
+citys['Chandigarh'] = 'Chandigarh|Other';
+citys['Chhattisgarh']= 'Raipur|Durg|Bilaspur|Surguja|Janjgir Champa|Rajnandgaon|Raigarh|Bastar|Korba|Mahasamund|Jashpur|Kabirdham|Dhamtari|Kanker|Korea|Dantewada|Bijapur|Narayanpur|Other';
+citys['New Delhi'] = 'North West Delhi|South Delhi|West Delhi|South West Delhi|North East Delhi|East Delhi|North Delhi|Central Delhi|New Delhi|Other';
+citys['Gujarat'] = 'Ahmadabad|Surat|Vadodar|Rajkot|Banaskanth|Bhavnagar|Junagadh|Sabarkantha|PanchMahal|Kheda|Jamnagar|Dohad|Anand|Kachchh|Mahesana|Surendranagar|Valsad|Bharuch|Amreli|Gandhinagar|Patan|Navsari|Tapi|Narmada|Porbanda|The Dang|Other';
+citys['Himachal Pradesh'] = 'Kangra|Mandi|Shimla|Solan|Sirmaur|Una|Chamba|Hamirpur|Kullu|Bilaspur|Kinna|Lahul and Spit|Other';
+citys['Jharkhand'] = 'Ranchi|Dhanbad|Giridih|Purbi Singhbhum|Bokaro|Palamu|Hazaribagh|Pashchimi Singhbhum|Deoghar|Garhwa|Dumka|Godda|Sahibganj|Saraikela Kharsawan|Chatra|Gumla|Ramgarh|Pakur|Jamtara|Latehar|Kodarma|Simdega|Khunti|Lohardag|Other';
+citys['Karnataka'] = 'Bangalore|Belgaum|Mysore|Tumkur|Gulbarga|Bellary|Bijapur|Dakshina Kannada|Davanagere|Raichur|Bagalkot|Dharwad|Mandya|Hassan|Shimoga|Bidar|Chitradurga|Haveri|Kolar|Uttara Kannada|Koppal|Chikkaballapura|Udupi|Yadgir|Chikmagalur|Ramanagara|Gadag|Chamarajanagar|Bangalore Rural|Kodagu|Other';
+citys['Kerala'] = 'Malappuram|Thiruvananthapuram|Ernakulam|Thrissur|Kozhikode|Palakkad|Kollam|Kannur|Alappuzha|Kottayam|Kasaragod|Pathanamthitta|Idukki|Wayana|Other';
+citys['Madhya Pradesh'] = 'Indore|Jabalpur|Sagar|Bhopal|Rewa|Satna|Dhar|Chhindwara|Gwalior|Ujjain|Morena|West Nimar|Chhattarpur|Shivpuri|Bhind|Balaghat|Betul|Dewas|Rajgarh|Shajapur|Vidisha|Ratlam|Tikamgarh|Barwani|Seoni|Mandsaur|Raisen|Sehore|East Nimar|Katni|Damoh|Guna|Hoshangabad|Singrauli|Sidhi|Narsimhapur|Shahdol|Mandla|Jhabua|Panna|Ashoknagar|Neemuch|Datia|Burhanpur|Anuppur|Alirajpur|Dindori|Sheopur|Umaria|Harda|Other';
+citys['Maharashtra'] = 'Thane|Pune|Mumbai Suburban|Nashik|Nagpur|Ahmadnagar|Solapur|Jalgaon|Kolhapur|Aurangabad|Nanded|Mumbai City|Satara|Amravati|Sangli|Yavatmal|Raigarh|Buldana|Bid|Latur|Chandrapur|Dhule|Jalna|Parbhani|Akola|Osmanabad|Nandurbar|Ratnagiri|Gondiya|Wardha|Bhandara|Washim|Hingoli|Gadchiroli|Sindhudur|Other';
+citys['Manipur'] = 'Imphal West|Imphal East|Thoubal|Churachandpur|Bishnupur|Senapati|Ukhrul|Chandel|Tamenglong|Other';  
+citys['Meghalaya'] = 'East Khasi Hills|West Garo Hills|Jaintia Hills|West Khasi Hills|East Garo Hills|Ri Bhoi|South Garo Hills|Other'; 
+citys['Mizoram']= 'Aizawl|Lunglei|Champhai|Lawngtlai|Mamit|Kolasib|Serchhip|Saiha|Other';  
+citys['Nagaland'] = 'Dimapur|Kohima|Mon|Tuensang|Mokokchung|Wokha|Phek|Zunheboto|Peren|Kiphire|Longleng|Other';
+citys['Orissa'] = 'Ganjam|Cuttack|Mayurbhanj|Baleshwar|Khordha|Sundargarh|Jajapur|Kendujhar|Puri|Balangir|Kalahandi|Bhadrak|Bargarh|Kendrapara|Koraput|Anugul|Nabarangapur|Dhenkanal|Jagatsinghapur|Sambalpur|Rayagada|Nayagarh|Kandhamal|Malkangiri|Nuapada|Subarnapur|Jharsuguda|Gajapati|Baudh|Debagarh|Other';
+citys['Pondicherry'] = 'Puducherry|Karaikal|Yanam|Mahe|Other';
+citys['Punjab'] = 'Ludhiana|Amritsar|Gurdaspur|Jalandhar|Firozpur|Patiala|Sangrur|Hoshiarpur|Bathinda|Tarn Taran|Moga|Mohali|Muktsar|Kapurthala|Mansa|Rupnagar|Faridkot|Shahid Bhagat Singh Nagar|Fatehgarh Sahib|Barnala|Other';
+citys['Rajasthan'] = 'Jaipur|Jodhpur|Alwar|Nagaur|Udaipur|Sikar|Barmer|Ajmer|Bharatpur|Bhilwara|Bikaner|Jhunjhunun|Churu|Pali|Ganganagar|Kota|Jalor|Banswara|Hanumangarh|Dausa|Chittaurgarh|Karauli|Tonk|Jhalawar|Dungarpur|Sawai Madhopur|Baran|Dhaulpur|Rajsamand|Bundi|Sirohi|Pratapgarh|Jaisalmer|Other';
+citys['Sikkim'] = 'East Sikkim|South Sikkim|West Sikkim|North Sikkim|Other';
+citys['Tamil Nadu'] = 'Chennai|Kancheepuram|Vellore|Thiruvallur|Salem|Viluppuram|Coimbatore|Tirunelveli|Madurai|Tiruchirappalli|Cuddalore|Tiruppur|Tiruvannamalai|Thanjavur|Erode|Dindigul|Virudhunagar|Krishnagiri|Kanniyakumari|Thoothukkudi|Namakkal|Pudukkottai|Nagapattinam|Dharmapuri|Ramanathapuram|Sivaganga|Thiruvarur|Theni|Karur|Ariyalur|The Nilgiris|Perambalur|Other';
+citys['Tripura'] = 'West Tripura|South Tripura|North Tripura|Dhalai|Other';
+citys['Uttaranchal'] = 'Haridwar|Dehradun|Udham Singh Nagar|Nainital|Pauri Garhwal|Almora|Tehri Garhwal|Pithoragarh|Chamoli|Uttarkashi|Bageshwar|Champawat|Rudraprayag|Other';
+citys['Uttar Pradesh'] = 'Bijnaur|Maharajganj|Gonda|Unnao|Lalitpur|Kushinagar|Lakhimpur|Basti|Banda|Jalaun|Pilibheet|Muzaffarnagar|Allahabad|Mahoba|Jhansi|Chandauli|Saharanpur|Ajamgarh|Chitrakut|Bagpat|Jyotibapulanger|Mau|Hamirpur|Ambedkar|Shahjahanpur|Hardoi|Varanashi|Meerut|Kannauj|Kanpur|Kabir Nagar|Etawah|Etah|St. Rabidas Nagar|Kaushambi|Auraiya|Kanpur City|Muradabad|Balia|Mirzapur|Fatehpur|Rampur|Baharaich|Bulandshahar|Aligarh|Deoria|Sonbhadra|Jaunpur|Pratapgarh|Sultanpur|Sitapur|Mainpuri|Balrampur|Hathras|Gorakhpur|Ghazipur|Shraswati|Barieli|Badaun|Gautambuddh Nagar|Raibariely|Faizabad|Firozabad|Farrukabad|Siddharth Nagar|Agra|Lucknow|Barabanki|Mathura|Ghaziabad|Other';
+citys['West Bengal'] = 'Bankura|Bardhaman|Birbhum|East Midnapore|Hooghly|Purulia|West Midnapore|Cooch Behar|Darjeeling|Jalpaiguri|Malda|North Dinajpur|South Dinajpur|Howrah|Kolkata|Murshidabad|Nadia|North 24 Parganas|South 24 Parganas|Other';
  
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
@@ -321,6 +321,8 @@ function set_country(oRegionSel, oCountrySel, oCity_StateSel)
 		for (var i = 0; i < cityArr.length; i++)
 			oCity_StateSel.options[i+1] = new Option(cityArr[i],cityArr[i]);
 		document.getElementById('txtplacename').innerHTML = country;
+		document.getElementById("city").style.display =
+             select.value == "Other" ? "inline" : "none";
 	}
 	else oCity_StateSel.disabled = true;
 }
@@ -334,3 +336,11 @@ function print_city(oCountrySel, oCity_StateSel)
 }
 
  
+
+function showbox(select)
+{
+document.getElementById("other").style.display =
+select.value == "Other" ? "inline" : "none";
+}
+
+
