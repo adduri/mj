@@ -10,9 +10,9 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
- 
-ActiveRecord::Schema.define(:version => 20130903082330) do
- 
+
+ActiveRecord::Schema.define(:version => 20130919102957) do
+
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
     t.string   "resource_type", :null => false
@@ -93,16 +93,14 @@ ActiveRecord::Schema.define(:version => 20130903082330) do
   end
 
   create_table "family_members", :force => true do |t|
- 
-    t.integer  "user_id",                 :default => 0,     :null => false
-    t.integer  "family_member_user_id",   :default => 0,     :null => false
-    t.boolean  "join_pending",            :default => true
-    t.integer  "relation_id",             :default => 0,     :null => false
-    t.boolean  "spouse_status",           :default => false
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.string   "family_member_user_dob"
-    t.string   "family_member_user_doby"
+    t.integer  "user_id",                :default => 0,     :null => false
+    t.integer  "family_member_user_id",  :default => 0,     :null => false
+    t.boolean  "join_pending",           :default => true
+    t.integer  "relation_id",            :default => 0,     :null => false
+    t.boolean  "spouse_status",          :default => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.date     "family_member_user_dob"
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"
@@ -123,46 +121,19 @@ ActiveRecord::Schema.define(:version => 20130903082330) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "members", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.integer  "user_id"
-    t.integer  "mobileno"
-    t.string   "occupation"
-    t.string   "station"
-    t.string   "address"
-    t.string   "gender"
-    t.string   "mj_id"
-    t.boolean  "visited"
-    t.datetime "dob"
-    t.string   "middlename"
-    t.string   "state"
-    t.string   "city"
-    t.string   "country"
-    t.string   "fathername"
-    t.string   "desig"
-    t.integer  "zip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "p1"
+    t.text     "p2"
+    t.text     "p3"
+    t.string   "location"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
-
-  add_index "members", ["confirmation_token"], :name => "index_members_on_confirmation_token", :unique => true
-  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
-  add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
   create_table "relations", :force => true do |t|
     t.string   "relationship"
@@ -196,7 +167,6 @@ ActiveRecord::Schema.define(:version => 20130903082330) do
     t.string   "password_salt"
     t.string   "occupation",         :default => "",    :null => false
     t.string   "station",            :default => "",    :null => false
-    t.text     "address"
     t.string   "gender"
     t.string   "mj_id",              :default => "",    :null => false
     t.boolean  "reqstatus"
@@ -216,10 +186,12 @@ ActiveRecord::Schema.define(:version => 20130903082330) do
     t.string   "country"
     t.string   "fathername"
     t.string   "desig"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
     t.integer  "zip"
     t.integer  "ccode"
-    t.integer  "landline"
-    t.integer  "doby"
+    t.string   "other"
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
