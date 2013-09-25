@@ -225,12 +225,18 @@
         <td><input id="user_occupation" name="user[occupation]" size="30" type="text"
             value="<%= @user.occupation.capitalize %>" style="text-transform: capitalize;" placeholder="bussiness"/></td>
     </tr>
-    <tr>
+     <tr>
         <td><label for="user_mobileno"><strong>Contact Number</strong></label></td>
         <td>
-            <input id="user_mobileno" name="user[mobileno]" type="number"
-            value="<%= @user.mobileno %>" style="text-transform: capitalize;"  maxlength="12" pattern=".{5,12}" title="min 5 to 12 characters" placeholder="09876543210" required="required"/>
-            <p class="help-block"></p>
+             <link rel="stylesheet" href="/assets/intlTelInput.css">
+             <input type="tel" id="mobile-number" name="user[mobileno]" style="width:16em"
+               maxlength="15" required="required" pattern=".{5,15}" data-validation-pattern-message="Contact Number seems to be Wrong" value="<%= @user.mobileno %>">
+             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+             <script src="/assets/intlTelInput.min.js"></script>
+             <script>
+                $("#mobile-number").intlTelInput();
+             </script>
+          
         </td>
     </tr>
  
@@ -280,17 +286,34 @@
     <tr>
         <td><label for="user_city"><strong>City</strong></label></td>
         <td>
-             <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,this)" id="city">
-                <option value=<%= @user.city %> selected><%= @user.city %>
+
+<% if @user.city == "Other"%>
+
+  <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,showbox(this))" id="city">
+                <option value="<%= @user.city %>" selected><%= @user.city %>
                </option>
 
             </select>
-
-
-
-        </td>
      
-    </tr>
+ <input type="text" id="other"  value="<%=@user.other%>
+">
+
+
+
+    <%else%>
+ <select name="user[city]" size="1" disabled="disabled" onchange="print_city(country,showbox(this))" id="city">
+                <option value=<%= @user.city %> selected><%= @user.city %>
+               </option>
+</select>
+               <input type="text" name="user[other]" id="other"  value="<%=@user.other%>
+" style="display:none"/>
+
+
+     <%end%>
+
+
+
+         </td></tr>
 
  
     <tr>
