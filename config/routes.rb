@@ -47,17 +47,15 @@ match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   get "aboutus" => "home#aboutus", :as => "aboutus"
   get "signup" => "users#sign_up", :as => "signup"
- 
   get '/ads/:id/sai', to: 'ads#sai'
-
-
   get "search" => "users#index", :as => "search"
-    get "log" => "users#search", :as => "log"
+  get "log" => "users#search", :as => "log"
   get "products" => "ads#products", :as => "products"
   get "rajasthan" => "sessions#about_rajasthan", :as => "rajasthan"
+  get "tc" => "home#tc" , :as => "tc"
 
-   get "tc" => "home#tc" , :as => "tc"
 
+ 
    get "privacy" => "home#privacy" , :as => "privacy"
 
   get "demo_family" => "users#demo_family", :as => "demo_family"
