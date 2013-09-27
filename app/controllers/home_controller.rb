@@ -84,10 +84,4 @@
       format.json { head :no_content }
     end
   end
- 
-
- def aboutus
-  render :layout => 'home'
-end
-
 end
