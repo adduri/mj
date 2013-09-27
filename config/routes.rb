@@ -1,6 +1,9 @@
 Mj::Application.routes.draw do
 
 
+  root :to => redirect('/about')
+
+  get "about/aboutus"
 
   captcha_route
 
@@ -9,9 +12,8 @@ Mj::Application.routes.draw do
 
   # root :to => "home#index"
   
-  get "home/index"
+  # get "home/index"
 
-  root :to => redirect('/home')
 
   # get "home/aboutus"
   # root :to => redirect('/aboutus')
