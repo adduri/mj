@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+  class HomeController < ApplicationController
    # before_filter :already_logged_in
   # GET /ads
   # GET /ads.json
@@ -84,6 +84,4 @@ class HomeController < ApplicationController
       format.json { head :no_content }
     end
   end
- 
-
 end

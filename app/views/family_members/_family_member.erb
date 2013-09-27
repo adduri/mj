@@ -14,15 +14,16 @@ text-decoration:none;}
         <%= image_tag family_member.photo.url(:small), :class => 'img-polaroid'%>
       <% end %>
       <% if @user.id == current_user.id %>
-        <a href="/family_members/delete_member/<%= f.id %>" class="close">
+        <a href="/family_members/delete_member/<%= f.id %>" class="close" onclick="return confirm_delete()">
         <img src="/assets/close.png"/></a>
       <% end %>
         &nbsp;<font size="3"><strong><%= f.relation.relationship %></strong></font><br>
         <a href="/family_members/family/<%= family_member.id %>">
         &nbsp;<% if family_member.desig == 'Late.' %><%= family_member.desig %><% end %><%= family_member.firstname.capitalize %>&nbsp;<%= family_member.middlename.capitalize %>&nbsp;<%= family_member.lastname.capitalize %></a>
         <br/>
-        &nbsp;<%= family_member.dob %><br/>
-        &nbsp;<%= family_member.city.capitalize %><br/>
+        &nbsp;<%= family_member.dob.to_time.strftime('%d %B') %><br/>
+        &nbsp;<%= family_member.city %><br/>
+        &nbsp;<%= family_member.mobileno %>
     </div>
 
     <% displayed_members_list << family_member.id %>
@@ -41,15 +42,16 @@ text-decoration:none;}
               <%= image_tag spouse.photo.url(:small) ,:class => 'img-polaroid' %>
             <% end %>
               <% if @user.id == current_user.id %>
-                <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close">
+                <a href="/family_members/delete_member/<%= current_user_relation_with_member_spouse.id %>" class="close" onclick="return spouse_delete()">
                 <img src="/assets/close.png"/></a>
               <% end %>
             &nbsp;<font size="3"><strong><%= current_user_relation_with_member_spouse.relation.relationship %></strong></font><br>             
             <a href="/family_members/family/<%= spouse.id %>">
               &nbsp;<% if spouse.desig == 'Late.' %><%= spouse.desig %><% end %><%= spouse.firstname.capitalize %>&nbsp;<%= spouse.middlename.capitalize %>&nbsp;<%= spouse.lastname.capitalize %></a>
               <br>
-              &nbsp;<%= spouse.dob %><br>
-              &nbsp;<%= spouse.city.capitalize %><br>              
+              &nbsp;<%= spouse.dob.to_time.strftime('%d %B') %><br>
+              &nbsp;<%= spouse.city %><br>
+              &nbsp;<%= spouse.mobileno %>              
           </div>
         <% end %>     
         <% displayed_members_list << spouse.id %>
@@ -57,3 +59,11 @@ text-decoration:none;}
     <% end %>
   </div><br>
 <% end %>
+<script type="text/javascript">
+function confirm_delete() {
+  return confirm('Are you sure.Do you want to delete ?');
+}
+function spouse_delete() {
+  return confirm('Are you sure.Do you want to delete ?');
+}
+</script>

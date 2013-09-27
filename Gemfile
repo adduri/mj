@@ -9,9 +9,9 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 # sudo apt-get install imagemagick libmagickwand-dev
 gem 'rmagick'
 gem 'paperclip'
-
+gem 'easy_captcha'	
 #captcha
-gem 'recaptcha', :require => 'recaptcha/rails'
+ 
  
 
 group :assets do

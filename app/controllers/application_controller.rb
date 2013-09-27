@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  # reset captcha code after each request for security
+  after_filter :reset_last_captcha_code!
+
     skip_before_filter :login_required
   
 	helper_method :current_user

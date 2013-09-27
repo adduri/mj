@@ -10,46 +10,45 @@
 <%= hidden_field_tag :sort, params[:sort] %>
 <div class="clear"></div>
 <div>
-<table class="table table-striped table-bordered table-condensed table-hover table-nonfluid" 
-id="products">
-  <tr>
-    <th><%= sortable "Mj Id" %></th>
-    <th><%= sortable "surname" %></th>
-    <th><%= sortable "firstname" %></th>
-    <th><%= sortable "city"%>
-   <th><%= sortable "Address"%>
-     <th><%= sortable "photo" %></th>
-  </tr>
-  <% for product in @products %>
+  <table class="table table-striped table-bordered table-condensed table-hover table-nonfluid" 
+  id="products">
     <tr>
-      <td><%= product.mj_id %></td>
-      <td><%= product.lastname.capitalize %></td>
-      <td><%= product.firstname.capitalize %></td>
-      <td><%= product.city.capitalize%></td>
-      <td><%= product.address%></td>
-
-<td>
- <% if product.photo_file_name.nil? %>
+      <th><%= sortable "Mj Id" %></th>
+      <th><%= sortable "firstname" %></th>
+      <th><%= sortable "surname" %></th>
+      <th><%= sortable "city"%>
+      <% if current_user %>
+        <th><%= sortable "Address"%>
+        <th><%= sortable "Mobileno"%>
+      <% end %>
+       <th><%= sortable "photo" %></th>
+    </tr>
+    <% for product in @products %>
+      <tr>
+        <td><%= product.mj_id %></td>
+        <td><%= product.firstname.capitalize %></td>
+        <td><%= product.lastname.capitalize %></td>        
+        <td><%= product.city.capitalize%></td>
+        <% if current_user %>
+          <td><%= product.address1%><br><%= product.address2 %><br><%= product.address3 %></td>
+          <td><%= product.mobileno%></td>
+        <% end %>
+        <td>
+        <% if product.photo_file_name.nil? %>
           <%=image_tag ('/assets/empty_profile.jpeg'),
           :style => "height:25px;width:45px", :class => 'img-polaroid'%>
-        <% else %>
-       <%= image_tag product.photo.url(:small),
-       :style => "height:35px;width:50px", :class =>'img-polaroid'%>
-        <% end %>
-
-</td>
-
-
-
- 
-
-
-
-
-    </tr>
-  <% end %>
-</table>
-<div style="padding-left:10em;">
-<%= paginate @products %>
-</div></div>
- </br></br></br></br></br></br>
+          <% else %>
+          <%= image_tag product.photo.url(:small),
+          :style => "height:35px;width:50px", :class =>'img-polaroid'%>
+          <% end %>
+          <% unless current_user %>
+            <a href="/log" style="text-decoration:none;">Viewmore</a>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div style="padding-left:10em;">
+    <%= paginate @products %>
+  </div>
+</div>
