@@ -34,7 +34,10 @@
       </span> 
     <% end  %>
   </a>  
-  <a class="btn btn-info" href="/home/khaps">Help To Build Your Family Tree</a>                           
+  <a class="btn btn-info" href="/home/khaps">Help To Build Your Family Tree</a>
+  <% if current_user.mj_id == "MJ1" %>
+    <a class="btn btn-danger" href="/family_members/print_tree/<%= current_user.id %>">print</a>  
+  <% end %>                        
 <% end %>
  
 

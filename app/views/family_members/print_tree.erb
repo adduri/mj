@@ -1,45 +1,205 @@
+<link rel="stylesheet" type="text/css" href="css/familytree.css" media="print">
+<style type="text/css" media="print" href="/assets/stylesheets/familtree.css">
+.span1{background:lightblue !important;}
+.spouse-span1{background:lightpink !important;}
+.new-span1{background:lightblue !important;}
+</style>
 <body onload="window.print()">
 <% @family_members.each do |r| %>
   would you like to join as <%= r.user.firstname  %> his/her <%= r.relationship %> ?
   <a href="/family_members/join_pending/<%= r.id %>">Accept</a><br/> | <a href="/family_members/join_decline/<%= r.id %>">Decline</a>
 <% end %>
-<a href="/sessions/login_page/<%= current_user.id%>">Home Page</a> |
-<a href="/family_members/family/<%= current_user.id%>">Show My Family</a>
-<center><h1>Family Members</h1>
+<div align="right">
+<a class="btn btn-danger" href="/sessions/login_page/<%= current_user.id%>">Home Page</a> 
+<a class="btn btn-danger" href="/family_members/family/<%= current_user.id%>">Show My Family</a></div>
+<h2><font style="font-family: arial;" color="#890000 !important">
+  <%= @user.firstname.capitalize %>
+  <%= @user.middlename.capitalize %>
+  <%= @user.lastname.capitalize %>'s Family(<%= @user.mj_id %>)</font></h2>
+<table>
+<% displayed_members_list = Array.new %>
 
-  <%= @user.firstname %>'s family:<br/>
+<table class="bordered"  style = "width:100px;" align="center">
+  <tr><th colspan=6>
+        <h1><font style="font-family: arial;" color="#890000 !important">First Generation</font></h1>
+      </th>
+  </tr>
+  <tr>
+      <% @user.relations.group("relationship").having("priority = ?", 1).order('id').each do |r| %>
+          <td>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+              <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
+            <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                    &nbsp;<%= family_member_user.mobileno %><br/>
+                  </div>
+                <% end %>
+              <% end %>
+          </td>
+      <% end %>
+  </tr>
+</table>
 
-  <table>
-    <tr>
-      <th></th>
-      <th>Family member</th>
-      <th>Relationship</th>
-    </tr>
-    <% @user.relations.group("priority").each do |r| %>
-      <tr><% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
-          <% family_member_user = User.find(f.family_member_user_id) %>
-          <% if family_member_user.photo_file_name.nil? %>
-            <td>
-              <img src="/assets/empty_profile.jpeg" height="30" width="30" alt="" />
-            </td>
-            <td><a href="/family_members/family/<%= family_member_user.id %>"><%=  family_member_user.firstname %></a>
-            </td>
-            <td><%= f.relation.relationship %></td>
-          <% else %>
-            <% if f.deactivate == false  %>
-              <td>
-                <%= image_tag family_member_user.photo.url(:small) %>
-              </td>
-              <td>
-                <a href="/family_members/family/<%= family_member_user.id %>"><% end %> <%=  family_member_user.firstname %></a>
-            </td>
-            <td><%=  f.relation.relationship %></td>
-          <% end %>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
-  <br></br>
+<table class="bordered" style = "width:100px;">
+  <tr><th colspan=10>
+        <h1><font style="font-family: arial;" color="#890000 !important">Second Generation</font></h1>
+      </th>
+  </tr>
+      <% @user.relations.group("relationship").having("priority = ?", 2).order('id').each do |r| %>
+          <td>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+              <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
+            <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city.capitalize %><br/> 
+                    &nbsp;<%= family_member_user.mobileno %><br/>
+                  </div>
+                <% end %>
+              <% end %>
+          </td>
+      <% end %>
+  </tr>
+</table>
+
+<table class="bordered">
+  <tr><th colspan=10>
+        <h1><font style="font-family: arial;" color="#890000 !important">Third Generation</font></h1>
+      </th>
+  </tr>
+  <tr>
+      <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>
+          <td>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+                <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
+              <% end %>
+               <% if @user.id == current_user.id %>
+                <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city %><br/>
+                    &nbsp;<%= family_member_user.mobileno %><br/>
+                  </div> 
+                <% end %>
+                <% end %>
+          </td>
+      <% end %>
+  </tr>
+</table>
+
+<table class="bordered">
+  <tr><th colspan=10>
+        <h1><font style="font-family: arial;" color="#890000 !important">Fourth Generation</font></h1>
+      </th>
+  </tr>
+      <% @user.relations.group("relationship").having("priority = ?", 4).order('id').each do |r| %>
+          <td>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+              <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
+            <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city %><br/>
+                    &nbsp;<%= family_member_user.mobileno %><br/>
+                  </div> 
+                <% end %>
+              <% end %>
+          </td>
+      <% end %>
+  </tr>
+</table>
+
+<table class="bordered">
+  <tr><th colspan=10>
+        <h1><font style="font-family: arial;" color="#890000 !important">Fifth Generation</font></h1>
+      </th>
+  </tr>
+      <% @user.relations.group("relationship").having("priority = ?", 5).order('id').each do |r| %>
+          <td>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+              <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
+            <% end %>
+             <% if @user.id == current_user.id %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% family_member_user = User.find(fm.family_member_user_id) %>
+                  <div class="new-span1">
+                    <% if family_member_user.photo_file_name.nil? %>
+                       <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
+                    <% else %>
+                       <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
+                    <% end %>
+                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
+                    &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
+                    <br/>
+                    &nbsp;<%= family_member_user.dob.to_time.strftime('%d %B') %><br/>
+                    &nbsp;<%= family_member_user.city %><br/>
+                    &nbsp;<%= family_member_user.mobileno %><br/>
+                  </div>  
+                <% end %>
+              <% end %>
+          </td>
+      <% end %>
+  </tr>
+</table>
 
 </center>
 </body>
+<style type="text/css">
+@media print {
+a:link:after, a:visited:after {
+    content: "";
+}
+.visible-print  { display: inherit !important; }
+  .hidden-print   { display: none !important; }
+}
+</style>
