@@ -195,7 +195,7 @@ border-radius: 5px;
  
      .layout 
  {
-    background: none repeat scroll 0% 0% rgb(238, 238, 238);
+    background: none repeat scroll 0% 0% ;
     padding: 3px 0px;
     text-align: center;
     width: 100%
