@@ -3,5 +3,6 @@ class PostsController < InheritedResources::Base
 		@posts = Post.all(:order => 'DATE(updated_at),TIME(updated_at)')
 	end
 	
+ 
 	
-end
+ end
