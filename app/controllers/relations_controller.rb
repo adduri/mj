@@ -14,12 +14,10 @@ class RelationsController < ApplicationController
   # GET /relations/1
   # GET /relations/1.json
   def show
-    @relation = Relation.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @relation }
-    end
+    @user = User.find(params[:id])
+    @user.update_attribute(:reqstatus, false)
+    UserMailer.verification_email(@user).deliver
+    redirect_to '/family_members/family/1'
   end
 
   # GET /relations/new
