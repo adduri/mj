@@ -13,7 +13,7 @@ class RelationsController < ApplicationController
 
   # GET /relations/1
   # GET /relations/1.json
-  def show
+ def show
     @user = User.find(params[:id])
     @user.update_attribute(:reqstatus, false)
     UserMailer.verification_email(@user).deliver
