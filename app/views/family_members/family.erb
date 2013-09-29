@@ -10,6 +10,9 @@
    background: url(new_arrow.png) no-repeat right #ddd;
    border: 1px solid #ccc;
    }
+   .right{
+    float: right;
+   }
 </style>
 <% if @user.id == current_user.id %>
 <div>
@@ -37,7 +40,28 @@
   <a class="btn btn-info" href="/home/khaps">Help To Build Your Family Tree</a>                           
 <% end %>
  
+</div>
+<div class="right" >
+  <% if (current_user.mj_id == "MJ2") || (current_user.mj_id == "MJ4") || (current_user.mj_id == "MJ6") || (current_user.mj_id == "MJ8") %>
+  <form name= "verify" action="/family_members/verify" method="post">
+     <% @u = User.find(params[:id]) %>
+     <% @u = User.find_all_by_visited(false) %>
+      <select name="id">
+      <% @u.reverse_each do |user| %>
 
+        <% unless user.mj_id? %>
+         <% u = user.id %>
+          <option value="<%= u %>">
+            <%= user.id %>-<%= user.firstname.capitalize%>.<%= user.lastname.capitalize %>
+          </option> 
+        <% end %>
+    
+      <% end %>
+      </select>
+      <input type="submit" value="Verify">
+    </form>
+    <% end %>
+</div>
 
 <div class = "admin-pannel">
        <% if current_user.mj_id == "MJ1" %>
@@ -65,12 +89,12 @@
           <input type="submit" value="Send Email" class ="btn btn-inverse" >
         </form>
  <% end %>
+</div>
+    
+  
+ 
    
-</div>
 
-
-
-</div>
 <br/>
 <div id="treeDiv">
 <% if @user.id == current_user.id %>
