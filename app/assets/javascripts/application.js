@@ -20,14 +20,7 @@ $('.carousel').carousel({
 $('.dropdown-toggle').dropdown();
 
 // $(function () {
-//     var options = {
-        
-//         changeYear: true, 
-//         yearRange: "-213:+1"
-//     }
-//     $("#txtDate").datepicker(options);
-// });
-
+ 
 
 $(".collapse").collapse()
 
