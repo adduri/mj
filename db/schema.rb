@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919102957) do
+ActiveRecord::Schema.define(:version => 20130928083529) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -113,6 +113,14 @@ ActiveRecord::Schema.define(:version => 20130919102957) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "gender_notifications", :force => true do |t|
+    t.string   "user_gender"
+    t.string   "present_relation"
+    t.string   "reverse_relation"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "mappings", :force => true do |t|
     t.string   "first_person"
     t.string   "second_person"
@@ -186,12 +194,12 @@ ActiveRecord::Schema.define(:version => 20130919102957) do
     t.string   "country"
     t.string   "fathername"
     t.string   "desig"
+    t.integer  "zip"
+    t.integer  "ccode"
+    t.integer  "doby"
     t.string   "address1"
     t.string   "address2"
     t.string   "address3"
-    t.integer  "zip"
-    t.integer  "ccode"
-    t.string   "other"
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
