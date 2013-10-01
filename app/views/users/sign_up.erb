@@ -1,6 +1,18 @@
 <head>
       <script type="text/javascript" src="/assets/citystate.js"></script>
 
+
+<script type="text/javascript">
+$('.dropdown-toggle').dropdown();
+
+// $(function () {
+ 
+
+$(".collapse").collapse()
+
+
+</script>
+ 
 </head>
  <script>
  
@@ -328,7 +340,6 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   <div class="controls">
      <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
      <option value="" selected="selected">Select</option>
-     <option value=""></option>
      <script type="text/javascript">
      setRegions(this);
      </script>

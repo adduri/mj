@@ -1,6 +1,9 @@
 Mj::Application.routes.draw do
 
 
+  root :to => redirect('/about')
+
+  get "about/aboutus"
 
   captcha_route
 
@@ -9,9 +12,8 @@ Mj::Application.routes.draw do
 
   # root :to => "home#index"
   
-  get "home/index"
+  # get "home/index"
 
-  root :to => redirect('/ads')
 
   # get "home/aboutus"
   # root :to => redirect('/aboutus')
@@ -45,19 +47,17 @@ match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
 
 
-
+  get "aboutus" => "home#aboutus", :as => "aboutus"
   get "signup" => "users#sign_up", :as => "signup"
- 
   get '/ads/:id/sai', to: 'ads#sai'
-
-
   get "search" => "users#index", :as => "search"
-    get "log" => "users#search", :as => "log"
+  get "log" => "users#search", :as => "log"
   get "products" => "ads#products", :as => "products"
   get "rajasthan" => "sessions#about_rajasthan", :as => "rajasthan"
+  get "tc" => "home#tc" , :as => "tc"
 
-   get "tc" => "home#tc" , :as => "tc"
 
+ 
    get "privacy" => "home#privacy" , :as => "privacy"
 
   get "demo_family" => "users#demo_family", :as => "demo_family"
@@ -65,6 +65,6 @@ match 'contact' => 'contact#create', :as => 'contact', :via => :post
   get "change_password" => "sessions#forgot", :as => "change_password"
   get "publish_event" => "events#new", :as => "publish_event"
   # get "give_feedback" => "feedbacks#new", :as => "give_feedback"
-  root :to => "users#home" # "advertisements"
+  # root :to => "users#home" # "advertisements"
   match ':controller(/:action(/:id))(.:format)'
 end
