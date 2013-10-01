@@ -21,9 +21,12 @@ class SessionsController < ApplicationController
   end
 
   def login_page
-    User.update_all(:visited  => false)
+    
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
+    @user.ip =  request.remote_ip
+    @user.update_attributes(params[:ip])
+
     if current_user.user_id == 0
       redirect_to "/family_members/family/#{@user.id}"
     else
