@@ -196,6 +196,10 @@ ActiveRecord::Schema.define(:version => 20131001094600) do
     t.string   "desig"
     t.integer  "zip"
     t.integer  "ccode"
+    t.integer  "doby"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
     t.string   "other"
     t.string   "ip"
   end
