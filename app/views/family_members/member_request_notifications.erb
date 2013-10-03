@@ -53,7 +53,6 @@ text-decoration:none;}
                 <a href="/family_members/family/<%= @u_id.id %>"><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %></a>
             </td>
             <td>
-              
               <strong><%= @person_who_initiated_notification.firstname.capitalize %> <%= @person_who_initiated_notification.middlename.capitalize %> <%= @person_who_initiated_notification.lastname.capitalize %> added <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> as <font size="4" ><%= relation %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong>
               <font size="4" >
               <%= sn.relationship %>?</font><br><br>
