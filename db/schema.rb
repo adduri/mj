@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919102957) do
+ActiveRecord::Schema.define(:version => 20130925070012) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -192,12 +192,7 @@ ActiveRecord::Schema.define(:version => 20130919102957) do
     t.string   "address3"
     t.integer  "zip"
     t.integer  "ccode"
-    t.integer  "doby"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "address3"
     t.string   "other"
-
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
