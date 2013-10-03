@@ -11,8 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131001094600) do
-
+ 
+ActiveRecord::Schema.define(:version => 20130925070012) do
+ 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
     t.string   "resource_type", :null => false
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20131001094600) do
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"
-  add_index "family_members", ["relation_id"], :name => "index_family_members_on_relation_id"
   add_index "family_members", ["user_id"], :name => "user_id_index"
 
   create_table "feedbacks", :force => true do |t|
@@ -114,6 +114,14 @@ ActiveRecord::Schema.define(:version => 20131001094600) do
     t.integer  "user_id",    :default => 0, :null => false
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "gender_notifications", :force => true do |t|
+    t.string   "user_gender"
+    t.string   "present_relation"
+    t.string   "reverse_relation"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "mappings", :force => true do |t|
@@ -191,12 +199,15 @@ ActiveRecord::Schema.define(:version => 20131001094600) do
     t.string   "desig"
     t.integer  "zip"
     t.integer  "ccode"
-    t.integer  "doby"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "address3"
     t.string   "other"
+<<<<<<< HEAD
     t.string   "ip"
+=======
+<<<<<<< HEAD
+=======
+    t.string   "ip"
+>>>>>>> f1d97e7a543845c72788dd1185194db6640be37a
+>>>>>>> d37b95dfbe682ba9a930e1b93e1f968195bf3031
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"

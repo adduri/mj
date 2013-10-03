@@ -1,0 +1,29 @@
+<%= form_for(@gender_notification) do |f| %>
+  <% if @gender_notification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gender_notification.errors.count, "error") %> prohibited this gender_notification from being saved:</h2>
+
+      <ul>
+      <% @gender_notification.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_gender %><br />
+    <%= f.text_field :user_gender %>
+  </div>
+  <div class="field">
+    <%= f.label :present_relation %><br />
+    <%= f.text_field :present_relation %>
+  </div>
+  <div class="field">
+    <%= f.label :reverse_relation %><br />
+    <%= f.text_field :reverse_relation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
