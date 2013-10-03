@@ -57,67 +57,21 @@
   def create_family
     @user = User.find(params[:id])
   end
-
-  def add_family_backup
-    unless params[:relation] == "0"
-      @user = User.find_by_mj_id(params[:search_mjid])
-      unless @user.nil? or @user.blank?
-        @fm = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id, @user.id)
-        if @fm.nil? or @fm.blank?
-          @f = FamilyMember.new
-          @f.family_member_user_id = @user.id
-          @f.user_id = current_user.id
-          @f.join_pending = false
-          @f.relation_id = params[:relation]
-          r = Relation.find(params[:relation])
-          if (r.relationship == "पति") || (r.relationship == "पत्नी")
-            @f.spouse_status = true
-          end
-          @f.save
-          if (r.relationship == "पति") || (r.relationship == "पत्नी")
-            @fm_reverse = FamilyMember.find_by_user_id_and_family_member_user_id(@user.id,current_user.id)
-            if @fm_reverse.nil? or @fm_reverse.blank?     
-              @f = FamilyMember.new
-              @f.family_member_user_id = current_user.id
-              @f.user_id =  @user.id
-              @f.join_pending = false
-              @f.spouse_status = true
-              if r.relationship == "पति"   
-                wife_relation = Relation.find_by_relationship("पत्नी")
-                @f.relation_id = wife_relation.id
-              elsif r.relationship == "पत्नी"
-                husband_relation = Relation.find_by_relationship("पति")
-                @f.relation_id = husband_relation.id
-              end
-              @f.save
-            end
-          end
-          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize} added."
-        else
-          redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize} already exists."
-        end
-      else
-        redirect_to "/family_members/family/#{params[:id]}", :notice => "User does not exist."
-      end
-    else
-      redirect_to "/family_members/family/#{params[:id]}", :notice => "Select a relation."
-    end
-  end
-
   
   def add_family
     @fm = FamilyMember.find(params[:id])
     @fm.update_attributes(:join_pending => false)
+    @ff = FamilyMember.find_by_user_id_and_family_member_user_id(@fm.family_member_user_id,@fm.user_id)
+    @ff.update_attributes(:join_pending => false)
     r = Relation.find(@fm.relation_id)
     if (r.relationship == "पति") || (r.relationship == "पत्नी")
       @fm.spouse_status = true
       @fm.save
-      @spouse = FamilyMember.find_by_user_id_and_family_member_user_id(@fm.family_member_user_id,@fm.user_id)
-      @spouse.update_attributes(:join_pending => false)
-      @spouse.spouse_status = true
-      @spouse.save
+      @ff.spouse_status = true
+      @ff.save
     end
     @fm.save
+    @ff.save
     @em = FamilyMember.find_all_by_user_id(@fm.user_id)
     @relative = Relative.find_all_by_present_id(@fm.user_id)
     if !@relative.nil?
@@ -144,7 +98,7 @@
                unless @r.present_id == @r.existing_member_id
                  @r.save
                end
-              end
+             end
           end
       end
       redirect_to "/family_members/family/#{current_user.id}"
@@ -157,31 +111,31 @@
       unless @user.nil? or @user.blank?
         @fm = FamilyMember.find_by_user_id_and_family_member_user_id(current_user.id, @user.id)
         if @fm.nil? or @fm.blank?
-          @f = FamilyMember.new
+          @f = FamilyMember.new 
           @f.family_member_user_id = @user.id
           @f.user_id = current_user.id
           @f.family_member_user_dob = @user.dob
-          
           @f.relation_id = params[:relation]
-          r = Relation.find(params[:relation])
+          @r = Relation.find(params[:relation])
           @f.save
-           if (r.relationship == "पति") || (r.relationship == "पत्नी")
-             if @fm.nil? or @fm.blank?     
-               @f = FamilyMember.new
-               @f.family_member_user_id = current_user.id
-               @f.user_id =  @user.id
-               @f.family_member_user_dob = current_user.dob
-               
-               if r.relationship == "पत्नी"   
-                  husband_relation = Relation.find_by_relationship("पति")
-                  @f.relation_id = husband_relation.id
-                else
-                  wife_relation = Relation.find_by_relationship("पत्नी")
-                  @f.relation_id = wife_relation.id
-               end
-               @f.save
-             end
-           end
+          @g = User.find(current_user.id).gender
+          @gn = GenderNotification.where('user_gender = ? and present_relation = ?', @g, @r.relationship)
+          @family_mem = FamilyMember.find_by_user_id_and_family_member_user_id(@user.id, current_user.id)
+          unless @gn.nil?
+            if @family_mem.nil?
+              @family = FamilyMember.new
+              @family.family_member_user_id = current_user.id
+              @family.user_id = @user.id
+              @family.family_member_user_dob = current_user.dob
+              logger.info "verifyyyyyyyyyyyyyyyyyyyy #{@gn.inspect}"
+              @gn.each do|xx|
+                @relation = Relation.find_by_relationship(xx.reverse_relation)
+                @family.relation_id = @relation.id
+              end
+              @family.save
+            end
+          end
+          
           redirect_to "/family_members/family/#{current_user.id}", :notice => "Request has been sent to #{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize}."
          else
           redirect_to "/family_members/family/#{current_user.id}", :notice => "#{@user.firstname.capitalize} #{@user.middlename.capitalize} #{@user.lastname.capitalize} already exists."
@@ -262,9 +216,7 @@
              @fm.spouse_status = true
           end
           @fm_dob = User.find(@fg.existing_member_id).dob
-           
-          @fm.family_member_user_dob = @fm_dob
-           
+          @fm.family_member_user_dob = @fm_dob 
           @fm.save
        else 
         @family_member_row_exist.update_attributes(:join_pending => false)

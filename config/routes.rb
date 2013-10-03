@@ -1,6 +1,9 @@
 Mj::Application.routes.draw do
 
 
+  resources :gender_notifications
+
+
   root :to => redirect('/about')
 
   get "about/aboutus"
