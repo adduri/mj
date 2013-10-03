@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 attr_accessible :email, :mj_id, :firstname, :gender, :desig, :lastname, :fathername,
 :mobileno,:state,:landline , :user_id, :visited, :photo, :payment, :due,
 :family_count, :station, :occupation, :address1, :address2, :address3, :password, :password_confirmation, :dob,
-:middlename, :city, :country, :zip, :ccode, :doby, :other
+:middlename, :city, :country, :zip, :ccode, :doby, :other, :ip
 attr_accessor :password, :password_confirmation
   #  before_save :encrypt_password
   belongs_to :user

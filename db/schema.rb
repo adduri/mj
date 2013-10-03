@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20130928083529) do
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"
+  add_index "family_members", ["relation_id"], :name => "index_family_members_on_relation_id"
   add_index "family_members", ["user_id"], :name => "user_id_index"
 
   create_table "feedbacks", :force => true do |t|
@@ -200,6 +201,15 @@ ActiveRecord::Schema.define(:version => 20130928083529) do
     t.string   "address1"
     t.string   "address2"
     t.string   "address3"
+    t.integer  "zip"
+    t.integer  "ccode"
+    t.integer  "doby"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "other"
+
+
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
