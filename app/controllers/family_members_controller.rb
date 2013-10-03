@@ -127,6 +127,7 @@
               @family.family_member_user_id = current_user.id
               @family.user_id = @user.id
               @family.family_member_user_dob = current_user.dob
+              logger.info "verifyyyyyyyyyyyyyyyyyyyy #{@gn.inspect}"
               @gn.each do|xx|
                 @relation = Relation.find_by_relationship(xx.reverse_relation)
                 @family.relation_id = @relation.id
