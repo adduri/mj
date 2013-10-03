@@ -113,6 +113,14 @@ ActiveRecord::Schema.define(:version => 20131001094600) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "gender_notifications", :force => true do |t|
+    t.string   "user_gender"
+    t.string   "present_relation"
+    t.string   "reverse_relation"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "mappings", :force => true do |t|
     t.string   "first_person"
     t.string   "second_person"
@@ -188,10 +196,6 @@ ActiveRecord::Schema.define(:version => 20131001094600) do
     t.string   "desig"
     t.integer  "zip"
     t.integer  "ccode"
-    t.integer  "doby"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "address3"
     t.string   "other"
     t.string   "ip"
   end

@@ -143,16 +143,12 @@ class UsersController < ApplicationController
   def search
       @users = User.search(params[:search]) 
       @products = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10) 
-
   end
 
   def demo_family
     @user = User.find(1)
   end
  
- 
-
-
   def sort_column
     User.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
   end
