@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User gender:</b>
+  <%= @gender_notification.user_gender %>
+</p>
+
+<p>
+  <b>Present relation:</b>
+  <%= @gender_notification.present_relation %>
+</p>
+
+<p>
+  <b>Reverse relation:</b>
+  <%= @gender_notification.reverse_relation %>
+</p>
+
+
+<%= link_to 'Edit', edit_gender_notification_path(@gender_notification) %> |
+<%= link_to 'Back', gender_notifications_path %>
