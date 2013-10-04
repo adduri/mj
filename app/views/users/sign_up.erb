@@ -407,6 +407,8 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   </div>
 </div>
 
+<input type="hidden" id="user[ip]" name="user[ip]" value="<%= request.remote_ip %>" >
+
   <div class="controls">
     <input type="checkbox" name="terms-and-conditions" required data-validation-required-message=
     "You must agree to the terms and conditions">

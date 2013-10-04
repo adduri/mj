@@ -1,0 +1,2 @@
+module GenderNotificationsHelper
+end

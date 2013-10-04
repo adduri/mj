@@ -1,0 +1,27 @@
+<h1>Listing gender_notifications</h1>
+
+<table>
+  <tr>
+    <th>User gender</th>
+    <th>Present relation</th>
+    <th>Reverse relation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gender_notifications.each do |gender_notification| %>
+  <tr>
+    <td><%= gender_notification.user_gender %></td>
+    <td><%= gender_notification.present_relation %></td>
+    <td><%= gender_notification.reverse_relation %></td>
+    <td><%= link_to 'Show', gender_notification %></td>
+    <td><%= link_to 'Edit', edit_gender_notification_path(gender_notification) %></td>
+    <td><%= link_to 'Destroy', gender_notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gender notification', new_gender_notification_path %>
