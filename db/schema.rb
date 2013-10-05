@@ -200,14 +200,9 @@ ActiveRecord::Schema.define(:version => 20130925070012) do
     t.integer  "zip"
     t.integer  "ccode"
     t.string   "other"
-<<<<<<< HEAD
+
     t.string   "ip"
-=======
-<<<<<<< HEAD
-=======
-    t.string   "ip"
->>>>>>> f1d97e7a543845c72788dd1185194db6640be37a
->>>>>>> d37b95dfbe682ba9a930e1b93e1f968195bf3031
+
   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
