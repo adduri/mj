@@ -101,7 +101,7 @@
              end
           end
       end
-      redirect_to "/family_members/family/#{current_user.id}"
+      redirect_to "/family_members/member_request_notifications/#{current_user.id}"
     end 
   end
                       
@@ -250,7 +250,7 @@
                end
           end   
         end
-      redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname.capitalize} #{@name.middlename.capitalize} #{@name.lastname.capitalize} is added."
+      redirect_to "/family_members/member_request_notifications/#{current_user.id}"
   end
   
   def flag_decline

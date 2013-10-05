@@ -138,11 +138,11 @@
   <tr>
       <% @user.relations.group("relationship").having("priority = ?", 1).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
@@ -172,11 +172,11 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 2).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
@@ -207,11 +207,11 @@
   <tr>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>
           <td>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
                 <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
               <% end %>
                <% if @user.id == current_user.id %>
-                <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
 
                   <div class="new-span1">
@@ -242,11 +242,11 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 4).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
@@ -276,11 +276,11 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 5).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
