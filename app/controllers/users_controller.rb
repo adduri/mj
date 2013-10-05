@@ -32,6 +32,9 @@ class UsersController < ApplicationController
         @user.fathername  = params[:user][:fathername].capitalize
         @user.email = params[:user][:email].downcase
         @user.mobileno= params[:user][:mobileno]
+        @user.city = params[:user][:city]
+        @user.state = params[:user][:state]
+        @user.country = params[:user][:country  ]
         @user.dob = params[:user][:dob]
         @user.address1= params[:user][:address1]
         @user.address2= params[:user][:address2]
