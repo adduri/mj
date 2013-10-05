@@ -106,7 +106,7 @@ text-decoration:none;}
               </a>
             </td>
             <td>
-              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.Is <%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> related to you as </strong><font size="4" ><%= an.reverse_relationship %> ?</font><br><br>
+              <strong><%= @u_id.firstname.capitalize %> <%= @u_id.middlename.capitalize %> <%= @u_id.lastname.capitalize %> wants to add you as <font size="4" ><%= an.relationship %></font>.</font><br><br>
               <a href="/family_members/flag_accept/<%= an.id %>" class="btn btn-info" >yes</a> or <a href="/family_members/flag_decline/<%= an.id %>" class="btn btn-info" >no</a>
             </td>
           </tr>

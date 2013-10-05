@@ -263,7 +263,7 @@
         <td><label for="user_country"><strong>Country</strong></label></td>
         <td>
             <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
-              <option value=<%= @user.country.capitalize %>   ><%= @user.country.capitalize %>
+              <option value=<%= @user.country  %>   ><%= @user.country  %>
               </option>
   
                <script type="text/javascript">
@@ -277,7 +277,7 @@
         <td><label for="user_state"><strong>State</strong></label></td>
         <td>
             <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country">
-            <option value=<%= @user.state.capitalize %> selected><%= @user.state.capitalize %>
+            <option value=<%= @user.state  %> selected><%= @user.state  %>
                </option>
            </select>
         </td>
