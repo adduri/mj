@@ -1,0 +1,14 @@
+<%= render :partial => "newsheader" %><br>
+    <% @social.reverse_each do |social| %>
+<% if social.start.strftime("%y%m%d") <= Date.today.strftime("%y%m%d") && social.till.strftime("%y%m%d") >= Date.today.strftime("%y%m%d") && social.verify == true%>
+    <div class="a_space">
+        <div class="i_space">
+            <div class="adimage">
+               <!-- <%= link_to social.category.capitalize, edit_social_path(social), :style =>"text-decoration:none;font-size:16px;" %><br> -->
+                <%= link_to (image_tag social.photo.url(:small), :style => 'width:200px;height:200px;border-radius:3px;'), edit_social_path(social) %><br>
+                <%= link_to social.heading, edit_social_path(social), :style => "text-decoration:none" %>
+            </div>
+        </div>
+    </div>
+<% end %>
+    <% end %>

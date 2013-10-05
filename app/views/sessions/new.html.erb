@@ -1,51 +1,58 @@
-<div class="row">
-<div class="span3"></div>
-<div class="span6">
-  <div class="" style="width:500px;">
-    <form accept-charset="UTF-8"  class="form-centered"  action="/sessions" method="post" />
-   <h3 style ="color:black">Login </h3>
-    <div class="control-group">
-      <label for ="mj_id" class="control-label"><b>MJ ID</b></label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-user"></i></span>
-          <input type="text" class="input-xlarge" id="mj_id" name="mj_id" required="required" placeholder="MJID" autofocus>
+<div style="width:100%">
+  <div style="width:65%;float:left;">
+    <div class="span9">
+      <div class="span2"></div>
+      <div class="span6">
+        <div class="" style="width:500px;">
+          <form accept-charset="UTF-8"  class="form-centered"  action="/sessions" method="post" />
+          <h3 style ="color:black">Login </h3>
+          <div class="control-group">
+            <label for ="mj_id" class="control-label"><b>MJ ID</b></label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-user"></i></span>
+                <input type="text" class="input-xlarge" id="mj_id" name="mj_id" required="required" placeholder="MJID" autofocus>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for = "password" class="control-label"><b>Password</b></label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-lock"></i></span>
+                <input type="password" id="password" class="input-xlarge" name="password" placeholder="Password" required="required">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+              <button type="submit" name="commit" value="Log in" class="btn btn-success">Login </button>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+              <p>Forgot your password, <a href="/change_password">Recover it !</a><br></p>
+              <p>Are you new to MJ, <a href="/signup">Register here !</a><br></p>
+            </div>
+          </div>
+          </form>
         </div>
       </div>
     </div>
-
-    <div class="control-group">
-      <label for = "password" class="control-label"><b>Password</b></label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-lock"></i></span>
-          <input type="password" id="password" class="input-xlarge" name="password" placeholder="Password" required="required">
-        </div>
-      </div>
-    </div>
-
-
-    <div class="control-group">
-      <label class="control-label"></label>
-      <div class="controls">
-
-
-
-
-
-        <button type="submit" name="commit" value="Log in" class="btn btn-success">Login </button>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label"></label>
-      <div class="controls">
-        <p>Forgot your password, <a href="/change_password">Recover it !</a><br></p>
-        <p>Are you new to MJ, <a href="/signup">Register here !</a><br></p>
-      </div>
-    </div>
-    </form>
   </div>
+  <div style="width:35%;float:left;"> 
+    <%= image_tag Subad.find(3).p1, :class => "s_img" %>
+    <br><br>
+    <%= image_tag Subad.find(3).p2, :class => "s_img" %>
+  </div>  
 </div>
-<div class="span3"></div>
-</div>
-<br><br><br><br><br><br><br><br><br>
+<style type="text/css">
+.s_img{width:300px;
+  height: 180px;
+  border-radius: 5px;}
+</style>

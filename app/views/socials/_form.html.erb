@@ -1,0 +1,84 @@
+<!--
+<%= render :partial => "newsheader" %>
+-->
+<h1>YOUR NEWS</h1>
+<br />
+<%= form_for(@social) do |f| %>
+  <% if @social.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@social.errors.count, "error") %> prohibited this social from being saved:</h2>
+
+      <ul>
+      <% @social.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form class="well span8">
+    <div class="row">
+      <div class="span7">
+        <div class="field">
+          <%= f.label :category %><br />
+          <%=  f.select :category, options_for_select([["Social", "social"], ["Demise & Uttavna", "demise & uttavna"],["Bussiness", "bussiness"],["Achievement", "achievement"], ["Lucky Draw", "lucky draw"], ["Health", "health"]]), :class => "span3" %>  
+        </div>
+        <div class="field">
+          <%= f.label :heading %><br />
+          <%= f.text_field :heading, :class => "span3" %>
+        </div>
+        <div class="field">
+          <%= f.label :till %><br />
+          <%= f.date_select :till, :class => "span3" %>
+        </div>
+        <div class="field">
+          <%= f.label :start %><br />
+          <%= f.date_select :start, :class => "span3" %>
+        </div>
+        <div class="field">
+          <%= f.label :country %><br />
+          <select onchange="set_country(this,country,city)" size="1" name="social[country]" id="state" class="span3">
+            <option value="" selected="selected">Select</option>
+          <script type="text/javascript">
+          setRegions(this);
+          </script>
+          </select>
+        </div>
+        <div class="field">
+          <%= f.label :state %><br />
+          <select name="social[state]" size="1" disabled="disabled" onchange="set_city(this,city)" 
+            id="country" class="span3"></select>
+        </div>
+        <div class="field">
+          <%= f.label :city %><br />
+          <select name="social[city]" id="city" size="1" disabled="disabled" onchange="print_city(country,showbox(this));" class="span3" >
+            <option value="select">select</option>
+          </select>
+          <input type="text" id="other"  name="social[other]" style="display:none"/>
+        </div><!-- 
+        <div class="field">
+          <%= f.label :verify %><br />
+          <%= f.check_box :verify %>
+        </div> -->
+        <div class="actions">
+          <%= f.submit :class => "btn btn-success"%>
+        </div>
+      </div>
+      <div class="span5">
+        <div class="field">
+          <%= f.label :text %><br />
+          <%= f.text_area :text, :class =>"input-xlarge span5", :style => "height:180px;" %>
+        </div>
+        <div class="field">
+          <%= f.label :document %><br />
+          <%= f.file_field :document, :class => "span3" %>
+        </div>        
+        <div class="field">
+          <%= f.label :photo %><br />
+          <%= f.file_field :photo, :class => "span3" %><br><br>
+          <%= f.label :imagelink %><br />
+          <%= f.text_field :imagelink, :class => "span3" %>
+        </div>
+      </div>
+    </div>
+  </form>
+<% end %>
