@@ -53,7 +53,7 @@
     end
     end
   end
-
+  
   def create_family
     @user = User.find(params[:id])
   end
@@ -101,10 +101,10 @@
              end
           end
       end
-      redirect_to "/family_members/family/#{current_user.id}"
+      redirect_to "/family_members/member_request_notifications/#{current_user.id}"
     end 
   end
-
+                      
   def join_pending
     unless params[:relation] == "0"
       @user = User.find_by_mj_id(params[:search_mjid])
@@ -127,7 +127,6 @@
               @family.family_member_user_id = current_user.id
               @family.user_id = @user.id
               @family.family_member_user_dob = current_user.dob
-              logger.info "verifyyyyyyyyyyyyyyyyyyyy #{@gn.inspect}"
               @gn.each do|xx|
                 @relation = Relation.find_by_relationship(xx.reverse_relation)
                 @family.relation_id = @relation.id
@@ -150,7 +149,10 @@
 
   def pending_decline
      @fm = FamilyMember.find(params[:id])
+     @f = FamilyMember.find_by_user_id_and_family_member_user_id(@fm.family_member_user_id, @fm.user_id)
+     @reverse_mem = FamilyMember.find(@f.id)
      @fm.destroy
+     @reverse_mem.destroy
      redirect_to "/family_members/family/#{current_user.id}"
   end   
 
@@ -248,7 +250,7 @@
                end
           end   
         end
-      redirect_to "/family_members/member_request_notifications/#{current_user.id}", :notice => "#{@name.firstname.capitalize} #{@name.middlename.capitalize} #{@name.lastname.capitalize} is added."
+      redirect_to "/family_members/member_request_notifications/#{current_user.id}"
   end
   
   def flag_decline

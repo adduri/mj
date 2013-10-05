@@ -11,9 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
- 
-ActiveRecord::Schema.define(:version => 20130925070012) do
- 
+ActiveRecord::Schema.define(:version => 20131005093712) do
+
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
     t.string   "resource_type", :null => false
@@ -107,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20130925070012) do
   end
 
   add_index "family_members", ["family_member_user_id"], :name => "index_on_fmuid"
+  add_index "family_members", ["relation_id"], :name => "index_family_members_on_relation_id"
   add_index "family_members", ["user_id"], :name => "user_id_index"
 
   create_table "feedbacks", :force => true do |t|
@@ -168,6 +168,43 @@ ActiveRecord::Schema.define(:version => 20130925070012) do
     t.boolean  "reverse_accept_request", :default => false
   end
 
+  create_table "socials", :force => true do |t|
+    t.string   "category"
+    t.string   "heading"
+    t.text     "text"
+    t.date     "till"
+    t.date     "start"
+    t.string   "imagelink"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.boolean  "verify"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+  end
+
+  create_table "subads", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "p1_file_name"
+    t.string   "p1_content_type"
+    t.integer  "p1_file_size"
+    t.datetime "p1_updated_at"
+    t.string   "p2_file_name"
+    t.string   "p2_content_type"
+    t.integer  "p2_file_size"
+    t.datetime "p2_updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "firstname",          :default => "",    :null => false
     t.string   "lastname",           :default => "",    :null => false
@@ -199,11 +236,14 @@ ActiveRecord::Schema.define(:version => 20130925070012) do
     t.string   "desig"
     t.integer  "zip"
     t.integer  "ccode"
+ 
+    t.integer  "doby"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
     t.string   "other"
-
     t.string   "ip"
-
-  end
+   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
 
