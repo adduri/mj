@@ -10,6 +10,7 @@ class CreateSocials < ActiveRecord::Migration
       t.string :country
       t.string :state
       t.string :city
+      t.string :other
       t.boolean :verify
 
       t.timestamps
