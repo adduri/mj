@@ -236,13 +236,14 @@ ActiveRecord::Schema.define(:version => 20131005093712) do
     t.string   "desig"
     t.integer  "zip"
     t.integer  "ccode"
+ 
     t.integer  "doby"
     t.string   "address1"
     t.string   "address2"
     t.string   "address3"
     t.string   "other"
     t.string   "ip"
-  end
+   end
 
   add_index "users", ["user_id"], :name => "index_on_user_id"
 

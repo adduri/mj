@@ -22,9 +22,10 @@ class UsersController < ApplicationController
 
   end
 
+ 
   def new
         @user = User.new 
-
+ 
         @user.desig = params[:user][:desig]
       @user.firstname = params[:user][:firstname].capitalize
         @user.middlename = params[:user][:middlename].capitalize
