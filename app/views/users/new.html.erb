@@ -81,13 +81,16 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">Title</label>
     <div class="controls">
-      <select id="user[desig]" name="user[desig]" required="required" style="width:6em">
-        <option value="Mr.">Mr.</option>
-        <option value="Mrs.">Mrs.</option>
-        <option value="Miss.">Miss.</option>
-        <option value="Master.">Master.</option>
-        <option value="Late.">Late.</option>
-      </select>
+      <select id="user_desig" name="user[desig]" required="required"
+                value="<%= @user.desig %>">
+                    <option value="<%= @user.desig %>"><%= @user.desig %></option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Miss.">Miss.</option>
+                    <option value="Master.">Master.</option>
+                    <option value="Late.">Late.</option>
+                </select>
+     </input>
     </div>
 </div>
 
@@ -97,7 +100,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">First Name</label>
    <div class="controls">
-     <input id="user[firstname]" name="user[firstname]" maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize; " >
+     <input id="user[firstname]" name="user[firstname]" maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z, ]+$" value="<%= @user.firstname.capitalize %>"data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize; " >
     </div>
 </div>
 
@@ -106,7 +109,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">Middle Name</label>
     <div class="controls">
-     <input id="user[middlename]" name="user[middlename]" maxlength="20" class="input-large" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
+     <input id="user[middlename]" name="user[middlename]" maxlength="20" class="input-large" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" value="<%= @user.middlename.capitalize %>">
     </div>
 </div>
 
@@ -114,7 +117,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">Surname</label>
   <div class="controls">
-    <input list="surnames" name="user[lastname]" maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
+    <input list="surnames" name="user[lastname]" maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" value="<%= @user.lastname.capitalize %>">
 
         <datalist id="surnames">
             <option value="Agiwal">
@@ -275,7 +278,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   <label class="control-label">Father Name</label>
    <div class="controls">
      <input id="user[fathername]" name="user[fathername]"  
-     maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" >
+     maxlength="20" class="input-large" required="required" type="text" pattern="^[A-z, ]+$" data-validation-pattern-message="Only Alphabets are allowed" style="text-transform: capitalize;" value="<%=@user.fathername.capitalize %>" >
     </div>
 </div>
 
@@ -284,11 +287,11 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   <label class="control-label">Gender</label>
   <div class="controls">
     <label class="radio inline">
-      <input name="user[gender]" value="Male" checked="checked" type="radio">
+      <input name="user[gender]"value="Male" checked="checked" type="radio">
       male
     </label>
     <label class="radio inline">
-      <input name="user[gender]" value="Female" type="radio">
+      <input name="user[gender]" value= "Female" type="radio">
       female
     </label>
   </div>
@@ -300,7 +303,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   <label class="control-label">Email</label>
   <div class="controls">
 
-    <input id="user[email]" name="user[email]" class="input-large" required="required" type="email" >
+    <input id="user[email]" name="user[email]" class="input-large" required="required" type="email" value="<%= @user.email.downcase %>">
     <p class="help-block"></p>
   </div>
 </div>
@@ -313,7 +316,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
    <div class="controls">
      <link rel="stylesheet" href="/assets/intlTelInput.css">
      <input type="tel" id="mobile-number" name="user[mobileno]" style="width:16em"
-     maxlength="15" required="required" pattern=".{5,15}" data-validation-pattern-message="Contact Number seems to be Wrong">
+     maxlength="15" required="required" pattern=".{5,15}" data-validation-pattern-message="Contact Number seems to be Wrong" value= "<%= @user.mobileno %>">
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
      <script src="/assets/intlTelInput.min.js"></script>
       <script>
@@ -329,7 +332,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
   <label class="control-label">Date of Birth</label>
    <div class="controls">
      <input id="user[dob]" name="user[dob]" placeholder="dd-mm-yyyy" class="input-large" required="required" type="text" maxlength="10"  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}"
-     data-validation-pattern-message="You might have entered a Wrong Date of Birth">
+     data-validation-pattern-message="You might have entered a Wrong Date of Birth" value= "<%= @user.dob  %>">
      <p class="help-block"></p>
     </div>
 </div>
@@ -338,8 +341,8 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
  <label class="control-label">Country</label>
   <div class="controls">
-     <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state">
-     <option value="" selected="selected">Select</option>
+     <select onchange="set_country(this,country,city)" size="1" name="user[country]" id="state" value= "<%= @user.country %>">
+     <option value="" selected="selected"  >Select</option>
      <script type="text/javascript">
      setRegions(this);
      </script>
@@ -349,7 +352,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">State</label>
    <div class="controls">
-     <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country"></select>
+     <select name="user[state]" size="1" disabled="disabled" onchange="set_city(this,city)" id="country" value= "<%= @user.state %>"></select>
     </div>
 </div>
 
@@ -360,7 +363,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">City</label>
    <div class="controls">
-     <select name="user[city]" id="city" size="1" disabled="disabled" onchange="print_city(country,showbox(this));"  >
+     <select name="user[city]" id="city" size="1" disabled="disabled" onchange="print_city(country,showbox(this));" value= "<%= @user.city %>">
       <option value="select">select</option>
 
     </select>
@@ -376,21 +379,21 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
    <label class="control-label"> Address Line1 </label> 
      <div class="controls">
-            <input class="input-large" type="text" required="required" id =" user_address1" required="required" name="user[address1]" >
+            <input class="input-large" type="text" required="required" id =" user_address1" required="required" name="user[address1]" value= "<%= @user.address1 %>" >
                 </input> 
     </div>
 </div>
 <div class="control-group">
    <label class="control-label"> Address Line2</label> 
      <div class="controls">
-            <input class="input-large" type="text" required="required" id =" user_address2" required="required" name="user[address2]" >
+            <input class="input-large" type="text" required="required" id =" user_address2" required="required" name="user[address2]" value= "<%= @user.address2 %>">
                 </input> 
     </div>
 </div>
 <div class="control-group">
    <label class="control-label"> Address Line3</label> 
      <div class="controls">
-            <input class="input-large" type="text" id =" user_address" name="user[address3]" >
+            <input class="input-large" type="text" id =" user_address" name="user[address3]" value= "<%= @user.address3 %>">
                 </input> 
     </div>
 </div>
@@ -402,7 +405,7 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 <div class="control-group">
   <label class="control-label">Zip/PinCode</label>
   <div class="controls">
-    <input id="user[zip]" name="user[zip]" class="input-large" required="required" type="number" maxlength="6">
+    <input id="user[zip]" name="user[zip]" class="input-large" required="required" type="number" maxlength="6" value= "<%= @user.zip %>">
     
   </div>
 </div>
