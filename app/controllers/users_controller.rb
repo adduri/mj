@@ -27,13 +27,14 @@ class UsersController < ApplicationController
         @user = User.new 
  
         @user.desig = params[:user][:desig]
-      @user.firstname = params[:user][:firstname].capitalize
+        @user.firstname = params[:user][:firstname].capitalize
         @user.middlename = params[:user][:middlename].capitalize
         @user.lastname  = params[:user][:lastname].capitalize
         @user.fathername  = params[:user][:fathername].capitalize
         @user.email = params[:user][:email].downcase
         @user.mobileno= params[:user][:mobileno]
         @user.gender = params[:user][:gender]
+        @user.ip = params[:user][:ip]
         @user.city = params[:user][:city]
         @user.state = params[:user][:state]
         @user.country = params[:user][:country]
