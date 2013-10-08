@@ -1,6 +1,9 @@
 Mj::Application.routes.draw do
 
 
+  resources :socials
+
+
   resources :gender_notifications
 
 

@@ -1,0 +1,100 @@
+<%= render :partial => "newsheader" %><br>
+<div style="width:100%">
+  <div style="width:65%;float:left;">
+    <div class="a_space">
+        <div class="i_space">
+          <div class="leadname">
+            <a style="text-decoration: none;color:#6B3232;font-size:16px;" href="/socials/social">Social</a>
+          </div>
+          <div class="adimage">
+            <% unless Social.where(:category => "social", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.blank? %>
+              <%= image_tag  Social.where(:category => "social", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.photo, :style => 'width:200px;height:200px;border-radius:3px;' %>
+              <%= Social.where(:category => "social", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.heading%>
+            <% else %>
+              <img src="http://www.campusactivitiesmagazine.com/images/yourAdHere_vertical_1.png" width="152" border-radius="3px">
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="a_space">
+        <div class="i_space">
+          <div class="leadname">
+            <a style="text-decoration: none;color:#6B3232;font-size:15px;" href="/socials/demise & uttavna">Demise & Uttavna</a>
+          </div>
+          <div class="adimage">
+          <% unless Social.where(:category => "demise & uttavna", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.blank? %>
+              <%= image_tag  Social.where(:category => "demise & uttavna", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.photo, :style => 'width:200px;height:200px;border-radius:3px;' %>
+              <%= Social.where(:category => "demise & uttavna", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.heading%>
+            <% else %>
+              <img src="http://www.campusactivitiesmagazine.com/images/yourAdHere_vertical_1.png" width="152" border-radius="3px">
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="a_space">
+        <div class="i_space">
+          <div class="leadname">
+            <a style="text-decoration: none;color:#6B3232;font-size:15px;" href="/socials/bussiness">Bussiness </a>
+          </div>
+          <div class="adimage">
+            <% unless Social.where(:category => "bussiness", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.blank? %>
+              <%= image_tag  Social.where(:category => "bussiness", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.photo, :style => 'width:200px;height:200px;border-radius:3px;' %>
+              <%= Social.where(:category => "bussiness", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.heading%>
+            <% else %>
+              <img src="http://www.campusactivitiesmagazine.com/images/yourAdHere_vertical_1.png" width="152" border-radius="3px">
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="a_space">
+        <div class="i_space">
+          <div class="leadname">
+            <a style="text-decoration: none;color:#6B3232;font-size:15px;" href="/socials/achievement">Achievement</a>
+          </div>
+          <div class="adimage">
+            <% unless Social.where(:category => "achievement", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.blank? %>
+              <%= image_tag  Social.where(:category => "achievement", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.photo, :style => 'width:200px;height:200px;border-radius:3px;' %>
+              <%= Social.where(:category => "achievement", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.heading%>
+            <% else %>
+              <img src="http://www.campusactivitiesmagazine.com/images/yourAdHere_vertical_1.png" width="152" border-radius="3px">
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="a_space">
+        <div class="i_space">
+          <div class="leadname">
+            <a style="text-decoration: none;color:#6B3232;font-size:15px;" href="/socials/health">Health</a>
+          </div>
+          <div class="adimage">
+            <% unless Social.where(:category => "health", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.blank? %>
+              <%= image_tag  Social.where(:category => "health", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.photo, :style => 'width:200px;height:200px;border-radius:3px;' %>
+              <%= Social.where(:category => "health", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.heading%>
+            <% else %>
+              <img src="http://www.campusactivitiesmagazine.com/images/yourAdHere_vertical_1.png" width="152" border-radius="3px">
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <div class="a_space">
+        <div class="i_space">
+          <div class="leadname">
+            <a style="text-decoration: none;color:#6B3232;font-size:15px;" href="/socials/lucky draw">Lucky Draw</a>
+          </div>
+          <div class="adimage">
+            <% unless Social.where(:category => "lucky draw", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.blank? %>
+              <%= image_tag  Social.where(:category => "lucky draw", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.photo, :style => 'width:200px;height:200px;border-radius:3px;' %>
+              <%= Social.where(:category => "lucky draw", :verify => true).where('start <= ?', Date.tomorrow).where('till >= ?', Date.today).last.heading%>
+            <% else %>
+              <img src="http://www.campusactivitiesmagazine.com/images/yourAdHere_vertical_1.png" width="152" border-radius="3px">
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<style type="text/css">
+.s_img{width:300px;
+height: 180px;
+border-radius: 5px;}
+</style>

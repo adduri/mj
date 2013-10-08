@@ -1,4 +1,5 @@
-<div class="gr" >
+<div width="100%">
+<div class="gr">
   <section class="demo">
     <div class="gridster ready">
       <ul>       
@@ -23,11 +24,48 @@
  <%= link_to image_tag(ad.photo1, :style => "width:275px;height:246px"), edit_ad_path(ad)%>
  
              <% end %> 
-          </li><br>       
+          </li><br>
         <% end %>
       </ul>
     </div>
   </section>
+</div>
+<div style="float:right;width:200px;padding-top:4em;">
+  <marquee direction="up" height="480px" onmouseover="this.stop();" onmouseout="this.start();">
+    <% @ad.each do |ad| %> 
+      <div style="background:white;padding:5px;border-radius:5px;">
+      <a href="/ads/<%= ad.id %>/edit" style="text-decoration:none;">
+        <%= ad.otherad1 %><br>
+        <%= ad.otherad1mob %><br>
+        <%= ad.otherad1loc %><br>
+      </a> </div>   <br>
+      <div style="background:white;padding:5px;border-radius:5px;">
+      <a href="/ads/<%= ad.id %>/edit" style="text-decoration:none;">
+        <%= ad.otherad2 %><br>
+        <%= ad.otherad2mob %><br>
+        <%= ad.otherad2loc %><br>
+      </a> </div>   <br>
+      <div style="background:white;padding:5px;border-radius:5px;">
+      <a href="/ads/<%= ad.id %>/edit" style="text-decoration:none;">
+        <%= ad.otherad3 %><br>
+        <%= ad.otherad3mob %><br>
+        <%= ad.otherad3loc %><br>
+      </a> </div>   <br>
+      <div style="background:white;padding:5px;border-radius:5px;">
+      <a href="/ads/<%= ad.id %>/edit" style="text-decoration:none;">
+        <%= ad.otherad4 %><br>
+        <%= ad.otherad4mob %><br>
+        <%= ad.otherad4loc %><br>
+      </a> </div>   <br>
+      <div style="background:white;padding:5px;border-radius:5px;">
+      <a href="/ads/<%= ad.id %>/edit" style="text-decoration:none;">
+        <%= ad.otherad5 %><br>
+        <%= ad.otherad5mob %><br>
+        <%= ad.otherad5loc %><br>
+      </a> </div>   <br>
+    <% end %>
+  </marquee>   
+</div>
 </div>
 <script src="assets/jquery.js" type="text/javascript"></script>
 <script charster="utf-8" src="assets/jquery.gridster.js" type="text/javascript"></script>

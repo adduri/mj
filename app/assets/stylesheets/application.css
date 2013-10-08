@@ -160,9 +160,9 @@ position: relative;
 */
 }
  .gr{
-         width: 940px;
-         margin: 0 auto;
-              position:relative;
+  width: 940px;
+  float: left;
+  position:relative;
 
 } 
 

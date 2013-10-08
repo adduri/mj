@@ -4,20 +4,23 @@ ActiveAdmin.register User do
 
   
     f.input :mj_id
-    f.input :email
+    f.input :desig
     f.input :firstname
+    f.input :middlename
     f.input :lastname
+    f.input :fathername
+    f.input :email
     f.input :gender , collection: ["Male","Female"]
-    f.input :ccode
     f.input :mobileno
     f.input :dob
-    f.input :station
+    f.input :country
+    f.input :state   
     f.input :city
-    f.input :zip
+    f.input :other
     f.input :address1 
     f.input :address2 
     f.input :address3
-    f.input :state   
+    f.input :zip
    
   end
   f.buttons

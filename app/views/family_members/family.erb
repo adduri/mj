@@ -162,19 +162,20 @@
   <tr>
       <% @user.relations.group("relationship").having("priority = ?", 1).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
                        <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                    <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <% end %> 
+                    <a href="/family_members/delete_incorrect_member/<%= fm.id %>" 
+                     onclick="return confirm_delete()"> <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
@@ -196,11 +197,11 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 2).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
@@ -208,7 +209,8 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_incorrect_member/<%= fm.id %>" 
+                     onclick="return confirm_delete()"> <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
@@ -231,11 +233,11 @@
   <tr>
       <% @user.relations.group("relationship").having("priority = ?", 3).order('id').each do |r| %>
           <td>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
                 <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
               <% end %>
                <% if @user.id == current_user.id %>
-                <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+                <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
 
                   <div class="new-span1">
@@ -243,8 +245,9 @@
                        <img src="/assets/empty_profile.jpeg" class="img-polaroid" alt="" style="" />
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
-                    <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <% end %> 
+                    <a href="/family_members/delete_incorrect_member/<%= fm.id %>" 
+                     onclick="return confirm_delete()"> <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
@@ -266,11 +269,11 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 4).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
@@ -278,7 +281,8 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                     <a href="/family_members/delete_incorrect_member/<%= fm.id %>" 
+                      onclick="return confirm_delete()"> <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>                
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>
@@ -300,11 +304,11 @@
   </tr>
       <% @user.relations.group("relationship").having("priority = ?", 5).order('id').each do |r| %>
           <td>
-            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).each do |f| %>
+            <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,false).order('family_member_user_dob').each do |f| %>
               <%= render 'family_member', :f => f , :displayed_members_list => displayed_members_list %>
             <% end %>
              <% if @user.id == current_user.id %>
-              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).each do |fm| %>
+              <% r.family_members.where('user_id = ? and join_pending = ?',@user.id,true).order('family_member_user_dob').each do |fm| %>
                 <% family_member_user = User.find(fm.family_member_user_id) %>
                   <div class="new-span1">
                     <% if family_member_user.photo_file_name.nil? %>
@@ -312,7 +316,8 @@
                     <% else %>
                        <%= image_tag family_member_user.photo.url(:small), :class => 'img-polaroid'%>
                     <% end %>
-                    <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" >
+                    <a href="/family_members/delete_incorrect_member/<%= fm.id %>" 
+                     onclick="return confirm_delete()"> <img src="https://cdn3.iconfinder.com/data/icons/woothemesiconset/32/user_close.png" class="watermark" ></a>
                     &nbsp;<font size="3"><strong><%= fm.relation.relationship %></strong></font><br>
                     &nbsp;<%= family_member_user.firstname.capitalize %>&nbsp;<%= family_member_user.middlename.capitalize %>&nbsp;<%= family_member_user.lastname.capitalize %>
                     <br/>

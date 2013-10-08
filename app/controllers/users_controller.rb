@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :login_required, :only => [:home, :sign_up, :create, :registration_ack, :create_password, :store_password, :reset_password, :update_password, :demo_family, :search]
+  skip_before_filter :login_required, :only => [:home, :new, :sign_up, :create, :registration_ack, :create_password, :store_password, :reset_password, :update_password, :demo_family, :search]
   before_filter :already_logged_in
   skip_before_filter :already_logged_in, :only => [:search, :index, :edit_profile]
  
@@ -22,20 +22,31 @@ class UsersController < ApplicationController
 
   end
 
-  def create
-     # params[:user][:firstname] = params[:user][:firstname].upcase
-     # params[:user][:lastname] = params[:user][:lastname].upcase
-     # params[:user][:station] = params[:user][:station].upcase
-
-    @user = User.new(params[:user])
+ 
+  def new
+        @user = User.new 
+ 
+        @user.desig = params[:user][:desig]
         @user.firstname = params[:user][:firstname].capitalize
         @user.middlename = params[:user][:middlename].capitalize
         @user.lastname  = params[:user][:lastname].capitalize
         @user.fathername  = params[:user][:fathername].capitalize
         @user.email = params[:user][:email].downcase
-        # @user.city = params[:user][:city].capitalize
- if request.post? && valid_captcha?(params[:captcha])    
-      @user.save
+        @user.mobileno= params[:user][:mobileno]
+        @user.gender = params[:user][:gender]
+        @user.ip = params[:user][:ip]
+        @user.city = params[:user][:city]
+        @user.state = params[:user][:state]
+        @user.country = params[:user][:country]
+        @user.dob = params[:user][:dob]
+        @user.address1= params[:user][:address1]
+        @user.address2= params[:user][:address2]
+        @user.address3= params[:user][:address3]
+        @user.zip= params[:user][:zip]
+        @user.ip = params[:user][:ip]
+
+     if request.post? && valid_captcha?(params[:captcha])  &&  @user.save
+    
       @myself = FamilyMember.new
       @myself.user_id = @user.id
       @myself.family_member_user_id = @user.id
@@ -46,9 +57,34 @@ class UsersController < ApplicationController
       @myself.save
       redirect_to "/users/registration_ack/#{@user.id}"
     else
-      redirect_to :back, :notice => "You might have entered the Wrong Captcha Code, please Enter it Again"
-    end
+      render :action => 'new', :alert => "You might have entered the Wrong Captcha Code, please Enter it Again"
   end
+        # @user.city = params[:user][:city].capitalize
+          
+    
+  end
+
+#   def create
+#      # params[:user][:firstname] = params[:user][:firstname].upcase
+#      # params[:user][:lastname] = params[:user][:lastname].upcase
+#      # params[:user][:station] = params[:user][:station].upcase
+#        @user = User.new(params[:user])
+   
+#      if request.post? && valid_captcha?(params[:captcha])  &&  @user.save
+    
+#       @myself = FamilyMember.new
+#       @myself.user_id = @user.id
+#       @myself.family_member_user_id = @user.id
+#       @myself.join_pending = false
+#       @myself.relation_id = 13
+#       @dob = User.find(@user.id).dob
+#       @myself.family_member_user_dob = @dob
+#       @myself.save
+#       redirect_to "/users/registration_ack/#{@user.id}"
+#     else
+#       render :action => 'new', :alert => "You might have entered the Wrong Captcha Code, please Enter it Again"
+#   end
+# end
 
   def login_page
 
