@@ -29,42 +29,40 @@
       <div class="item">         <%= image_tag @ad.photo2 %></div>
       <div class="item">         <%= image_tag @ad.photo3 %></div>
     </div>
-    <!-- Carousel nav --> 
+    <!-- Carousel nav -->
   </div>
 </div>
 <div class="span2" style="border-width: 4px; border-style: outset; border-color: #798685; height:320px;">
     <center><h2>Other Ads</h2>
     <marquee  behavior="scroll" direction="up" scrollamount="4" >
       <span>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad1 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad2 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad3 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad4 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad5 %></h4> <font>
-      </span>     
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad1 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad2 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad3 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad4 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad5 %></h4> <font>
+      </span>    
     </marquee></center>
-  </div>  
+  </div> 
  </div>
 <div class="row">
   <div class="span6">
     <h2 style="">About</h2>
-    <p><%= @ad.about %></p>                   
+    <p><%= @ad.about %></p>                  
   </div>
   <div class="span6 ">
     <h2>Contact</h2>
-    <address>               
+    <address>              
       <p class="lead ">
         <h6><%= @ad.company_name %></h6>
         <%= @ad.contact%><br>
         <%= @ad.house_no %>,<%= @ad.street_name %><br>
         <%= @ad.area %>,<%= @ad.city %><br>
         <%= @ad.state %><br>
-        
-      </p> 
-      <strong>
+
         <%= @ad.contact_person %><br>
         <%= @ad.contact_email %>
-      </strong>  
+      </p> 
     </address>
   </div>
 </div>
