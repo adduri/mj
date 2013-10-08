@@ -7,7 +7,7 @@ ActiveAdmin.register Ad do
     f.input :pin_code, :label => "Catagory" ,  collection: ["bschools","finance","flyhigh","insurance","news","services","vidyapeeth",
       "heritage","infotech","fitnesscenter","ashram","seva","club","matrimony","shopee","entertainement",
       "electronics","iron_steel","automobiles","ayurvedic","sanitation","builders_promoters","caters","textiles_clothing",
-      "coal","hospitals","furniture","health","jewellers","machinessh root@166.78.24.248  ry","cement","paper","pumps","realestate","shipping",
+      "coal","hospitals","furniture","health","jewellers","cement","paper","pumps","realestate","shipping",
       "smartcards","eventmanagers","tyres","homeneeds","samaj","medicals","bhavan","manthav","lawyers","electricals",
       "doctors","architects","art","teachers","ca"]
     f.input :company_name
@@ -60,6 +60,21 @@ index do
       admin_ad_path(post)
     end
   end
+
+  filter :pin_code ,
+ :as => :select, :collection => Ad.all.map(&:pin_code).uniq
+ 
+  filter :title, :label => 'Title'
+  filter :company_name, :label => 'Company Name'
+  filter :contact_email, :label => 'Contact Email'
+  filter :area, :label => 'Area'
+  filter :datax, :label => 'Data X'
+  filter :datay, :label => 'Data Y'
+  filter :row, :label => 'Row'
+  filter :col, :label => 'Column'
+
+
+
 end
 
 
