@@ -63,6 +63,22 @@ index do
   column :datax
   column :row
   column :col
+
+     column :otherad1
+    column :otherad1mob
+    column :otherad1loc
+    column :otherad2
+    column :otherad2mob
+    column :otherad2loc
+    column :otherad3
+    column :otherad3mob
+    column :otherad3loc
+    column :otherad4
+    column :otherad4mob
+    column :otherad4loc
+    column :otherad5
+    column :otherad5mob
+    column :otherad5loc
   column "Catagory", :pin_code 
       default_actions
   column "Title" do |post|
@@ -71,7 +87,7 @@ index do
     end
   end
 
-  filter :pin_code ,
+  filter :pin_code , :label => "Category",
  :as => :select, :collection => Ad.all.map(&:pin_code).uniq
  
   filter :title, :label => 'Title'
@@ -82,6 +98,17 @@ index do
   filter :datay, :label => 'Data Y'
   filter :row, :label => 'Row'
   filter :col, :label => 'Column'
+    filter :otherad1
+    
+  
+   filter :otherad2
+  
+   filter :otherad3
+   
+   filter :otherad4
+  
+   filter :otherad5
+   
 
 
 
