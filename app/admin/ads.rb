@@ -30,10 +30,20 @@ ActiveAdmin.register Ad do
     f.input :row
     f.input :col
     f.input :otherad1
+    f.input :otherad1mob
+    f.input :otherad1loc
     f.input :otherad2
+    f.input :otherad2mob
+    f.input :otherad2loc
     f.input :otherad3
+    f.input :otherad3mob
+    f.input :otherad3loc
     f.input :otherad4
+    f.input :otherad4mob
+    f.input :otherad4loc
     f.input :otherad5
+    f.input :otherad5mob
+    f.input :otherad5loc
   end
   f.buttons
 end

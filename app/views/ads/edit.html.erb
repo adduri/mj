@@ -36,11 +36,11 @@
     <center><h2>Other Ads</h2>
     <marquee  behavior="scroll" direction="up" scrollamount="4" >
       <span>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad1 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad2 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad3 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad4 %></h4> <font>
-        <b><i> <font face ="times" color="#f1febc"><h4><%= @ad.otherad5 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad1 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad2 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad3 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad4 %></h4> <font>
+        <b><i> <font face ="times"><h4 style="color:white;margin-left:5px;" ><%= @ad.otherad5 %></h4> <font>
       </span>     
     </marquee></center>
   </div>  
@@ -59,12 +59,10 @@
         <%= @ad.house_no %>,<%= @ad.street_name %><br>
         <%= @ad.area %>,<%= @ad.city %><br>
         <%= @ad.state %><br>
-        
-      </p> 
-      <strong>
+
         <%= @ad.contact_person %><br>
         <%= @ad.contact_email %>
-      </strong>  
+      </p>  
     </address>
   </div>
 </div>
