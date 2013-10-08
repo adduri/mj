@@ -1,7 +1,7 @@
  # encoding: utf-8
  class FamilyMembersController < ApplicationController
   before_filter :already_logged_in
-  skip_before_filter :already_logged_in, :only => [:family, :create_family, :admin_family, :member_request_notifications, :add_family, :update_payment, :print_tree, :edit_relationship, :update_relation, :delete_member, :join_pending, :pending_decline, :accept, :decline, :flag_accept, :flag_decline]
+  skip_before_filter :already_logged_in, :only => [:family, :create_family, :admin_family, :member_request_notifications, :add_family, :update_payment, :print_tree, :edit_relationship, :update_relation, :delete_member, :join_pending, :pending_decline, :accept, :decline, :flag_accept, :flag_decline, :delete_incorrect_member]
 
   def index
     @family_members = FamilyMember.all
@@ -264,6 +264,14 @@
     @family_members = FamilyMember.find_all_by_family_member_user_id_and_join_pending(params[:id],true)
     @send_notification = Relative.find_all_by_existing_member_id_and_accept_request(@user.id,false)
     @accept_notification = Relative.find_all_by_new_member_id_and_accept_request_and_flag(@user.id,true,false)
+  end
+
+  def delete_incorrect_member
+    @family_member = FamilyMember.find(params[:id])
+    @reverse_fm = FamilyMember.find_by_user_id_and_family_member_user_id(@family_member.family_member_user_id,@family_member.user_id)
+    @family_member.destroy
+    @reverse_fm.destroy
+    redirect_to "/family_members/family/#{current_user.id}", :notice => "Relationship deleted."
   end
 
  end
