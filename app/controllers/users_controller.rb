@@ -43,6 +43,7 @@ class UsersController < ApplicationController
         @user.address2= params[:user][:address2]
         @user.address3= params[:user][:address3]
         @user.zip= params[:user][:zip]
+        @user.ip = params[:user][:ip]
 
      if request.post? && valid_captcha?(params[:captcha])  &&  @user.save
     
