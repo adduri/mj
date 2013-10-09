@@ -1,7 +1,8 @@
 class Ad < ActiveRecord::Base
   attr_accessible :about, :area, :city, :col, :company_name, :contact, :contact_email,
    :contact_person, :country, :datax, :datay, :house_no, :pin_code, :row, :state, :street_name, :title,
-    :photo1, :photo2, :photo3, :otherad1, :otherad2, :otherad3, :otherad4, :otherad5
+    :photo1, :photo2, :photo3, :otherad1, :otherad2, :otherad3, :otherad4, :otherad5, :otherad1mob,
+     :otherad1loc, :otherad2mob, :otherad2loc, :otherad3mob, :otherad3loc, :otherad4mob, :otherad4loc, :otherad5mob, :otherad5loc
 
 
 

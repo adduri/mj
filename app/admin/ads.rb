@@ -30,10 +30,20 @@ ActiveAdmin.register Ad do
     f.input :row
     f.input :col
     f.input :otherad1
+    f.input :otherad1mob
+    f.input :otherad1loc
     f.input :otherad2
+    f.input :otherad2mob
+    f.input :otherad2loc
     f.input :otherad3
+    f.input :otherad3mob
+    f.input :otherad3loc
     f.input :otherad4
+    f.input :otherad4mob
+    f.input :otherad4loc
     f.input :otherad5
+    f.input :otherad5mob
+    f.input :otherad5loc
   end
   f.buttons
 end
@@ -53,6 +63,22 @@ index do
   column :datax
   column :row
   column :col
+
+     column :otherad1
+    column :otherad1mob
+    column :otherad1loc
+    column :otherad2
+    column :otherad2mob
+    column :otherad2loc
+    column :otherad3
+    column :otherad3mob
+    column :otherad3loc
+    column :otherad4
+    column :otherad4mob
+    column :otherad4loc
+    column :otherad5
+    column :otherad5mob
+    column :otherad5loc
   column "Catagory", :pin_code 
       default_actions
   column "Title" do |post|
@@ -61,7 +87,7 @@ index do
     end
   end
 
-  filter :pin_code ,
+  filter :pin_code , :label => "Category",
  :as => :select, :collection => Ad.all.map(&:pin_code).uniq
  
   filter :title, :label => 'Title'
@@ -72,6 +98,17 @@ index do
   filter :datay, :label => 'Data Y'
   filter :row, :label => 'Row'
   filter :col, :label => 'Column'
+    filter :otherad1
+    
+  
+   filter :otherad2
+  
+   filter :otherad3
+   
+   filter :otherad4
+  
+   filter :otherad5
+   
 
 
 

@@ -270,7 +270,9 @@
     @family_member = FamilyMember.find(params[:id])
     @reverse_fm = FamilyMember.find_by_user_id_and_family_member_user_id(@family_member.family_member_user_id,@family_member.user_id)
     @family_member.destroy
+    unless @reverse_fm.nil?
     @reverse_fm.destroy
+    end
     redirect_to "/family_members/family/#{current_user.id}", :notice => "Relationship deleted."
   end
 
