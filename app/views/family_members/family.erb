@@ -11,6 +11,26 @@
    border: 1px solid #ccc;
    }
 </style>
+<script type="text/javascript">
+ $(document).ready(function () {
+              $("#sagar").hide();
+ 
+$("#sai").hover(
+ function()
+ {
+  var id = $(this).data("id");
+  $("#sagar").show();
+},
+function(){
+ $("#sagar").hide();
+ $(".hidden").hide();
+ });
+ 
+});
+ 
+</script>
+
+ 
 <% if @user.id == current_user.id %>
 <div>
   <a class="btn btn-info" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
@@ -73,6 +93,42 @@
 
 
 </div>
+
+ 
+<div class="pull-right">    
+
+<div id="sai">
+<img src="/assets/arrow.gif" style="padding-right:2em">
+<div id="sagar">
+ <% @users = User.all %>
+           <% @s = 0%>
+  <% @users.each do |user| %>
+           <% if user.mj_id? %>
+               <%@s += 1%>
+            <% end %>
+         <% end %>
+  <div class="circle">
+   <p style="padding-top:8px;padding-left:5px;" ><%=@s%><p>
+  </div>
+        <% @s = 0%>
+          <% @users.each do |user| %>
+           <% unless user.mj_id? %>
+             <%@s += 1%>
+            <% end %>
+          <% end %>
+          <br />
+  <div class="circle">
+    <p style="padding-top:8px;padding-left:8px;" ><%=@s%><p>
+  </div>
+    <br />
+  <div class="circle">
+    <p style="padding-top:8px;padding-left:5px;" ><%= @users.count%><p>
+  </div>
+</div>
+</div>
+  </div>
+
+
 <br/>
 <div id="treeDiv">
 <% if @user.id == current_user.id %>
@@ -273,6 +329,13 @@
   </tr>
 </table>
 
+
+
+
+
+
+
+
 <table class="bordered">
   <tr><th colspan=10>
         <h1><font style="font-family: arial;" color="#890000">Fifth Generation</font></h1>
@@ -304,5 +367,11 @@
               <% end %>
           </td>
       <% end %>
-  </tr>
+  </tr> 
 </table>
+
+
+
+
+
+
