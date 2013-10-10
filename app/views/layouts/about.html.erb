@@ -1,297 +1,390 @@
-<style>
-/* Reset CSS */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-body {
-    background: #DCDDDF url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
-    color: #000;
-    font: 14px Arial;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-}
-h1{ font-size:28px;}
-h2{ font-size:26px;}
-h3{ font-size:18px;}
-h4{ font-size:16px;}
-h5{ font-size:14px;}
-h6{ font-size:12px;}
-h1,h2,h3,h4,h5,h6{ color:#563D64;}
-small{ font-size:10px;}
-b, strong{ font-weight:bold;}
-a{ text-decoration: none; }
-a:hover{ text-decoration: underline; }
-.left { float:left; }
-.right { float:right; }
-.alignleft { float: left; margin-right: 15px; }
-.alignright { float: right; margin-left: 15px; }
-.clearfix:after,
-form:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-.container { margin: 25px auto; position: relative; width: 900px; }
-#content {
-    background: #f9f9f9;
-    background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
-    -webkit-box-shadow: 0 1px 0 #fff inset;
-    -moz-box-shadow: 0 1px 0 #fff inset;
-    -ms-box-shadow: 0 1px 0 #fff inset;
-    -o-box-shadow: 0 1px 0 #fff inset;
-    box-shadow: 0 1px 0 #fff inset;
-    border: 1px solid #c4c6ca;
-    margin: 0 auto;
-    padding: 25px 0 0;
-    position: relative;
-    text-align: center;
-    text-shadow: 0 1px 0 #fff;
-    width: 400px;
-}
-#content h1 {
-    color: #7E7E7E;
-    font: bold 25px Helvetica, Arial, sans-serif;
-    letter-spacing: -0.05em;
-    line-height: 20px;
-    margin: 10px 0 30px;
-}
-#content h1:before,
-#content h1:after {
-    content: "";
-    height: 1px;
-    position: absolute;
-    top: 10px;
-    width: 27%;
-}
-#content h1:after {
-    background: rgb(126,126,126);
-    background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-    background: -webkit-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    right: 0;
-}
-#content h1:before {
-    background: rgb(126,126,126);
-    background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-    background: -webkit-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    left: 0;
-}
-#content:after,
-#content:before {
-    background: #f9f9f9;
-    background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
-    border: 1px solid #c4c6ca;
-    content: "";
-    display: block;
-    height: 100%;
-    left: -1px;
-    position: absolute;
-    width: 100%;
-}
-#content:after {
-    -webkit-transform: rotate(2deg);
-    -moz-transform: rotate(2deg);
-    -ms-transform: rotate(2deg);
-    -o-transform: rotate(2deg);
-    transform: rotate(2deg);
-    top: 0;
-    z-index: -1;
-}
-#content:before {
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(-3deg);
-    -ms-transform: rotate(-3deg);
-    -o-transform: rotate(-3deg);
-    transform: rotate(-3deg);
-    top: 0;
-    z-index: -2;
-}
-#content form { margin: 0 20px; position: relative }
-#content form input[type="text"],
-#content form input[type="password"] {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    background: #eae7e7 url(http://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
-    border: 1px solid #c8c8c8;
-    color: #777;
-    font: 13px Helvetica, Arial, sans-serif;
-    margin: 0 0 10px;
-    padding: 15px 10px 15px 40px;
-    width: 80%;
-}
-#content form input[type="text"]:focus,
-#content form input[type="password"]:focus {
-    -webkit-box-shadow: 0 0 2px #ed1c24 inset;
-    -moz-box-shadow: 0 0 2px #ed1c24 inset;
-    -ms-box-shadow: 0 0 2px #ed1c24 inset;
-    -o-box-shadow: 0 0 2px #ed1c24 inset;
-    box-shadow: 0 0 2px #ed1c24 inset;
-    background-color: #fff;
-    border: 1px solid #ed1c24;
-    outline: none;
-}
-#username { background-position: 10px 10px !important }
-#password { background-position: 10px -53px !important }
-#content form input[type="submit"] {
-    background: rgb(254,231,154);
-    background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    background: -o-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    background: linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fee79a', endColorstr='#fec151',GradientType=0 );
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-    border-radius: 30px;
-    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
-    -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
-    -ms-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
-    -o-box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
-    border: 1px solid #D69E31;
-    color: #85592e;
-    cursor: pointer;
-    float: left;
-    font: bold 15px Helvetica, Arial, sans-serif;
-    height: 35px;
-    margin: 20px 0 35px 15px;
-    position: relative;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-    width: 120px;
-}
-#content form input[type="submit"]:hover {
-    background: rgb(254,193,81);
-    background: -moz-linear-gradient(top,  rgba(254,193,81,1) 0%, rgba(254,231,154,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
-    background: -o-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
-    background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
-}
-#content form div a {
-    color: #004a80;
-    float: right;
-    font-size: 12px;
-    margin: 30px 15px 0 0;
-    text-decoration: underline;
-}
-.button {
-    background: rgb(247,249,250);
-    background: -moz-linear-gradient(top,  rgba(247,249,250,1) 0%, rgba(240,240,240,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(247,249,250,1) 0%,rgba(240,240,240,1) 100%);
-    background: -o-linear-gradient(top,  rgba(247,249,250,1) 0%,rgba(240,240,240,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(247,249,250,1) 0%,rgba(240,240,240,1) 100%);
-    background: linear-gradient(top,  rgba(247,249,250,1) 0%,rgba(240,240,240,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f9fa', endColorstr='#f0f0f0',GradientType=0 );
-    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-    -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-    -ms-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-    -o-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
-    -o-border-radius: 0 0 5px 5px;
-    -ms-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
-    border-top: 1px solid #CFD5D9;
-    padding: 15px 0;
-}
-.button a {
-    background: url(http://cssdeck.com/uploads/media/items/8/8bcLQqF.png) 0 -112px no-repeat;
-    color: #7E7E7E;
-    font-size: 17px;
-    padding: 2px 0 2px 40px;
-    text-decoration: none;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-.button a:hover {
-    background-position: 0 -135px;
-    color: #00aeef;
-}
-</style>
+<!DOCTYPE HTML>
+ <html>
+    <head>
+         
+         <title>Maheshwari Jagruth</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+        <script src="/assets/home/jquery.min.js"></script>
+        <script src="/assets/home/config.js"></script>
+        <script src="/assets/home/skel.min.js"></script>
+        <script src="/assets/home/skel-panels.min.js"></script>
+                
+            <link rel="stylesheet" href="/assets/home/skel-noscript.css" />
+            <link rel="stylesheet" href="/assets/home/style-nor.css" />
+            <link rel="stylesheet" href="/assets/home/style-desktop.css" /> 
+        <!--[if lte IE 9]><link rel="stylesheet" href="css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    </head>
+    <body>
+     
+        <div id="banner-wrapper">
+            <div class="containera">
+                <div class="rowa">
+                    <div class="12u">
+                    
+                        <div id="banner">
 
-<!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<title>Paper Stack</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<body>
-<div class="container">
-    <section id="content">
-        <form action="">
-            <h1>Login Form</h1>
-            <div>
-                <input type="text" placeholder="Username" required="" id="username" />
+<a class="brand" href="/" style=""><img src="/assets/logo.png" style="height:120px;width:350px;padding-top:5px;padding-top:4em;padding-left:25em" id="logo"/></a>
+<h3 style="color:#fff;padding-left:30em">your voice echoes here ......</h3>
+ 
+ 
+
+                        </div>
+                
+                    </div>
+                </div>
             </div>
-            <div>
-                <input type="password" placeholder="Password" required="" id="password" />
+        </div>
+        <div id="main">
+            <div class="containera">
+                <div class="rowa main-rowa">
+                    <div class="4u">
+                        <section>
+                            <h2>About Maheshwari Jagruth</h2>
+                            <p> <strong>Maheshwari Jagruth</strong> is a E-Portal Social Networking Site operating in the Maheshwari Community.
+                            Maheshwari Jagruth is a platform to Reach, Serve, Strengthen & Sustain the Maheshwari Community  Nationally and Internationally.
+                            Maheshwari Jagruth wishes to Reach and Encourage the Enterprising Stars of our community and provide them with equal opportunities to discover their True Potential and Worth .
+                             This would help us in tapping recognizing the hidden potential and preserving our rich culture and traditions in which we take Immense Pride. </p>
+                            <!-- <footer class="controls">
+                                <a href="http://html5up.net" class="button">More cool designs ...</a>
+                            </footer> -->
+                        </section>
+                    
+                    </div>
+                    <div class="4u">
+                        
+                        <section>
+                            <h2>The site designed : </h2>
+                        
+                            <ul class="small-image-list">
+                                <li>
+                                     <img src="/assets/home/onlymj.png" alt="Mj" class="left" height="75px"/> 
+                                    <h3>By the Maheshwaris</h3> 
+                                    <h3>For the Maheshwaris</h3>  
+                                    <h3 style="padding-left:5em">Of the Maheshwaris</h3>                                     
+                                </li>
+
+                                <li>
+                                     
+                                    <h3>MJ prime objectives are :-</h3>
+                                        <div class="rowa">
+                                 <div class= "6u">
+                                    <ul class ="link-list">  
+                                <li>Business promotion</li>
+                                <li style="border-top: solid 1px #ced0b7;">Social activities</li>
+                                <li style="border-top: solid 1px #ced0b7;">Health awareness</li>
+                                <li style="border-top: solid 1px #ced0b7;">News and entertainment</li>
+                                
+
+                            </ul>
+                        </div>
+                    
+                            <div class ="6u">
+                            <ul class ="link-list"> 
+                                    <li>Employment</li>
+                                <li style="border-top: solid 1px #ced0b7;">Live coverages</li>
+                                <li style="border-top: solid 1px #ced0b7;">One stop shop</li>
+                                <li style="border-top: solid 1px #ced0b7;">Matrimonials</li>
+                                
+                            
+                            </ul>
+                        </div>
+                                </div>              
+
+                        </li>  
+                                
+                            </ul>
+                        <p style="text-align:center;"> Family Directory </p>
+
+                    
+                        </section>
+                    
+                    </div>
+                    <div class="4u">
+                    
+                        <section>
+                            <h2>The Name Says Everything !</h2>
+                            <div>
+                                <div class="rowa">
+                                    <div class="12u">
+                                        <ul class="link-list">
+ 
+                                            <li><a href="#" class="heading">M</a>&nbsp; &nbsp;Maheswari Community </li>
+                                            <li><a href="#" class="heading">A</a> &nbsp;&nbsp;Awareness </li>
+                                            <li><a href="#" class="heading">H</a>&nbsp;&nbsp;Health </li>
+                                            <li><a href="#" class="heading">E</a>&nbsp;&nbsp;Entertainment </li>
+                                            <li><a href="#" class="heading">S</a>&nbsp;&nbsp;Social Activity </li>
+                                            <li><a href="#" class="heading">H</a>&nbsp;&nbsp;Help </li>
+                                            <li><a href="#" class="heading">W</a>&nbsp;&nbsp;Work </li>
+                                            <li><a href="#" class="heading">A</a> &nbsp;&nbsp;Awards </li>
+                                            <li><a href="#" class="heading">R</a> &nbsp;&nbsp;Recognition </li>
+                                            <li><a href="#" class="heading">I</a> &nbsp;&nbsp;Individual Developement </li>
+ 
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                        <!-- <div class="rowa">
+                                 <div class= "6u">
+                                    <ul class ="link-list">  
+                                <li>Business promotion</li>
+                                <li style="border-top: solid 1px #ced0b7;">Social activities</li>
+                                <li style="border-top: solid 1px #ced0b7;">Health awareness</li>
+                                <li style="border-top: solid 1px #ced0b7;">News and entertainment</li>
+                                
+
+                            </ul>
+                        </div> -->
+
+                </div>
+                <div class="rowa main-rowa">
+                    <div class="6u">
+                    
+                        <section>
+                            <h2>MJ is for the awareness and prosperity of the community 
+                                 Business promotion </h2>
+                     
+                            <ul class="big-image-list" >
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/business_promotion.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Business promotion </h3>
+                                    <p>It provides  information of business activities within the community, inaugural of new stores, encouragement of new ventures. MJ helps in flourishing the existing business and invites new ventures which helps the community to strengthen their place and promote National Developement.</p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/social_activity.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Social activities </h3>
+                                    <p>It has a biased platform for discussions, debates, expression of thoughts on current affairs and issues.</p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/health.jpeg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Health</h3>
+                                    <p>It is the most important segment of our site. At times we are in a very crunch situation where our mind losses the capacity to handle it, and MJ provides us with all the information regarding the doctors, hospitals, etc.</p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/news_and_entertainment.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">News and Entertainment </h3>
+                                    <p>MJ is a site which will in particular provide you with complete news of the community, and entertain you with 'N' number of programs.</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                    </div>
+                <div class="6u">
+                    
+                        <section>
+                         
+                            <ul class="big-image-list">
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/employement.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Employment</h3>
+                                    <p>It reveals information regarding employment options across the globe with a click from you.</p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/live_coverage.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Live coverage </h3>
+                                    <p>Whatever be the occasion, we are here with a solution. MJ team provides the opportunity of live coverage of Festivals, Parties, Rallies, Religious Functions and Events etc.</p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/one_stop_shop.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">One Stop Shop </h3>
+                                    <p>It has setup a huge platform for all classes of people to participate. Be a housewife, Professionals or a Retired senior citizen, MJ gives all the opportunities to display their Talent, Skill and Products without having the need to step out of their house.
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/matrimony.jpg" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Matrimony</h3>
+                                    <p>It arranges social gatherings, gives complete information regarding Bride / Groom of the community which helps in finding a perfect match.</p>
+                                </li>
+                                <li>
+                                    <div class="shrink pic">
+                                    <img src="/assets/home/family_directory.gif" alt="" class="left" />
+                                    </div>
+                                    <h3 style="color:#325f85">Family directory</h3>
+                                    <p> This is specially designed keeping in mind the pace at which we are moving today where we tend to forget names at times. This special segment helps you to know not only your Grand fathers, but your Great Grand fathers too. All this and much more.
+                                    </p>
+                                </li>
+                            </ul>
+                        </section>
+
+                    </div>
+                </div>
+                    <center>
+                        <p>
+                            To Avail this, all you need to do is get Yourself and all your Family Members, Registered with Maheshwari Jagruth.
+                        </p>  
+                        <p>
+                            Your registration is our consideration of you joining this movement of upliftment and 
+                        </p>
+                        <p>
+                            Prosperity of the Community in this very Unique and Modernized way.
+                        </p>
+                            <br/>
+                        <h2>
+                            " Together we can and we will make a difference " 
+                        </h2>
+                        <footer class="controls">
+                                <blink><a href="http://maheshwarijagruth.com/ads" class="button">Enter Maheshwari Jagruth</a></blink>
+                            </footer>
+                    </center>
+                 
+                
             </div>
-            <div>
-                <input type="submit" value="Log in" />
-                <a href="#">Lost your password?</a>
-                <a href="#">Register</a>
+        </div>
+        <div id="footer-wrapper" style="background-color:#E3E9DC">
+            <div class="containera">
+                <div class="rowa">
+                    <div class="8u">
+                        
+                        <section>
+                            <h2>Contact Us</h2>
+                            <div>
+                                <div class="rowa" style="padding:10px;">
+                                    <div class="3u">    
+
+                                         
+                                             <h3>Admin Office :</h3>
+                                             <p>Maheshwari Jagruth</p>
+                                             <p>5-1-237, First Floor</p>
+                                             <p>Hill Street, Ranigunj</p>
+                                             <p>Secunderabad - 500 003</p>
+                                             <p>AndhraPradesh (India) </p>
+                                         
+                                    </div>
+                                    <div class="3u"><br><br><br>
+                                        <p>Aashish Bajaj</p>
+                                         <p> 90 300 27649</p>
+                                        <p>Email:   
+                                            <a href="mailto:info@maheshwarijagruth.com?Subject=Contact%20User" target="_top">
+                                                        info@maheshwarijagruth.com
+                                            </a>
+                                        </p>
+
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                        </section>
+                    
+                    </div>
+                    
+                <!--    <div class="4u">
+
+                        <section>
+                            <h2>Something of interest</h2>
+                            <p>Duis neque nisi, dapibus sed mattis quis, rutrum accumsan sed. 
+                            Suspendisse eu varius nibh. Suspendisse vitae magna eget odio amet 
+                            mollis justo facilisis quis. Sed sagittis mauris amet tellus gravida
+                            lorem ipsum dolor sit amet consequat blandit.</p>
+                            
+                        </section>
+
+                    </div> -->
+                </div>
+                <div class="rowa">
+                    <div class="12u">
+
+                        <div id="copyright">
+                            &copy;Maheshwarijagruth. All rights reserved. | Design: <a href="http://maheshwarijagruth.com">MJ</a> 
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </form><!-- form -->
-        <div class="button">
-            <a href="#">Download source file</a>
-        </div><!-- button -->
-    </section><!-- content -->
-</div><!-- container -->
-</body>
+        </div>
+    <!-- ********************************************************* -->
+    </body>
 </html>
+
+<style type="text/css">
+.heading {
+-moz-box-shadow:inset 0px 0px 6px -21px #d9fbbe;
+    -webkit-box-shadow:inset 0px 0px 6px -21px #d9fbbe;
+    box-shadow:inset 0px 0px 6px -21px #d9fbbe;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
+    background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+    background-color:#b8e356;
+    -webkit-border-top-left-radius:42px;
+    -moz-border-radius-topleft:42px;
+    border-top-left-radius:42px;
+    -webkit-border-top-right-radius:0px;
+    -moz-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    -webkit-border-bottom-right-radius:42px;
+    -moz-border-radius-bottomright:42px;
+    border-bottom-right-radius:42px;
+    -webkit-border-bottom-left-radius:0px;
+    -moz-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;
+    text-indent:1.88px;
+    border:1px solid #83c41a;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Arial Black;
+    font-size:18px;
+    font-weight:bold;
+    font-style:italic;
+    height:20px;
+    line-height:20px;
+    width:44px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:-1px 1px 0px #86ae47;
+}
+.heading:hover {
+ background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
+    background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+    background-color:#a5cc52;
+}.heading:active {
+    position:relative;
+    top:1px;
+}
+
+.button:hover {
+box-shadow: 0px 0px 10px 2px rgba(9, 5, 2, 0.75);
+-moz-box-shadow: 0px 0px 10px 5px rgba(9, 5, 2, 0.75);
+-webkit-box-shadow: 0px 0px 10px 5px rgba(9, 5, 2, 0.75);
+}
+
+/*SHRINK*/
+.shrink img {
+  height: 100px;
+  width: 150px;
+ 
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.shrink img:hover {
+  width: 200px;
+  height: 160px;
+}
+
+</style>
+ 
