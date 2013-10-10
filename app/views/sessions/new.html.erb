@@ -45,7 +45,19 @@
       </div>
     </div>
   </div>
-  
+  <div style="width:35%;float:left">
+    <% unless Subad.find_by_id(1).nil? %>
+      <%= image_tag Subad.find_by_id(1).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(2).nil? %>
+      <%= image_tag Subad.find_by_id(2).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+  </div>
 </div>
 <style type="text/css">
 .s_img{width:300px;

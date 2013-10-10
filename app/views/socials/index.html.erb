@@ -93,6 +93,32 @@
       </div>
     </div>
   </div>
+  <div style="width:35%;float:left;margin-top:-16.8em;">
+    <% unless Subad.find_by_id(3).nil? %>
+      <%= image_tag Subad.find_by_id(3).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(4).nil? %>
+      <%= image_tag Subad.find_by_id(4).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(5).nil? %>
+      <%= image_tag Subad.find_by_id(5).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(6).nil? %>
+      <%= image_tag Subad.find_by_id(6).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+  </div>
+</div>
 <style type="text/css">
 .s_img{width:300px;
 height: 180px;

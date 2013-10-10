@@ -39,6 +39,10 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 
  font-family: 'MyFontFamily', Fallback, sans-serif;
 }
+
+.s_img{width:300px;
+height: 180px;
+border-radius: 5px;}
 </style>
 
 <div class="hero-unit" style="width:100%">
@@ -434,4 +438,29 @@ $(function () { $("input,textarea").not("[type=submit]").jqBootstrapValidation()
 </fieldset>
 </form>
 </div>
- </div>
+  <div style="width:35%;float:left">
+    <% unless Subad.find_by_id(7).nil? %>
+      <%= image_tag Subad.find_by_id(7).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(8).nil? %>
+      <%= image_tag Subad.find_by_id(8).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(9).nil? %>
+      <%= image_tag Subad.find_by_id(9).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+    <br><br>
+    <% unless Subad.find_by_id(10).nil? %>
+      <%= image_tag Subad.find_by_id(10).photo, :class => 's_img' %>
+    <% else %>
+      <img src="http://3.bp.blogspot.com/-f3EtRHQvl6I/UUWF5J9jr9I/AAAAAAAAACs/VR5c9GL4Aa4/s798/your-ad-here.jpg" style="width:300px;height: 180px;border-radius: 5px;">
+    <% end %>
+  </div>
+</div>
