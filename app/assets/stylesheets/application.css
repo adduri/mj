@@ -160,9 +160,9 @@ position: relative;
 */
 }
  .gr{
-  width: 940px;
-  float: left;
-  position:relative;
+         width: 940px;
+         margin: 0 auto;
+              position:relative;
 
 } 
 
@@ -341,4 +341,68 @@ border-left-width: 0;
   padding: 8px 9px;
   background: none repeat scroll 0% 0% rgb(255, 255, 255);
   box-shadow: 1px 4px 5px rgb(170, 170, 170);
+}
+
+
+
+
+/*count*/
+
+ .tip, .tipClick{  
+  position:relative !important;
+  display:inline-block;
+}
+
+.tip > .tooltipL,
+ 
+.tipClick > .tooltipL,
+.tipClick > .tooltipB,
+ 
+.tipClick > .tooltipT{  
+  display:none;
+}
+
+ 
+.tip:hover > .tooltipL, 
+ .tip:hover > .tooltipT,  
+.tipClick > a:focus + .tooltipL, 
+ .tipClick > a:focus + .tooltipT{  
+  display:block;
+}
+
+.tooltipL{
+  background: #333333; /* old browsers */
+  background: rgba(0,0,0,0.85); /* For IE9 */
+ 
+  -moz-box-shadow: 0 0 6px 1px #666666;
+  -webkit-box-shadow: 0 0 6px 1px #666666;
+  box-shadow: 0 0 6px 1px #666666;
+  border:solid #FFFFFF;
+  color: #E7E7E7;
+  min-width:200px;
+  padding: 5px;
+    position: absolute;
+  text-align: center;
+    z-index: 10;
+}
+
+.tooltipL:before{
+    border-style: solid;
+    border-width: 10px;
+    height:0px;
+    width:0px;
+    position:absolute;  
+  display:block;
+    content:"\00a0";
+}
+
+ .tooltipL{  
+    left: -226px;
+    margin-top: -28px;
+  }
+  
+.tooltipL:before{  
+    border-color: transparent transparent transparent #333333;
+    top:5px;
+    right:-20px;
 }
