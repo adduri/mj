@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: mj
 -- ------------------------------------------------------
--- Server version	5.5.32-0ubuntu0.12.04.1
+-- Server version 5.5.32-0ubuntu0.12.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -130,15 +130,15 @@ CREATE TABLE `ads` (
   `otherad3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad4` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad5` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `otherad1mob` int(11) DEFAULT NULL,
+  `otherad1mob` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad1loc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `otherad2mob` int(11) DEFAULT NULL,
+  `otherad2mob` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad2loc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `otherad3mob` int(11) DEFAULT NULL,
+  `otherad3mob` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad3loc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `otherad4mob` int(11) DEFAULT NULL,
+  `otherad4mob` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad4loc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `otherad5mob` int(11) DEFAULT NULL,
+  `otherad5mob` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `otherad5loc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `pin_code_index` (`pin_code`)

@@ -1,7 +1,7 @@
 ActiveAdmin.register Ad do
-  form do |f|                       
+  form do |f|                      
     f.inputs "Ad New" do
-    f.input :title  
+    f.input :title 
     # f.input :contact, :class => "ckeditor"
 
     f.input :pin_code, :label => "Catagory" ,  collection: ["bschools","finance","flyhigh","insurance","news","services","vidyapeeth",
@@ -79,7 +79,7 @@ index do
     column :otherad5
     column :otherad5mob
     column :otherad5loc
-  column "Catagory", :pin_code 
+  column "Catagory", :pin_code
       default_actions
   column "Title" do |post|
     link_to image_tag(post.photo1.url, :height => '150', :width => '150'),
@@ -87,8 +87,12 @@ index do
     end
   end
 
-  filter :pin_code , :label => "Category",
- :as => :select, :collection => Ad.all.map(&:pin_code).uniq
+  filter :pin_code , :label => "Category", :as => :select, :collection => ["bschools","finance","flyhigh","insurance","news","services","vidyapeeth",
+      "heritage","infotech","fitnesscenter","ashram","seva","club","matrimony","shopee","entertainement",
+      "electronics","iron_steel","automobiles","ayurvedic","sanitation","builders_promoters","caters","textiles_clothing",
+      "coal","hospitals","furniture","health","jewellers","cement","paper","pumps","realestate","shipping",
+      "smartcards","eventmanagers","tyres","homeneeds","samaj","medicals","bhavan","manthav","lawyers","electricals",
+      "doctors","architects","art","teachers","ca"]
  
   filter :title, :label => 'Title'
   filter :company_name, :label => 'Company Name'
@@ -99,20 +103,17 @@ index do
   filter :row, :label => 'Row'
   filter :col, :label => 'Column'
     filter :otherad1
-    
-  
+   
+ 
    filter :otherad2
-  
+ 
    filter :otherad3
-   
-   filter :otherad4
   
+   filter :otherad4
+ 
    filter :otherad5
-   
+  
 
 
 
 end
-
-
-

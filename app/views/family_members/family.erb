@@ -10,27 +10,10 @@
    background: url(new_arrow.png) no-repeat right #ddd;
    border: 1px solid #ccc;
    }
+   .right{
+    float: right;
+   }
 </style>
-<script type="text/javascript">
- $(document).ready(function () {
-              $("#sagar").hide();
- 
-$("#sai").hover(
- function()
- {
-  var id = $(this).data("id");
-  $("#sagar").show();
-},
-function(){
- $("#sagar").hide();
- $(".hidden").hide();
- });
- 
-});
- 
-</script>
-
- 
 <% if @user.id == current_user.id %>
 <div>
   <a class="btn btn-info" href="/users/edit_profile/<%= current_user.id %>">Profile</a>
@@ -59,7 +42,28 @@ function(){
   <% end %>                        
 <% end %>
  
+</div>
+<div class="right" >
+  <% if (current_user.mj_id == "MJ2") || (current_user.mj_id == "MJ4") || (current_user.mj_id == "MJ6") || (current_user.mj_id == "MJ8") %>
+  <form name= "verify" action="/family_members/verify" method="post">
+     <% @u = User.find(params[:id]) %>
+     <% @u = User.find_all_by_visited(false) %>
+      <select name="id">
+      <% @u.reverse_each do |user| %>
 
+        <% unless user.mj_id? %>
+         <% u = user.id %>
+          <option value="<%= u %>">
+            <%= user.id %>-<%= user.firstname.capitalize%>.<%= user.lastname.capitalize %>
+          </option> 
+        <% end %>
+    
+      <% end %>
+      </select>
+      <input type="submit" value="Verify">
+    </form>
+    <% end %>
+</div>
 
 <div class = "admin-pannel">
        <% if current_user.mj_id == "MJ1" %>
@@ -87,47 +91,11 @@ function(){
           <input type="submit" value="Send Email" class ="btn btn-inverse" >
         </form>
  <% end %>
-   
 </div>
-
-
-
-</div>
-
+    
+  
  
-<div class="pull-right">    
-
-<div id="sai">
-<img src="/assets/arrow.gif" style="padding-right:2em">
-<div id="sagar">
- <% @users = User.all %>
-           <% @s = 0%>
-  <% @users.each do |user| %>
-           <% if user.mj_id? %>
-               <%@s += 1%>
-            <% end %>
-         <% end %>
-  <div class="circle">
-   <p style="padding-top:8px;padding-left:5px;" ><%=@s%><p>
-  </div>
-        <% @s = 0%>
-          <% @users.each do |user| %>
-           <% unless user.mj_id? %>
-             <%@s += 1%>
-            <% end %>
-          <% end %>
-          <br />
-  <div class="circle">
-    <p style="padding-top:8px;padding-left:8px;" ><%=@s%><p>
-  </div>
-    <br />
-  <div class="circle">
-    <p style="padding-top:8px;padding-left:5px;" ><%= @users.count%><p>
-  </div>
-</div>
-</div>
-  </div>
-
+   
 
 <br/>
 <div id="treeDiv">
@@ -329,13 +297,6 @@ function(){
   </tr>
 </table>
 
-
-
-
-
-
-
-
 <table class="bordered">
   <tr><th colspan=10>
         <h1><font style="font-family: arial;" color="#890000">Fifth Generation</font></h1>
@@ -368,11 +329,5 @@ function(){
               <% end %>
           </td>
       <% end %>
-  </tr> 
+  </tr>
 </table>
-
-
-
-
-
-
