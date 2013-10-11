@@ -10,6 +10,7 @@ attr_accessor :password, :password_confirmation
   has_many :family_members
   has_many :relations, :through => :family_members
   has_many :feedbacks
+    has_many :services
   #  validates_confirmation_of :password
 
   #paperclip

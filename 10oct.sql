@@ -427,38 +427,6 @@ INSERT INTO `socials` VALUES (1,'bussiness','Why Bill Gates should step down fro
 /*!40000 ALTER TABLE `socials` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `subads`
---
-
-DROP TABLE IF EXISTS `subads`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subads` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `p1_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `p1_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `p1_file_size` int(11) DEFAULT NULL,
-  `p1_updated_at` datetime DEFAULT NULL,
-  `p2_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `p2_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `p2_file_size` int(11) DEFAULT NULL,
-  `p2_updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `subads`
---
-
-LOCK TABLES `subads` WRITE;
-/*!40000 ALTER TABLE `subads` DISABLE KEYS */;
-/*!40000 ALTER TABLE `subads` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`

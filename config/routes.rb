@@ -1,6 +1,9 @@
 Mj::Application.routes.draw do
 
 
+  resources :services
+
+
   resources :socials
 
 
@@ -58,6 +61,7 @@ match 'contact' => 'contact#create', :as => 'contact', :via => :post
   get '/ads/:id/sai', to: 'ads#sai'
   get "search" => "users#index", :as => "search"
   get "log" => "users#search", :as => "log"
+  get "slog" => "services#servicelog", :as => "slog"
   get "products" => "ads#products", :as => "products"
   get "rajasthan" => "sessions#about_rajasthan", :as => "rajasthan"
   get "tc" => "home#tc" , :as => "tc"

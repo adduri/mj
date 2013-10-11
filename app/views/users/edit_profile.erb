@@ -4,9 +4,10 @@
             <a class="btn btn-danger" href="/users/edit_profile/<%= current_user.id %>">Profile
             </a>
             <a class="btn btn-danger" href="/family_members/family/<%= current_user.id %>">Family Tree</a>
-            <a class="btn btn-danger" href="/give_feedback">Give feedback</a>
+            <a class="btn btn-danger" href="/feedbacks/new/<%= current_user.id %>">Give feedback</a>
         </div>
     <br/>
+    
 <form action="/sessions/edit_page/<%= @user.id %>" method="post"
     enctype="multipart/form-data">
     <h3>

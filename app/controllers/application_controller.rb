@@ -28,4 +28,14 @@ class ApplicationController < ActionController::Base
 			redirect_to "/videos/2/edit" , :notice => "show more videos"
 		end
 	end
+   
+    def service_login
+		unless current_user
+			redirect_to "/slog" , :notice => "Post Your services"
+		end
+	end
+
+
+
+
 end

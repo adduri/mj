@@ -26,12 +26,15 @@
 		<table class="table table-striped table-bordered table-condensed table-hover">
 		    <tr>
 		        <th><center>Details</center></th>
+		        <th><center>mjid</center></th>
 		   	    <th><center>Created_at</center></th>
 		    </tr>
 		   	<% @show_feedback.each do |x| %>
 		    <tr>
 		    	<td width="65%"><%= x.details %></td>
-		    	<td width="35%"><%= x.created_at %></td>
+		    	  	<td width="35%"><%= x.user.mj_id %></td>
+		    	<td width="45%"><%= x.created_at %></td>
+
 		    </tr></br>
 			<% end %>
 		</table>
